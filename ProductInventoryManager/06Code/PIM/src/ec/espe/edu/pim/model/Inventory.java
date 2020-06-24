@@ -13,8 +13,11 @@ public class Inventory {
     private int disrepairItem;
     private int finalItem;
     private int saleItem;
-    private float totalRaised;     
+    private float totalRaised;    
 
+    public Inventory() {
+    }
+    
     public Inventory(Date date, int startItem, int entryItem, int disrepairItem, int finalItem, int saleItem, float totalRaised) {
         this.date = date;
         this.startItem = startItem;
