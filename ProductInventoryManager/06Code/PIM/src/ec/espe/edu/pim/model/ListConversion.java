@@ -6,6 +6,7 @@
 package ec.espe.edu.pim.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,14 +15,22 @@ import java.util.List;
  */
 public class ListConversion {
     
-    ArrayList<PairOfShoes> listPairOfShoeses = new ArrayList<>(); 
+    ArrayList<PairOfShoes> listPairsOfShoes = new ArrayList<>(); 
     ArrayList<String> listShoesStrings = new ArrayList<>();
     
-    public List<String> convertListPairOfShoesToListString(){
-        for(PairOfShoes pairOfShoes : listPairOfShoeses){
+    public List<String> convertListPairOfShoesToListString(List<PairOfShoes> pairsOfShoes){
+        for(PairOfShoes pairOfShoes : listPairsOfShoes){
             listShoesStrings.add( pairOfShoes.toString());
         }
         return listShoesStrings;
+    }
+    
+    public List<PairOfShoes> convertListStringToPairOfShoes(List<String> listShoStrings){
+        Iterator <String> it = listShoStrings.iterator();
+        while(it.hasNext()){
+            
+        }
+        return listPairsOfShoes;
     }
 }
 

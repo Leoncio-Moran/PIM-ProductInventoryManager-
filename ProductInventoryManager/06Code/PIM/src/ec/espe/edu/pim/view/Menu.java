@@ -8,10 +8,12 @@ package ec.espe.edu.pim.view;
 import ec.edu.espe.filemanagerlibrary.FileManager;
 import ec.espe.edu.pim.model.InventoryStore;
 import ec.espe.edu.pim.model.InventoryWarehouse;
+import ec.espe.edu.pim.model.ListConversion;
 import ec.espe.edu.pim.model.Order;
 import ec.espe.edu.pim.model.PairOfShoes;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,11 +32,8 @@ public class Menu {
                 System.out.println("1. Purchase");
                 System.out.println("2. Review Inventory");
                 System.out.println("3. Exit");
-<<<<<<< HEAD
                 System.out.println("Select your option: ");
-=======
                 System.out.println("Select your option:");
->>>>>>> 4d2748f388299c95ed9bfbf352bdb1cd2d3c1b13
                 option = i.nextInt();
                 switch (option) {
                     case 1:
@@ -48,11 +47,7 @@ public class Menu {
                                 selectOption = i.nextInt();
                                 switch (selectOption) {
                                     case 1:
-<<<<<<< HEAD
-                                        System.out.println("Entry Pair of Shoe's Id999");
-=======
                                         System.out.println("Entry Pair of Shoe's Id: ");
->>>>>>> 4d2748f388299c95ed9bfbf352bdb1cd2d3c1b13
                                         idOfShoes = i.nextInt();
                                         createOrder(idOfShoes);
                                     case 2:
@@ -96,10 +91,12 @@ public class Menu {
         getRecordFile();
     }
     
-    private Inventory getRecordFile() throws IOException{
+    private List<PairOfShoes> getRecordFile(String fileName) throws IOException{
+        ListConversion listConversion = new ListConversion();
         List<String>listTemporal = new ArrayList<>();
         FileManager fileManager = FileManager.getInstance();
-        listTemporal = (fileManager.read("Inventory Store File.csv"));
+        listTemporal = (fileManager.read(fileName));
+        
     }
 }
 
