@@ -87,16 +87,17 @@ public class Menu {
     }
     
     public void initSystem() throws IOException{
-        inventoryStore.
-        getRecordFile();
+       
     }
     
     private List<PairOfShoes> getRecordFile(String fileName) throws IOException{
+        List<PairOfShoes> ofShoes = new ArrayList<>();
         ListConversion listConversion = new ListConversion();
         List<String>listTemporal = new ArrayList<>();
         FileManager fileManager = FileManager.getInstance();
         listTemporal = (fileManager.read(fileName));
-        
+        //TODO code
+        return ofShoes;
     }
 }
 
