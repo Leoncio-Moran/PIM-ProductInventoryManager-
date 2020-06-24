@@ -68,6 +68,8 @@ public class InventoryStore {
         }
         return pairOfShoesTemp;
     }
+    
+    
 
     @Override
     public String toString() {
