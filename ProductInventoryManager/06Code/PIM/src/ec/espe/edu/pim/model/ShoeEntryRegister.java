@@ -1,7 +1,9 @@
 package ec.espe.edu.pim.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class ShoeEntryRegister {
@@ -56,5 +58,13 @@ public class ShoeEntryRegister {
         return "ShoeEntryRegister: " + "date=" + date + ", providersName=" + providersName + ", listPairOfShoesesProvider=" + listPairOfShoesesProvider + '}';
     }
     
-    
+    public List<ShoeEntryRegister> addRegisterToList (ShoeEntryRegister shoeEntryRegister) {
+        List<ShoeEntryRegister> listRegisters = new ArrayList<>();
+        Iterator <ShoeEntryRegister> it = listRegisters.iterator();
+        while(it.hasNext()){
+            listRegisters.add(shoeEntryRegister);
+            it.next();
+        }
+        return listRegisters;
+    }
 }

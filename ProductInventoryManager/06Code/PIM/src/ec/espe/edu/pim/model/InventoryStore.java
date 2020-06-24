@@ -10,7 +10,7 @@ public class InventoryStore {
     private static InventoryStore inventory;
 
     private Date date;
-    private List<PairOfShoes> listPairOfShoeses = new ArrayList<>();
+    private List<PairOfShoes> listPairsOfShoes = new ArrayList<>();
 
     private InventoryStore() {
         this.date = new Date();
@@ -25,42 +25,53 @@ public class InventoryStore {
     }
 
     public void addPairOfShoes(PairOfShoes pairOfShoes) {
-        listPairOfShoeses.add(pairOfShoes);
+        listPairsOfShoes.add(pairOfShoes);
     }
 
     public void deletePairOfShoes(PairOfShoes pairOfShoes) {
-        listPairOfShoeses.remove(pairOfShoes);
+        listPairsOfShoes.remove(pairOfShoes);
     }
 
     public List<PairOfShoes> GetListOfShoes() {
-        return listPairOfShoeses;
+        return listPairsOfShoes;
     }
 
     public void cleanListOfShoes() {
-        listPairOfShoeses.clear();
+        listPairsOfShoes.clear();
     }
 
     public int defineListSize() {
-        return listPairOfShoeses.size();
+        return listPairsOfShoes.size();
     }
 
     public PairOfShoes getPairOfShoes(int position) {
-        return listPairOfShoeses.get(position);
+        return listPairsOfShoes.get(position);
     }
 
     public void showPairsOfShoes() {
         System.out.println(date);
-        Iterator it = listPairOfShoeses.iterator();
+        Iterator it = listPairsOfShoes.iterator();
         PairOfShoes aux;
         while (it.hasNext()) {
             aux = (PairOfShoes) it.next();
             System.out.println(aux.toString());
         }
     }
+    
+    public PairOfShoes getPairOfShoesById(int id){
+        PairOfShoes pairOfShoesTemp = null;
+        for(PairOfShoes pairOfShoes : listPairsOfShoes){
+            if(id == pairOfShoes.getIdPairOfShoes()){
+                pairOfShoesTemp = pairOfShoes;
+                return pairOfShoesTemp;
+            }
+        }
+        return pairOfShoesTemp;
+    }
 
     @Override
     public String toString() {
-        return "InventoryStore{" + "date=" + date + ", listPairOfShoeses=" + listPairOfShoeses + '}';
+        return "InventoryStore{" + "date=" + date + ", listPairsOfShoes=" + listPairsOfShoes + '}';
     }
 
     

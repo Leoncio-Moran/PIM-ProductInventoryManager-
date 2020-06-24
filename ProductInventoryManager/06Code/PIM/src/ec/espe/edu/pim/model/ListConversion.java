@@ -12,16 +12,16 @@ import java.util.List;
  *
  * @author lesly
  */
-public class ConvertList {
+public class ListConversion {
     
     ArrayList<PairOfShoes> listPairOfShoeses = new ArrayList<>(); 
-    ArrayList<String> listShoesesStrings = new ArrayList<>();
+    ArrayList<String> listShoesStrings = new ArrayList<>();
     
     public List<String> convertListPairOfShoesToListString(){
         for(PairOfShoes pairOfShoes : listPairOfShoeses){
-            listShoesesStrings.add( pairOfShoes.toString());
+            listShoesStrings.add( pairOfShoes.toString());
         }
-        return listShoesesStrings;
+        return listShoesStrings;
     }
 }
 
