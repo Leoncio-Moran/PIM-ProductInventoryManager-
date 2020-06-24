@@ -46,7 +46,6 @@ public class Menu {
                         }
                     case 2:
                         System.out.println();
-                        Inventory inventory = new Inventory();
                     case 3:
                         break;
                     default:

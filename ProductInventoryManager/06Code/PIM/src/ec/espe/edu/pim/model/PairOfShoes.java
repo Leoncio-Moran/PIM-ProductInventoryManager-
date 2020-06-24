@@ -1,7 +1,11 @@
 package ec.espe.edu.pim.model;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class PairOfShoes {
+    
+    private List <PairOfShoes> listPairOfShoes = new ArrayList<>();
     private int idPairOfShoes;
     private int size;
     private String color;
