@@ -25,8 +25,8 @@ public class Menu {
                         try {
                             int selectOption;
                             do {
-                                System.out.println("1. Add Pair of shoe's ");
-                                System.out.println("2. Delete Pair of Shoe's");
+                                System.out.println("1. Add Order Pair of shoe's ");
+                                System.out.println("2. Delete Order Pair of Shoe's");
                                 System.out.println("3. Cancel");
                                 selectOption = i.nextInt();
                                 switch (selectOption) {
