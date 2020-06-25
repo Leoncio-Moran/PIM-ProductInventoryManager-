@@ -1,2 +1,2 @@
-/ProductInventoryManager/06Code/PIM/build/
-/ProductInventoryManager/06Code/PIM/dist/
+*.class
+*.vpp.bak*
