@@ -22,10 +22,11 @@ public class Menu {
         try {
             int option;
             do {
-                System.out.println("           PIM (Product Inventory Manager)");
+                System.out.println("*******PIM(Product Inventory Manager)*******");
                 System.out.println("1. Purchase");
                 System.out.println("2. Review Inventory");
                 System.out.println("3. Exit");
+                System.out.println("Select your option:");
                 option = i.nextInt();
                 switch (option) {
                     case 1:
@@ -38,11 +39,11 @@ public class Menu {
                                 selectOption = i.nextInt();
                                 switch (selectOption) {
                                     case 1:
-                                        System.out.println("Entry Pair of Shoe's Id");
+                                        System.out.println("Entry Pair of Shoe's Id: ");
                                         idOfShoes = i.nextInt();
                                         createOrder(idOfShoes);
                                     case 2:
-                                        System.out.println("Entry Pair of Shoe's Id");
+                                        System.out.println("Entry Pair of Shoe's Id: ");
                                         idOfShoes = i.nextInt();
                                         
                                         System.out.println("Deleting...");
