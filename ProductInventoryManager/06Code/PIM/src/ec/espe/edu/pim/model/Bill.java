@@ -9,7 +9,7 @@ public class Bill {
     
     private int idBill;
     private Client client;
-    private List<PairOfShoes> listOfShoes;
+    private Order order;
     private Date date; 
     private float totalPrice;
     private TypeOfPayment payment;

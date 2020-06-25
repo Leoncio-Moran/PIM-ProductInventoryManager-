@@ -1,20 +1,20 @@
-
 package ec.espe.edu.pim.model;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 public class Order {
     
- private List <PairOfShoes> listPairOfShoes = new ArrayList<>();
- private Date date;
- private int idOrder;
+    private static int idOrder;
 
-    public Order(Date date, int idOrder) {
-        this.date = date;
-        this.idOrder = idOrder;
+    private List<PairOfShoes> listPairOfShoes = new ArrayList<>();
+    private Date date;
+
+    public Order(List<PairOfShoes> listPairOfShoeses) {
+        date = new Date();
+        idOrder += 1;
+        this.listPairOfShoes = listPairOfShoeses;
     }
 
     public List<PairOfShoes> getListPairOfShoes() {
@@ -33,18 +33,20 @@ public class Order {
         this.date = date;
     }
 
-    public int getIdOrder() {
+    public static int getIdOrder() {
         return idOrder;
     }
 
-    public void setIdOrder(int idOrder) {
-        this.idOrder = idOrder;
+    public static void setIdOrder(int idOrder) {
+        Order.idOrder = idOrder;
     }
 
     @Override
     public String toString() {
-        return "Order{" + "listPairOfShoes=" + listPairOfShoes + ", date=" + date + ", idOrder=" + idOrder + '}';
+        return "Order: " + ", idOrder: " + idOrder
+                + ", date: " + date + "listPairOfShoes: " + listPairOfShoes;
     }
- 
- 
+    
+    
+
 }

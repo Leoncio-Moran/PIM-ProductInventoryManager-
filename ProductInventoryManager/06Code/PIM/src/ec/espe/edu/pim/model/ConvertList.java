@@ -13,8 +13,15 @@ import java.util.List;
  * @author lesly
  */
 public class ConvertList {
-    ArrayList<PairOfShoes> list1 = new ArrayList<>(); 
-    ArrayList<String> list2 = new ArrayList<>();
-    ListShoes listshoes = new ListShoes();
+    
+    ArrayList<PairOfShoes> listPairOfShoeses = new ArrayList<>(); 
+    ArrayList<String> listShoesesStrings = new ArrayList<>();
+    
+    public List<String> convertListPairOfShoesToListString(){
+        for(PairOfShoes pairOfShoes : listPairOfShoeses){
+            listShoesesStrings.add( pairOfShoes.toString());
+        }
+        return listShoesesStrings;
+    }
 }
 

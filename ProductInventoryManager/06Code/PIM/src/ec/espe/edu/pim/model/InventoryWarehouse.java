@@ -5,12 +5,16 @@
  */
 package ec.espe.edu.pim.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author lesly
  */
-public class Store {
-    private InventoryStore inventory;
+public class InventoryWarehouse {
+    
+    private List<PairOfShoes> listPairOfShoes = new ArrayList<>();
     
     
 }

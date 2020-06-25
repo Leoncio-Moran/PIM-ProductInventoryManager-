@@ -1,19 +1,27 @@
-
 package ec.espe.edu.pim.model;
 
 import java.util.Date;
 
 public class Client {
-    
+
     private int id;
     private String name;
     private String lastName;
-    private int telephone;
+    private String telephone;
     private String addrress;
     private String email;
-    private CreateOrder createOrder; 
+    private ShoeEntryRegister createOrder;
 
-    public Client(int id, String name, String lastName, int telephone, String addrress, String email, CreateOrder createOrder) {
+    public Client() {
+        name = "99999999999";
+        lastName = "999999999999";
+        telephone = "999999999999";
+        addrress = "9999999999999";
+        email = "999999999999";
+        createOrder = null;
+    }
+
+    public Client(int id, String name, String lastName, String telephone, String addrress, String email, ShoeEntryRegister createOrder) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -47,11 +55,11 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
@@ -71,18 +79,18 @@ public class Client {
         this.email = email;
     }
 
-    public CreateOrder getCreateOrder() {
+    public ShoeEntryRegister getCreateOrder() {
         return createOrder;
     }
 
-    public void setCreateOrder(CreateOrder createOrder) {
+    public void setCreateOrder(ShoeEntryRegister createOrder) {
         this.createOrder = createOrder;
     }
 
     @Override
     public String toString() {
-        return "Client{" + "id=" + id + ", name=" + name + ", lastName=" + lastName + ", telephone=" + telephone + ", addrress=" + addrress + ", email=" + email + ", createOrder=" + createOrder + '}';
+        return "Client:" + "\n id: " + id + "\n name: " + name + "\n lastName: " + lastName + "\n telephone: "
+                + telephone + "\n addrress: " + addrress + "\n email: " + email + "\n createOrder: " + createOrder;
     }
-    
-    
+
 }

@@ -6,6 +6,7 @@
 package ec.espe.edu.pim.view;
 
 import ec.espe.edu.pim.model.InventoryStore;
+import ec.espe.edu.pim.model.Order;
 import ec.espe.edu.pim.model.PairOfShoes;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,5 +29,8 @@ public class PIMSystem {
         
         inventoryStore.showPairsOfShoes();
         //System.out.println(inventoryStore.toString());
+        
+        Order order = new Order(listPairOfShoeses);
+        //order.getListPairOfShoes().
     }
 }

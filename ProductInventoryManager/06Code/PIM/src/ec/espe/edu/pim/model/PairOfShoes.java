@@ -72,7 +72,8 @@ public class PairOfShoes {
 
     @Override
     public String toString() {
-        return "PairOfShoes{" + "idPairOfShoes=" + idPairOfShoes + ", size=" + size + ", color=" + color + ", brand=" + brand + ", price=" + price + ", shoeType=" + shoeType + '}';
+        return "Id PairOfShoes :" + idPairOfShoes + ", Size: " + size + ", color: " +
+                color + ", brand: " + brand + ", price: " + price + ", shoeType: " + shoeType;
     }
     
     

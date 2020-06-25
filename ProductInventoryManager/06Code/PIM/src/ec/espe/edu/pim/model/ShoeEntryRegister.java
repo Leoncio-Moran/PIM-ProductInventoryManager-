@@ -2,7 +2,7 @@
 package ec.espe.edu.pim.model;
 
 
-public class CreateOrder {
+public class ShoeEntryRegister {
     
     private Order order;
     
