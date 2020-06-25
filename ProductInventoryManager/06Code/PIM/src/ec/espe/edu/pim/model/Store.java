@@ -10,7 +10,7 @@ package ec.espe.edu.pim.model;
  * @author lesly
  */
 public class Store {
-    private Inventory inventory;
+    private InventoryStore inventory;
     
     
 }

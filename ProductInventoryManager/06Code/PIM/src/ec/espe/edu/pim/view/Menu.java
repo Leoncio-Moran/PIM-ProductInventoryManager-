@@ -5,7 +5,7 @@
  */
 package ec.espe.edu.pim.view;
 
-import ec.espe.edu.pim.model.Inventory;
+import ec.espe.edu.pim.model.InventoryStore;
 import java.util.Scanner;
 
 public class Menu {
