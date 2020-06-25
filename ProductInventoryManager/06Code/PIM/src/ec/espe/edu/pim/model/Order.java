@@ -11,6 +11,9 @@ public class Order {
     private List<PairOfShoes> listPairOfShoes = new ArrayList<>();
     private Date date;
 
+    public Order() {
+    }
+    
     public Order(List<PairOfShoes> listPairOfShoeses) {
         date = new Date();
         idOrder += 1;

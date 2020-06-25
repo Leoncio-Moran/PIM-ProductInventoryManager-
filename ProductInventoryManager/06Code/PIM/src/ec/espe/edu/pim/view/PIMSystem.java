@@ -15,9 +15,9 @@ import java.util.List;
 public class PIMSystem {
 
     public static void main(String[] args) {
-        //Menu menu = new Menu();
-        //menu.menu();
-        List<PairOfShoes> listPairOfShoeses = new ArrayList<>();
+        Menu menu = new Menu();
+        menu.menu();
+        /*List<PairOfShoes> listPairOfShoeses = new ArrayList<>();
         
         PairOfShoes p2 = new PairOfShoes(20, 43, "black", "lacoste", 53.00F, "Sport");
         InventoryStore inventoryStore = InventoryStore.getInstance();
@@ -31,6 +31,6 @@ public class PIMSystem {
         //System.out.println(inventoryStore.toString());
         
         Order order = new Order(listPairOfShoeses);
-        //order.getListPairOfShoes().
+        //order.getListPairOfShoes().*/
     }
 }

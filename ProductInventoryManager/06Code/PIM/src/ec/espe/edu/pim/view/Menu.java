@@ -6,12 +6,19 @@
 package ec.espe.edu.pim.view;
 
 import ec.espe.edu.pim.model.InventoryStore;
+import ec.espe.edu.pim.model.Order;
+import ec.espe.edu.pim.model.PairOfShoes;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
+    
+    InventoryStore inventoryStore = InventoryStore.getInstance();
+    
      public void menu() {
         Scanner i = new Scanner(System.in);
-        int Id;
+        int idOfShoes;
         try {
             int option;
             do {
@@ -32,8 +39,12 @@ public class Menu {
                                 switch (selectOption) {
                                     case 1:
                                         System.out.println("Entry Pair of Shoe's Id");
-                                        Id = i.nextInt();
+                                        idOfShoes = i.nextInt();
+                                        createOrder(idOfShoes);
                                     case 2:
+                                        System.out.println("Entry Pair of Shoe's Id");
+                                        idOfShoes = i.nextInt();
+                                        
                                         System.out.println("Deleting...");
                                     //TODO code to deleting...
                                     case 3:
@@ -55,6 +66,15 @@ public class Menu {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+     
+    public void createOrder(int pos){
+    
+        List<PairOfShoes> listShoes = new ArrayList<>();
+        for  (PairOfShoes p : listShoes){
+            listShoes.add(inventoryStore.getPairOfShoes(pos));
+        }
+        Order order = new Order(listShoes);
     }
 }
 

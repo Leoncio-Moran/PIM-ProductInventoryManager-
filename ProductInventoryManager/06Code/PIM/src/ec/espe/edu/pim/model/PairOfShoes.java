@@ -13,6 +13,9 @@ public class PairOfShoes {
     private float price;
     private String shoeType;
 
+    public PairOfShoes() {
+    }
+    
     public PairOfShoes(int idPairOfShoes, int size, String color, String brand, float price, String shoeType) {
         this.idPairOfShoes = idPairOfShoes;
         this.size = size;
