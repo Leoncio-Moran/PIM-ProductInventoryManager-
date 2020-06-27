@@ -19,8 +19,20 @@ import java.util.Scanner;
 
 public class Menu {
     
-    InventoryStore inventoryStore = InventoryStore.getInstance();
+    private static Menu menu;
+   
+    InventoryStore inventoryStore = new InventoryStore();
     InventoryWarehouse inventoryWarehouse = new InventoryWarehouse();
+
+    private Menu() {
+    }
+    
+    public static Menu getInstance(){
+        if(menu == null){
+            return new Menu();
+        }
+        return menu;
+    }
     
      public void menu() {
         Scanner i = new Scanner(System.in);
@@ -32,7 +44,6 @@ public class Menu {
                 System.out.println("1. Purchase");
                 System.out.println("2. Review Inventory");
                 System.out.println("3. Exit");
-                System.out.println("Select your option: ");
                 System.out.println("Select your option:");
                 option = i.nextInt();
                 switch (option) {
@@ -86,18 +97,17 @@ public class Menu {
         Order order = new Order(listShoes);
     }
     
-    public void initSystem() throws IOException{
-       
+    public List<PairOfShoes> initSystem(String fileName) throws IOException{
+       List<PairOfShoes> listPairsOfShoes = getRecordFile(fileName);
+       return listPairsOfShoes;
     }
     
     private List<PairOfShoes> getRecordFile(String fileName) throws IOException{
-        List<PairOfShoes> ofShoes = new ArrayList<>();
         ListConversion listConversion = new ListConversion();
         List<String>listTemporal = new ArrayList<>();
         FileManager fileManager = FileManager.getInstance();
         listTemporal = (fileManager.read(fileName));
-        //TODO code
-        return ofShoes;
+        return listConversion.convertListStringToPairOfShoes(listTemporal);
     }
 }
 

@@ -7,21 +7,15 @@ import java.util.List;
 
 public class InventoryStore {
     
-    private static InventoryStore inventory;
-
     private Date date;
     private List<PairOfShoes> listPairsOfShoes = new ArrayList<>();
 
-    private InventoryStore() {
-        this.date = new Date();
-
+    public InventoryStore() {
     }
-
-    public static InventoryStore getInstance() {
-        if (inventory == null) {
-            inventory = new InventoryStore();
-        }
-        return inventory;
+    
+    public InventoryStore(List<PairOfShoes> pairsOfShoes) {
+        this.date = new Date();
+        this.listPairsOfShoes = listPairsOfShoes;
     }
 
     public void addPairOfShoes(PairOfShoes pairOfShoes) {

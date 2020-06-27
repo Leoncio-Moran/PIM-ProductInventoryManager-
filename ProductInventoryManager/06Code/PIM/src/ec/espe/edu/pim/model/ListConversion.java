@@ -26,9 +26,22 @@ public class ListConversion {
     }
     
     public List<PairOfShoes> convertListStringToPairOfShoes(List<String> listShoStrings){
+        List<PairOfShoes> listPairsShoes = new ArrayList<>();
         Iterator <String> it = listShoStrings.iterator();
         while(it.hasNext()){
-            
+            String current = it.next().trim();
+            if(current.isEmpty()){
+                continue;
+            }
+            String[] temp = current.split(",");
+            int idPairOfShoes = Integer.parseInt(temp[0]);
+            int size = Integer.parseInt(temp[1]);
+            String color = temp[2];
+            String brand = temp[3];
+            float price = Float.parseFloat(temp[4]);
+            String typeShoe = temp[5];
+            PairOfShoes pairOfShoes = new PairOfShoes(idPairOfShoes, size, color, brand, price, typeShoe);
+            listPairsShoes.add(pairOfShoes);
         }
         return listPairsOfShoes;
     }
