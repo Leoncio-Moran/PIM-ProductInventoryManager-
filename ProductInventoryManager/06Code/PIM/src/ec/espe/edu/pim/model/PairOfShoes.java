@@ -1,9 +1,11 @@
 package ec.espe.edu.pim.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
-public class PairOfShoes {
+public class PairOfShoes implements Serializable{
     
     private List <PairOfShoes> listPairOfShoes = new ArrayList<>();
     private int idPairOfShoes;
@@ -14,7 +16,14 @@ public class PairOfShoes {
     private String shoeType;
 
     public PairOfShoes() {
+        this.idPairOfShoes = Integer.parseInt(JOptionPane.showInputDialog("Enter the ID"));
+        this.size = Integer.parseInt(JOptionPane.showInputDialog("Enter the size"));
+        this.color =  JOptionPane.showInputDialog("Enter the Color");
+        this.brand =  JOptionPane.showInputDialog("Enter the Brand");
+        this.price = Float.parseFloat(JOptionPane.showInputDialog("Ingrese el precio del producto"));
+        this.shoeType = JOptionPane.showInputDialog("Enter the shoe type");
     }
+    
     
     public PairOfShoes(int idPairOfShoes, int size, String color, String brand, float price, String shoeType) {
         this.idPairOfShoes = idPairOfShoes;
