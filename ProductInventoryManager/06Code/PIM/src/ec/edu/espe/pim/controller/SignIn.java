@@ -8,7 +8,6 @@ package ec.edu.espe.pim.controller;
 
 import ec.edu.espe.pim.utils.Encryption;
 import ec.espe.edu.pim.model.FileAdministrator;
-import ec.espe.edu.pim.model.UserActivity;
 import ec.espe.edu.pim.view.Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -60,16 +59,13 @@ public class SignIn {
         System.out.print(" Input your Password: ");
         userPass = in.nextLine();
 
-        if ("Admin".equals(userName) && "root".equals(userPass)) {
+        if (!"Admin".equals(userName) || !"PIM".equals(userPass)) {
             
-            menu.AdminMenu();
-
-        } else {
-
             if (verifyUser(userName)) {
 
                 if (verifyPassword(encrypt.encryptPassword(userPass))) {
                     System.out.println("Acess");
+                    menu.sellermenu();
                 } else {
                     System.err.println("Wrong Password");
                 }
@@ -77,7 +73,11 @@ public class SignIn {
             } else {
                 System.err.println("Wrong User !!");
             }
-
+            
+        } else {
+            
+            menu.AdminMenu();
+            
         }
     }
 }

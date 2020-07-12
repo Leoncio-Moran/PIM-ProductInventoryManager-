@@ -5,15 +5,17 @@
  */
 package ec.espe.edu.pim.view;
 
+import ec.espe.edu.pim.model.Inventory;
 import ec.edu.espe.pim.controller.SignIn;
-import ec.espe.edu.pim.model.UserActivity;
+import ec.edu.espe.pim.controller.UserActivity;
 import java.util.Scanner;
 
 public class Menu {
      
     UserActivity userActivity = new UserActivity();
     
-    public void MainMenu(){
+
+    public void mainMenu(){
         
         char option;
         Scanner in = new Scanner(System.in);
@@ -47,7 +49,7 @@ public class Menu {
         char opt;
         Scanner in = new Scanner(System.in);
         do {
-                System.out.println(" -- W E L CO M E --");
+                System.out.println(" -- W E L C O M E --");
                 System.out.println(" 1. Add product");
                 System.out.println(" 2. Modify product");
                 System.out.println(" 3. Remove product");                
@@ -59,7 +61,7 @@ public class Menu {
                 in.nextLine();
                 switch (opt) {
                     case '1':
-                        //Add product;
+                        userActivity.addProductInventory();
                         break;
                     case '2':
                         //Modify product;
@@ -81,6 +83,43 @@ public class Menu {
                 }
             } while (true);
     } 
+    
+    public void sellermenu(){
+        
+        char opt;
+        Scanner in = new Scanner(System.in);
+        Inventory inventory = new Inventory();
+        
+        do {
+                System.out.println("\n");
+                System.out.println(" -- W E L C O M E --");
+                System.out.println(" 1. View inventory");
+                System.out.println(" 2. Sell product");               
+                System.out.println(" 3. Return");
+                System.out.println(" 4. Exit");
+                System.out.print(" Select an option: ");
+                opt = in.next().charAt(0);
+                in.nextLine();
+                switch (opt) {
+                    case '1':
+                        userActivity.ShowInvetory();
+                        break;
+                    case '2':
+                        //userActivity.ShowInvetory();
+                        break;                    
+                    case '3':
+                        return;
+                    case '4':
+                        System.exit(0);
+                        break;
+                    default:
+                        System.err.println("Option invalidates, enter again");
+                        break;
+                }
+        } while (true);
+        
+        
+    }
     
 }
 

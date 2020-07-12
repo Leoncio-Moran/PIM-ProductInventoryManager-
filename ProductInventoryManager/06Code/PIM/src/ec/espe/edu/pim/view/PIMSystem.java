@@ -6,9 +6,10 @@
 package ec.espe.edu.pim.view;
 
 
+
 public class PIMSystem {
         public static void main (String[] args){
             Menu menu = new Menu();
-            menu.MainMenu();
+            menu.mainMenu();
         }
 }

@@ -6,14 +6,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class FileAdministrator {
       
     
-    public void WriteDataCSV(String User,String Password){
+    public void WriteUsersInCSV(String User,String Password){
         
         try {
             File DataFile =  new File("Users.csv");
@@ -60,6 +58,53 @@ public class FileAdministrator {
         
     }
     
+    public void WriteInventaryInCSV(int id,int size,String color, String brand, float price , String typeOfShoes){
+        
+        try {
+            File DataFile =  new File("Inventory.csv");
+            FileWriter WriteFile;
+            PrintWriter Line;
+            if(!DataFile.exists()){
+                try {   
+                    DataFile.createNewFile();
+                    WriteFile = new FileWriter(DataFile,true);
+                    Line = new PrintWriter(WriteFile);
+                    
+                    //writing file
+                    
+                    Line.println(id+ ";" + size + ";" + color + ";" + brand + ";" + price+ ";" + typeOfShoes);
+                    Line.close();
+                    WriteFile.close();
+                    
+                } catch (Exception e) {
+                    System.err.println("Error creating file");
+                }
+                
+            }else{
+                try {
+                    
+                    WriteFile = new FileWriter(DataFile,true);
+                    Line = new PrintWriter(WriteFile);
+                    //write file
+                    
+                    Line.println(id+ ";" + size + ";" + color + ";" + brand + ";" + price+ ";" + typeOfShoes);
+                    Line.close();
+                    WriteFile.close();
+                    
+                } catch (Exception e) {
+                    System.err.println("Error creating file");
+                }
+            }
+            
+            
+        } catch (Exception e) {
+            
+            System.err.println("Error writing to file"); 
+            
+        }
+        
+    }
+    
     public ArrayList<String[]> readCSV(){
         
         try {
@@ -80,37 +125,41 @@ public class FileAdministrator {
             e.printStackTrace();
             return null;
         }
-        
-        
+          
     }
     
-    public void readfile(){
-        ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
+    public ArrayList<String[]> readDataInCSV(){
         
         try {
-            
-            BufferedReader file = Files.newBufferedReader(Paths.get("Users.csv"));
-            String line;
-            while((line = file.readLine()) != null){
-                String[] dataReadLine = line.split(";");
-                ArrayList<String> tempData = new ArrayList<String>();
-                for (String element : dataReadLine){
-                    tempData.add(element);
-                }
-                data.add(tempData);
+            BufferedReader reader =  new BufferedReader(new FileReader("Inventory.csv"));
+            ArrayList<String[]> list = new ArrayList<>();
+            String line = "";
+            while((line = reader.readLine()) != null){
+                //System.err.println(line);
+                String[] temp = line.split(";");
+                //System.out.println(temp[0] + ";" + temp[1]);
+                list.add(temp);
             }
-            file.close();
-            System.out.println(data);
-            System.out.println(data.get(0));
-            System.out.println(data.get(0).get(0));
-            System.out.println(data.get(0).get(1));
+            
+            reader.close();
+            return list;
+            
         } catch (Exception e) {
-            
-            
+            e.printStackTrace();
+            return null;
         }
-        
-        
+          
     }
     
+    public void ErraseFile(){
+        File DataFile =  new File("Inventory.csv");
+    }
+    
+    public void updateFileInventary(int id,int size,String color, String brand, float price , String typeOfShoes){
+        
+        ErraseFile();
+        WriteInventaryInCSV(id, size, color, brand, price, typeOfShoes);
+        
+    }
     
 }

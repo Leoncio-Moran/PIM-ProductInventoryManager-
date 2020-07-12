@@ -1,101 +1,63 @@
+
 package ec.espe.edu.pim.model;
 
+import ec.edu.espe.pim.controller.PairOfShoes;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
 
 public class Inventory {
     
-    private List <PairOfShoes> listPairOfShoes = new ArrayList<>();
-    private Date date;
-    private int startItem;
-    private int entryItem;
-    private int disrepairItem;
-    private int finalItem;
-    private int saleItem;
-    private float totalRaised;    
-
-    public Inventory() {
+    PairOfShoes shoes;
+    FileAdministrator file = new FileAdministrator();
+    ArrayList<String[]> data = new ArrayList<>();
+    ArrayList<PairOfShoes> inventory = new ArrayList<>();
+    
+    public void showInventory(){
+        
+        data = file.readDataInCSV();
+        
+        System.out.println("\n\n");
+        System.out.printf("| %-3s | %-4s | %-10s | %-10s | %-5s | %-3s |\n","ID","SIZE","COLOR","BRAND","PRICE","TYPE");
+        System.out.println("---------------------------------------------------------");
+        for(int i  = 0 ; i< data.size();i++){
+            //System.out.println(data.get(i)[0]);
+            System.out.printf("| %-3s | %-4s | %-10s | %-10s | %-5s | %-3s |\n",
+                   data.get(i)[0],  data.get(i)[1],data.get(i)[2],  data.get(i)[3],data.get(i)[4], data.get(i)[5]); 
+        }
+        System.out.println("");
+        System.out.println("Press a key to continue... ");
+        new java.util.Scanner(System.in).nextLine();
     }
     
-    public Inventory(Date date, int startItem, int entryItem, int disrepairItem, int finalItem, int saleItem, float totalRaised) {
-        this.date = date;
-        this.startItem = startItem;
-        this.entryItem = entryItem;
-        this.disrepairItem = disrepairItem;
-        this.finalItem = finalItem;
-        this.saleItem = saleItem;
-        this.totalRaised = totalRaised;
-    }
-
-    public List<PairOfShoes> getListPairOfShoes() {
-        return listPairOfShoes;
-    }
-
-    public void setListPairOfShoes(List<PairOfShoes> listPairOfShoes) {
-        this.listPairOfShoes = listPairOfShoes;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public int getStartItem() {
-        return startItem;
-    }
-
-    public void setStartItem(int startItem) {
-        this.startItem = startItem;
-    }
-
-    public int getEntryItem() {
-        return entryItem;
-    }
-
-    public void setEntryItem(int entryItem) {
-        this.entryItem = entryItem;
-    }
-
-    public int getDisrepairItem() {
-        return disrepairItem;
-    }
-
-    public void setDisrepairItem(int disrepairItem) {
-        this.disrepairItem = disrepairItem;
-    }
-
-    public int getFinalItem() {
-        return finalItem;
-    }
-
-    public void setFinalItem(int finalItem) {
-        this.finalItem = finalItem;
-    }
-
-    public int getSaleItem() {
-        return saleItem;
-    }
-
-    public void setSaleItem(int saleItem) {
-        this.saleItem = saleItem;
-    }
-
-    public float getTotalRaised() {
-        return totalRaised;
-    }
-
-    public void setTotalRaised(float totalRaised) {
-        this.totalRaised = totalRaised;
-    }
-
-    @Override
-    public String toString() {
-        return "Inventory{" + "listPairOfShoes=" + listPairOfShoes + ", date=" + date + ", startItem=" + startItem + ", entryItem=" + entryItem + ", disrepairItem=" + disrepairItem + ", finalItem=" + finalItem + ", saleItem=" + saleItem + ", totalRaised=" + totalRaised + '}';
+    public void addProduct(int id,int size,String color, String brand, float price , String typeOfShoes){
+       
+        file.WriteInventaryInCSV(id, size, color, brand, price, typeOfShoes);
+        
     }
     
+    public void updateInventary(ArrayList<PairOfShoes> inventory){
+        
+        file.ErraseFile();
+        inventory.forEach((shoe) -> {
+            file.WriteInventaryInCSV(
+                    shoe.getIdPairOfShoes(), shoe.getSize(),
+                    shoe.getColor() , shoe.getBrand() , 
+                    shoe.getPrice(), shoe.getShoeType()
+            );
+        });
+        
+        
+    }
     
+    public void eraseProduct(ArrayList<PairOfShoes> inventory,int id){
+        
+        for (int i = 0; i < inventory.size() ; i++) {
+            
+            if((inventory.get(i).getIdPairOfShoes())== id){
+                inventory.remove(i);
+            }
+            
+        }
+        
+    }
 }
