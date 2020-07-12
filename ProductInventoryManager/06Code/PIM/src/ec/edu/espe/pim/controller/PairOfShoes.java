@@ -1,32 +1,32 @@
 package ec.edu.espe.pim.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PairOfShoes {
-    
-    private int idPairOfShoes;
+
+  
+    private int id;
     private int size;
     private String color;
     private String brand;
     private float price;
     private String shoeType;
-
-    public PairOfShoes(int idPairOfShoes, int size, String color, String brand, float price, String shoeType) {
-        this.idPairOfShoes = idPairOfShoes;
+    private int stock;
+    
+    public PairOfShoes(int idPairOfShoes, int size, String color, String brand, float price, String shoeType, int stock) {
+        this.id = idPairOfShoes;
         this.size = size;
         this.color = color;
         this.brand = brand;
         this.price = price;
         this.shoeType = shoeType;
+        this.stock = stock;
     }
 
     public int getIdPairOfShoes() {
-        return idPairOfShoes;
+        return id;
     }
 
     public void setIdPairOfShoes(int idPairOfShoes) {
-        this.idPairOfShoes = idPairOfShoes;
+        this.id = idPairOfShoes;
     }
 
     public int getSize() {
@@ -68,10 +68,19 @@ public class PairOfShoes {
     public void setShoeType(String shoeType) {
         this.shoeType = shoeType;
     }
+        
+    public int getStock() {
+        return stock;
+    }
+    
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
 
     @Override
     public String toString() {
-        return "PairOfShoes{" + "idPairOfShoes=" + idPairOfShoes + ", size=" + size + ", color=" + color + ", brand=" + brand + ", price=" + price + ", shoeType=" + shoeType + '}';
+        return "PairOfShoes{" + "idPairOfShoes=" + id + ", size=" + size + ", color=" + color + ", brand=" + brand + ", price=" + price + ", shoeType=" + shoeType + '}';
     }
     
     

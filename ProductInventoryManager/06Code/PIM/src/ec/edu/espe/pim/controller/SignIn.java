@@ -6,9 +6,9 @@
 package ec.edu.espe.pim.controller;
 
 
+import ec.edu.espe.pim.model.FileAdministrator;
+import ec.edu.espe.pim.model.Inventory;
 import ec.edu.espe.pim.utils.Encryption;
-import ec.espe.edu.pim.model.FileAdministrator;
-import ec.espe.edu.pim.view.Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,11 +22,9 @@ public class SignIn {
     private String userPass;
     char option;
     char opt;
-    
-    Menu menu = new Menu();
     Scanner in = new Scanner(System.in);
     UserActivity userActivity = new UserActivity();
-    ArrayList<String[]> data = new ArrayList<String[]>();
+    ArrayList<String[]> data = new ArrayList<>();
     FileAdministrator file = new FileAdministrator();
     Encryption encrypt = new Encryption();
     int index;
@@ -64,21 +62,98 @@ public class SignIn {
             if (verifyUser(userName)) {
 
                 if (verifyPassword(encrypt.encryptPassword(userPass))) {
-                    System.out.println("Acess");
-                    menu.sellermenu();
+                    System.out.println(" Acess ... ");
+                    sellermenu();
                 } else {
-                    System.err.println("Wrong Password");
+                    System.out.println("\n Wrong Password !! ...");
                 }
 
             } else {
-                System.err.println("Wrong User !!");
+                System.out.println("\n Wrong User !! ...");
             }
             
         } else {
             
-            menu.AdminMenu();
+            AdminMenu();
             
         }
     }
+    
+    public void AdminMenu(){
+        
+        do {
+                System.out.println("\n");
+                System.out.println(" -- W E L C O M E --");
+                System.out.println(" 1. Add product");
+                System.out.println(" 2. Modify product");
+                System.out.println(" 3. Remove product");                
+                System.out.println(" 4. Register new user");
+                System.out.println(" 5. Return");
+                System.out.println(" 6. Exit");
+                System.out.print(" Select an option: ");
+                opt = in.next().charAt(0);
+                in.nextLine();
+                switch (opt) {
+                    case '1':
+                        userActivity.addProductInventory();
+                        break;
+                    case '2':
+                        //Modify product;
+                        break;
+                    case '3':
+                        //Remove product;
+                        userActivity.removeProduct();
+                        break;
+                    case '4':
+                        userActivity.registerUser();
+                        break;
+                    case '5':
+                        return;
+                    case '6':
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("\n Option invalidates, enter again....");
+                        break;
+                }
+            } while (true);
+    } 
+    
+    public void sellermenu(){
+        
+        Inventory inventory = new Inventory();
+        
+        do {
+                System.out.println("\n");
+                System.out.println(" -- W E L C O M E --");
+                System.out.println(" 1. View inventory");
+                System.out.println(" 2. Sell product");               
+                System.out.println(" 3. Return");
+                System.out.println(" 4. Exit");
+                System.out.print(" Select an option: ");
+                opt = in.next().charAt(0);
+                in.nextLine();
+                switch (opt) {
+                    case '1':
+                        userActivity.ShowInvetory();
+                        break;
+                    case '2':
+                        userActivity.ShowInvetory();
+                        break;                    
+                    case '3':
+                        return;
+                    case '4':
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("\n Option invalidates, enter again...");
+                        break;
+                }
+        } while (true);
+        
+        
+    }
+    
+    
 }
 

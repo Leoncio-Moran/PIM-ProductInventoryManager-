@@ -1,11 +1,9 @@
 
 package ec.edu.espe.pim.controller;
 
-import java.util.Date;
-
 public class Client {
     
-    private int id;
+    private int ci;
     private String name;
     private String lastName;
     private int telephone;
@@ -13,8 +11,8 @@ public class Client {
     private String email;
    
 
-    public Client(int id, String name, String lastName, int telephone, String addrress, String email) {
-        this.id = id;
+    public Client(int ci, String name, String lastName, int telephone, String addrress, String email) {
+        this.ci = ci;
         this.name = name;
         this.lastName = lastName;
         this.telephone = telephone;
@@ -23,11 +21,11 @@ public class Client {
     }
 
     public int getId() {
-        return id;
+        return ci;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.ci = id;
     }
 
     public String getName() {
@@ -73,7 +71,7 @@ public class Client {
     
     @Override
     public String toString() {
-        return "Client{" + "id=" + id + ", name=" + name + ", lastName=" + lastName + ", telephone=" + telephone + ", addrress=" + addrress + ", email=" + email + '}';
+        return "Client{" + "id=" + ci + ", name=" + name + ", lastName=" + lastName + ", telephone=" + telephone + ", addrress=" + addrress + ", email=" + email + '}';
     }
     
     
