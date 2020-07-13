@@ -1,71 +1,88 @@
 
 package ec.edu.espe.pim.model;
 
-import ec.edu.espe.pim.controller.PairOfShoes;
+import com.google.gson.Gson;
+import ec.edu.espe.pim.controller.Shoes;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Inventory {
     
-    PairOfShoes shoes;
-    FileAdministrator file = new FileAdministrator();
-    ArrayList<String[]> data = new ArrayList<>();
-    ArrayList<PairOfShoes> inventory = new ArrayList<>();
-    
-    public void showInventory(){
+    public void addProduct(){
+        Shoes shoes = new Shoes();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        Scanner in = new Scanner(System.in);
+         
+        System.out.print(" Input the ID : ");
+        shoes.setId(in.nextInt());        
+        System.out.print(" Input the Size: ");
+        shoes.setSize(in.nextInt());
+        in.nextLine();
+        System.out.print(" Input the Color: ");
+        shoes.setColor(in.nextLine());
+        System.out.print(" Input the Brand: ");
+        shoes.setBrand(in.nextLine());        
+        System.out.print(" Input the Price: ");
+        shoes.setPrice(in.nextFloat()); 
+        in.nextLine();
+        System.out.print(" Input the Shoes type: ");
+        shoes.setShoeType(in.nextLine());
+        System.out.print(" Input the Stock: ");
+        shoes.setStock(in.nextInt());
         
-        data = file.readDataInCSV();
-        
-        System.out.println("\n\n");
-        //System.out.println(data.size());
-        
-        System.out.printf("| %-3s | %-4s | %-5s | %-10s | %-8s | %-5s | %-5s |\n","ID","SIZE","COLOR","BRAND","PRICE","TYPE","STOCK");
-        System.out.println("---------------------------------------------------------");
-        
-        data.forEach((strings) -> {
-            System.out.printf("| %-3s | %-4s | %-5s | %-10s | %-5s | %-3s | %-5s |\n",
-                    strings[0],strings[1],strings[2],strings[3],strings[4],strings[5],strings[6]);
-            System.out.println("---------------------------------------------------------");
-        });
- 
-                
-        System.out.println("");
-        System.out.println("Press a key to continue... ");
-        new java.util.Scanner(System.in).nextLine();
-    }
-    
-    public void addProduct(int id,int size,String color, String brand, float price , String typeOfShoes,int stock){
-       
-        file.WriteInventaryInCSV(id, size, color, brand, price, typeOfShoes,stock);
+        jsonFile.addToFile(shoes);
         
     }
     
-    public void updateInventary(ArrayList<PairOfShoes> inventory){
+    public void update(ArrayList<Shoes> inventory ){
         
-        file.ErraseFile();
-        inventory.forEach((shoe) -> {
-            file.WriteInventaryInCSV(
-                    shoe.getIdPairOfShoes(), shoe.getSize(),
-                    shoe.getColor() , shoe.getBrand() , 
-                    shoe.getPrice(), shoe.getShoeType(),
-                    shoe.getStock()
-            );
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        
+        jsonFile.eraseJson(Shoes.class.getSimpleName());
+        
+        inventory.forEach((shoes) -> {
+            jsonFile.addToFile(shoes);
         });
         
         
-    }
-    
-    public void eraseProduct(ArrayList<PairOfShoes> listOfShoes,int id){
+    } 
+          
+    public void deleteProduct(ArrayList<Shoes> listOfShoes,int id){
         
         for (int i = 0; i < listOfShoes.size() ; i++) {
             
-            if((listOfShoes.get(i).getIdPairOfShoes())== id){
+            if((listOfShoes.get(i).getId())== id){
                 listOfShoes.remove(i);
             }
             
         }
         
-        updateInventary(listOfShoes);
+        update(listOfShoes);
         
     }
+    
+    public void showProducts(){
+        
+        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<Shoes> inventory = new ArrayList<>();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();        
+        Gson gson = new Gson();
+        
+        object = jsonFile.readObjects(Shoes.class.getSimpleName());
+        
+        for (Object obj : object) {
+            Shoes shoes;
+            String shoe = gson.toJson(obj);
+            shoes = gson.fromJson(shoe, Shoes.class);
+            inventory.add(shoes);
+        }
+                      
+        inventory.forEach((shoe)->{
+            System.out.print  ("---------------------------");
+            System.out.println(shoe.toString());
+            System.out.println("---------------------------");
+        });
+           
+    }    
 }

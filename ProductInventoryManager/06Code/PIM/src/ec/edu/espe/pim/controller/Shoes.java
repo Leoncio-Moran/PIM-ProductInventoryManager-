@@ -1,6 +1,6 @@
 package ec.edu.espe.pim.controller;
 
-public class PairOfShoes {
+public class Shoes {
 
   
     private int id;
@@ -11,7 +11,7 @@ public class PairOfShoes {
     private String shoeType;
     private int stock;
     
-    public PairOfShoes(int idPairOfShoes, int size, String color, String brand, float price, String shoeType, int stock) {
+    public Shoes(int idPairOfShoes, int size, String color, String brand, float price, String shoeType, int stock) {
         this.id = idPairOfShoes;
         this.size = size;
         this.color = color;
@@ -21,11 +21,14 @@ public class PairOfShoes {
         this.stock = stock;
     }
 
-    public int getIdPairOfShoes() {
+    public Shoes() {
+    }       
+
+    public int getId() {
         return id;
     }
 
-    public void setIdPairOfShoes(int idPairOfShoes) {
+    public void setId(int idPairOfShoes) {
         this.id = idPairOfShoes;
     }
 
@@ -80,7 +83,9 @@ public class PairOfShoes {
 
     @Override
     public String toString() {
-        return "PairOfShoes{" + "idPairOfShoes=" + id + ", size=" + size + ", color=" + color + ", brand=" + brand + ", price=" + price + ", shoeType=" + shoeType + '}';
+        return "\n id = " + id + ", size = " + size + ", stock ="+ stock +
+               "\n color =" + color + ", brand = " + brand + 
+               "\n price =" + price + ", shoeType =" + shoeType;
     }
     
     
