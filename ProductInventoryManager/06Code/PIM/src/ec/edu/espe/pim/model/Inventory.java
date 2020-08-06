@@ -5,6 +5,8 @@ import com.google.gson.Gson;
 import ec.edu.espe.pim.controller.Shoes;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 
 public class Inventory {
@@ -30,6 +32,31 @@ public class Inventory {
         shoes.setShoeType(in.nextLine());
         System.out.print(" Input the Stock: ");
         shoes.setStock(in.nextInt());
+        
+        jsonFile.addToFile(shoes);
+        
+    }
+    
+    public void addProduct(
+            JTextField ID,JTextField size,JTextField brand,
+            JComboBox color,JTextField price,JComboBox type,
+            JTextField stock){
+        Shoes shoes = new Shoes();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        
+        shoes.setId(Integer.valueOf(ID.getText()));   //id     
+        
+        shoes.setSize(Integer.valueOf(size.getText())); //size
+        
+        shoes.setColor(color.getToolTipText()); //color*/
+        
+        shoes.setBrand(brand.getText());      //brand  
+        
+        shoes.setPrice(Float.valueOf(price.getText()));  //price
+        
+        shoes.setShoeType(type.getToolTipText());  //type
+       
+        shoes.setStock(Integer.valueOf(stock.getText())); //stock
         
         jsonFile.addToFile(shoes);
         
