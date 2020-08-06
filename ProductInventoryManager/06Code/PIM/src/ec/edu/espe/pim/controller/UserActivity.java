@@ -34,9 +34,9 @@ public class UserActivity {
     public void registerUser() {
         System.out.println("\n");
         System.out.print(" Input the user name: ");
-        userName = in.nextLine();
+        userName = in.nextLine(); // txtUser.getText();
         System.out.print(" Input your Password: ");
-        userPass = in.nextLine();
+        userPass = in.nextLine(); 
         newPassword = encryptPassword.encryptPassword(userPass);
         file.WriteUsersInCSV(userName, newPassword);
 
