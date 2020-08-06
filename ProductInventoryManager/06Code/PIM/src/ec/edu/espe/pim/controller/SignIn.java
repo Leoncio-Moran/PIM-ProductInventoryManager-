@@ -5,9 +5,9 @@
  */
 package ec.edu.espe.pim.controller;
 
-
-import ec.edu.espe.pim.model.FileAdministrator;
 import ec.edu.espe.pim.model.Inventory;
+import ec.edu.espe.pim.model.JsonFileAdministrator;
+import ec.edu.espe.pim.model.Users;
 import ec.edu.espe.pim.utils.Encryption;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,32 +22,35 @@ public class SignIn {
     private String userPass;
     char option;
     char opt;
-    Scanner in = new Scanner(System.in);
-    UserActivity userActivity = new UserActivity();
-    ArrayList<String[]> data = new ArrayList<>();
-    FileAdministrator file = new FileAdministrator();
-    Encryption encrypt = new Encryption();
     int index;
+    Scanner in = new Scanner(System.in);
+    UserActivity userActivity = new UserActivity();    
+    Encryption encrypt = new Encryption();
+    JsonFileAdministrator datafile = new JsonFileAdministrator();
+    
+    ArrayList<Users> listOfUsers = new ArrayList<>();
 
-    public boolean verifyUser(String userName) {
+    private boolean verifyUser(String userName) {
+        
+        listOfUsers = userActivity.readUsers();
+        
+        //System.out.println( listOfUsers.get(0).getUser());
+                
+        for (index = 0; index < listOfUsers.size(); index++) {
 
-        data = file.readCSV();
-
-        for (index = 0; index < data.size(); index++) {
-
-            if (userName.equals(data.get(index)[0])) {
+            if (userName.equals( listOfUsers.get(index).getUser() )) {
                 return true;
             }
-
         }
 
         return false;
     }
 
-    public boolean verifyPassword(String userPassword) {
+    private boolean verifyPassword(String userPassword) {
 
-        return (userPassword.equals(data.get(index)[1]))? true:false;
-
+        listOfUsers = userActivity.readUsers();
+                
+        return (userPassword.equals( listOfUsers.get(index).getPassword() )) ? true : false;
     }
 
     public void signInUser() {
@@ -55,10 +58,10 @@ public class SignIn {
         System.out.print(" Input the user name: ");
         userName = in.nextLine();
         System.out.print(" Input your Password: ");
-        userPass = in.nextLine();
-
+        userPass = in.nextLine();        
+        
         if (!"Admin".equals(userName) || !"PIM".equals(userPass)) {
-            
+
             if (verifyUser(userName)) {
 
                 if (verifyPassword(encrypt.encryptPassword(userPass))) {
@@ -71,89 +74,93 @@ public class SignIn {
             } else {
                 System.out.println("\n Wrong User !! ...");
             }
-            
+
         } else {
-            
+
             AdminMenu();
-            
+
         }
     }
-    
-    public void AdminMenu(){
-        
-        do {
-                System.out.println("\n");
-                System.out.println(" -- W E L C O M E --");
-                System.out.println(" 1. Add product");
-                System.out.println(" 2. Modify product");
-                System.out.println(" 3. Remove product");                
-                System.out.println(" 4. Register new user");
-                System.out.println(" 5. Return");
-                System.out.println(" 6. Exit");
-                System.out.print(" Select an option: ");
-                opt = in.next().charAt(0);
-                in.nextLine();
-                switch (opt) {
-                    case '1':
-                        userActivity.addProductInventory();
-                        break;
-                    case '2':
-                        //Modify product;
-                        break;
-                    case '3':
-                        //Remove product;
-                        userActivity.removeProduct();
-                        break;
-                    case '4':
-                        userActivity.registerUser();
-                        break;
-                    case '5':
-                        return;
-                    case '6':
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println("\n Option invalidates, enter again....");
-                        break;
-                }
-            } while (true);
-    } 
-    
-    public void sellermenu(){
+
+    public void AdminMenu() {
         
         Inventory inventory = new Inventory();
         
         do {
-                System.out.println("\n");
-                System.out.println(" -- W E L C O M E --");
-                System.out.println(" 1. View inventory");
-                System.out.println(" 2. Sell product");               
-                System.out.println(" 3. Return");
-                System.out.println(" 4. Exit");
-                System.out.print(" Select an option: ");
-                opt = in.next().charAt(0);
-                in.nextLine();
-                switch (opt) {
-                    case '1':
-                        userActivity.ShowInvetory();
-                        break;
-                    case '2':
-                        userActivity.ShowInvetory();
-                        break;                    
-                    case '3':
-                        return;
-                    case '4':
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println("\n Option invalidates, enter again...");
-                        break;
-                }
+            System.out.println("\n");
+            System.out.println(" -- W E L C O M E --");
+            System.out.println(" 1. Add product");
+            System.out.println(" 2. Delete product");
+            System.out.println(" 3. Show Users");
+            System.out.println(" 4. Register new user");
+            System.out.println(" 5. Return");
+            System.out.println(" 6. Exit");
+            System.out.print(" Select an option: ");
+            opt = in.next().charAt(0);
+            in.nextLine();
+            switch (opt) {
+                case '1':
+                    //Add Product
+                    inventory.addProduct();
+                    break;
+                case '2':
+                    //Delete;
+                    userActivity.deleteProduct();
+                    break;
+                case '3':                    
+                    userActivity.showUsers();
+                    break;
+                case '4':
+                    userActivity.addUser();
+                    break;
+                case '5':
+                    return;
+                case '6':
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("\n Option invalidates, enter again....");
+                    break;
+            }
         } while (true);
-        
-        
     }
-    
-    
-}
 
+    public void sellermenu() {
+        
+        do {
+            System.out.println("\n");
+            System.out.println(" -- W E L C O M E --");
+            System.out.println(" 1. View inventory");
+            System.out.println(" 2. Sell product");
+            System.out.println(" 3. Return");
+            System.out.println(" 4. Exit");
+            System.out.print(" Select an option: ");
+            opt = in.next().charAt(0);
+            in.nextLine();
+            switch (opt) {
+                case '1':
+                    //view Products
+                    userActivity.showProduct();
+                    break;
+                case '2':
+                    //sell
+                    
+                    userActivity.showProduct();
+                    userActivity.sellProduct();
+                    break;
+                case '3':
+                    // return 
+                    return;
+                case '4':
+                    //exit aplication 
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("\n Option invalidates, enter again...");
+                    break;
+            }
+        } while (true);
+
+    }
+
+}

@@ -19,7 +19,14 @@ public class Client {
         this.addrress = addrress;
         this.email = email;        
     }
+    
+    
+    public Client() {
+                
+    }
 
+    
+    
     public int getId() {
         return ci;
     }
