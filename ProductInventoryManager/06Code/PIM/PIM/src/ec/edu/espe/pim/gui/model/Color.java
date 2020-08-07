@@ -9,7 +9,7 @@ package ec.edu.espe.pim.gui.model;
  *
  * @author S-Developers
  */
-public class Tipo {
+public class Color {
     private String description ;
 
     /* @
@@ -28,7 +28,7 @@ public class Tipo {
         this.description = description;
     }
 
-    public Tipo(String description) {
+    public Color(String description) {
         this.description = description;
     }
 }

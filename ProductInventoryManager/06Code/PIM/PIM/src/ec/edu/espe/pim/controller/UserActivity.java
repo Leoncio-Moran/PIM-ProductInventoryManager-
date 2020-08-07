@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Alexandra Moscoso
+ * @author S-Developers
  */
 public class UserActivity {
 

@@ -7,12 +7,13 @@ import ec.edu.espe.pim.view.JFrmInventory;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JComboBox;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 
 public class Inventory {
     
-    public void addProduct(){
+    /*public void addProduct(){
         Shoes shoes = new Shoes();
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Scanner in = new Scanner(System.in);
@@ -36,32 +37,19 @@ public class Inventory {
         
         jsonFile.addToFile(shoes);
         
-    }
+    }*/
     
     public void addProduct(
-            JTextField ID,JTextField size,JTextField brand,
-            JTextField color,JTextField price,JComboBox type,
-            JComboBox shoefor, JTextField stock){
-        Shoes shoes = new Shoes();
+            int ID, int size,String brand,
+            String color,float price,String shoeType,
+            int stock){
+        Shoes shoes = new Shoes(ID,size,color,brand,price,shoeType,stock);
+        System.out.println(shoes.toString());
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         
-        shoes.setId(Integer.valueOf(ID.getText()));   //id     
-        
-        shoes.setSize(Integer.valueOf(size.getText())); //size
-        
-        shoes.setColor(color.getText()); //color*/
-        
-        shoes.setBrand(brand.getText());      //brand  
-        
-        shoes.setPrice(Float.valueOf(price.getText()));  //price
-        
-        shoes.setShoeType(type.getToolTipText());  //type
-       
-        shoes.setShoefor(shoefor.getToolTipText()); //for
-        
-        shoes.setStock(Integer.valueOf(stock.getText()));
         
         jsonFile.addToFile(shoes);
+        
         
     }
     
@@ -108,11 +96,37 @@ public class Inventory {
             inventory.add(shoes);
         }
                       
-        inventory.forEach((shoe)->{
+        /*inventory.forEach((shoe)->{
             System.out.print  ("---------------------------");
             System.out.println(shoe.toString());
             System.out.println("---------------------------");
-        });
+        });*/
+           
+    } 
+    public  ArrayList<Shoes> showProduct(){
+        
+       
+        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<Shoes> inventory = new ArrayList<>();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();        
+        Gson gson = new Gson();
+        
+        object = jsonFile.readObjects(Shoes.class.getSimpleName());
+        
+        for (Object obj : object) {
+            Shoes shoes;
+            String shoe = gson.toJson(obj);
+            shoes = gson.fromJson(shoe, Shoes.class);
+            inventory.add(shoes);
+        }
+        
+                      
+        /*inventory.forEach((shoe)->{
+            System.out.print  ("---------------------------");
+            System.out.println(shoe.toString());
+            System.out.println("---------------------------");
+        });*/
+        return inventory;
            
     }    
 }

@@ -8,7 +8,7 @@ package ec.edu.espe.pim.view;
 
 /**
  *
- * @author ismae
+ * @author S-Developers
  */
 public class JPaneStart extends javax.swing.JPanel {
 

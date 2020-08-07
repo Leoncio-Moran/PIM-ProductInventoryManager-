@@ -12,7 +12,7 @@ public class Shoes {
     private int stock;
     private String shoefor;
 
-    public Shoes(int id, int size, String color, String brand, float price, String shoeType, int stock, String shoefor) {
+    public Shoes(int id, int size, String color, String brand, float price, String shoeType, int stock) {
         this.id = id;
         this.size = size;
         this.color = color;
@@ -20,11 +20,6 @@ public class Shoes {
         this.price = price;
         this.shoeType = shoeType;
         this.stock = stock;
-        this.shoefor = shoefor;
-    }
-
-    public Shoes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {

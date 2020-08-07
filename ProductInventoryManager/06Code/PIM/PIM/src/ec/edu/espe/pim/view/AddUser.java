@@ -5,9 +5,16 @@
  */
 package ec.edu.espe.pim.view;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import javax.swing.JOptionPane;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 /**
  *
- * @author ismae
+ * @author S-Developers
  */
 public class AddUser extends javax.swing.JPanel {
 
@@ -16,7 +23,7 @@ public class AddUser extends javax.swing.JPanel {
      */
     public AddUser() {
         initComponents();
-        jTextField1.requestFocus();
+        txtUser.requestFocus();
     }
 
     /**
@@ -28,13 +35,13 @@ public class AddUser extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnAddUser = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        lblPass = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        txtUser = new javax.swing.JTextField();
+        PswPass = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 102, 102));
@@ -43,17 +50,17 @@ public class AddUser extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(550, 450));
         setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add new user");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddUser.setBackground(new java.awt.Color(51, 51, 255));
+        btnAddUser.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnAddUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddUser.setText("Add new user");
+        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddUserActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(170, 340, 200, 50);
+        add(btnAddUser);
+        btnAddUser.setBounds(170, 340, 200, 50);
 
         jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,58 +72,79 @@ public class AddUser extends javax.swing.JPanel {
         add(jSeparator2);
         jSeparator2.setBounds(180, 220, 300, 20);
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Password :");
-        add(jLabel1);
-        jLabel1.setBounds(30, 270, 130, 20);
+        lblPass.setBackground(new java.awt.Color(102, 102, 102));
+        lblPass.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblPass.setForeground(new java.awt.Color(255, 255, 255));
+        lblPass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPass.setText("Password :");
+        add(lblPass);
+        lblPass.setBounds(30, 270, 130, 20);
 
-        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("User name:");
-        jLabel2.setOpaque(true);
-        add(jLabel2);
-        jLabel2.setBounds(30, 180, 140, 40);
+        lblUserName.setBackground(new java.awt.Color(102, 102, 102));
+        lblUserName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserName.setText("User name:");
+        lblUserName.setOpaque(true);
+        add(lblUserName);
+        lblUserName.setBounds(30, 180, 140, 40);
 
-        jTextField1.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(null);
-        add(jTextField1);
-        jTextField1.setBounds(180, 180, 300, 40);
+        txtUser.setBackground(new java.awt.Color(102, 102, 102));
+        txtUser.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser.setBorder(null);
+        add(txtUser);
+        txtUser.setBounds(180, 180, 300, 40);
 
-        jPasswordField1.setBackground(new java.awt.Color(102, 102, 102));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setToolTipText("Password");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.setDropMode(javax.swing.DropMode.INSERT);
-        add(jPasswordField1);
-        jPasswordField1.setBounds(170, 250, 310, 40);
-        jPasswordField1.getAccessibleContext().setAccessibleName("");
+        PswPass.setBackground(new java.awt.Color(102, 102, 102));
+        PswPass.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PswPass.setForeground(new java.awt.Color(255, 255, 255));
+        PswPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PswPass.setToolTipText("Password");
+        PswPass.setBorder(null);
+        PswPass.setDropMode(javax.swing.DropMode.INSERT);
+        add(PswPass);
+        PswPass.setBounds(170, 250, 310, 40);
+        PswPass.getAccessibleContext().setAccessibleName("");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/adduser.png"))); // NOI18N
         add(jLabel3);
         jLabel3.setBounds(210, 20, 150, 140);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+        JSONObject jsonObject = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        JSONParser jsonParser = new JSONParser();
+        try {
+            FileReader fileReader = new FileReader("user.json");
+            jsonArray = (JSONArray) jsonParser.parse(fileReader);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR!!");
+        }
+
+        jsonObject.put("username", txtUser.getText());
+        jsonObject.put("password", PswPass.getText());
+        jsonArray.add(jsonObject);
+        try {
+            FileWriter fileWriter = new FileWriter("user.json");
+            fileWriter.write(jsonArray.toJSONString());
+            fileWriter.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR!!");
+
+        }
+        JOptionPane.showMessageDialog(null, "SAVED");
+    }//GEN-LAST:event_btnAddUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField PswPass;
+    private javax.swing.JButton btnAddUser;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblPass;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

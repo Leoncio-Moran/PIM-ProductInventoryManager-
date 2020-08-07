@@ -7,7 +7,7 @@ package ec.edu.espe.pim.view;
 
 /**
  *
- * @author lesly
+ * @author S-Developers
  */
 public class FrmMenuAdmin extends javax.swing.JFrame {
 
@@ -32,11 +32,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnuPIM = new javax.swing.JMenu();
+        itmReturn = new javax.swing.JMenuItem();
         mnuProduct = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        itmInventory = new javax.swing.JMenuItem();
+        mnuUser = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,17 +46,17 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 50)); // NOI18N
         jLabel2.setText("Welcome Admin");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 440, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 440, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/shoeAdmin.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 280, 360));
 
-        jMenu3.setText("PIM");
+        mnuPIM.setText("PIM");
 
-        jMenuItem1.setText("Return");
-        jMenu3.add(jMenuItem1);
+        itmReturn.setText("Return");
+        mnuPIM.add(itmReturn);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(mnuPIM);
 
         mnuProduct.setText("Products");
         mnuProduct.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -65,23 +65,23 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem2.setText("Inventory");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        itmInventory.setText("Inventory");
+        itmInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                itmInventoryActionPerformed(evt);
             }
         });
-        mnuProduct.add(jMenuItem2);
+        mnuProduct.add(itmInventory);
 
         jMenuBar1.add(mnuProduct);
 
-        jMenu2.setText("Users");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnuUser.setText("Users");
+        mnuUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                mnuUserMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(mnuUser);
 
         setJMenuBar(jMenuBar1);
 
@@ -107,16 +107,16 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
       
     }//GEN-LAST:event_mnuProductMouseClicked
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void itmInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmInventoryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_itmInventoryActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void mnuUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuUserMouseClicked
         // TODO add your handling code here:
         frmtable tabe = new frmtable();
         tabe.show();
         this.hide();
-    }//GEN-LAST:event_jMenu2MouseClicked
+    }//GEN-LAST:event_mnuUserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -155,14 +155,14 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itmInventory;
+    private javax.swing.JMenuItem itmReturn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu mnuPIM;
     private javax.swing.JMenu mnuProduct;
+    private javax.swing.JMenu mnuUser;
     // End of variables declaration//GEN-END:variables
 }

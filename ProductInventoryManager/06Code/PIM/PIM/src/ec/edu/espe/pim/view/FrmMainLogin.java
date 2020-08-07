@@ -22,7 +22,7 @@ import org.json.simple.parser.ParseException;
 
 /**
  *
- * @author ismae
+ * @author S-Developers
  */
 public class FrmMainLogin extends javax.swing.JFrame {
 
@@ -204,7 +204,6 @@ public class FrmMainLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTxtUserKeyTyped
 
     private void jbtnLogingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLogingActionPerformed
-
         JSONArray jsonArray = new JSONArray();
         Object object = null;
         JSONParser jsonParser = new JSONParser();
@@ -229,7 +228,7 @@ public class FrmMainLogin extends javax.swing.JFrame {
         jsonObject.put("username", jTxtUser.getText());
         jsonObject.put("password", pswPass.getText());
         FrmMenuAdmin window = new FrmMenuAdmin();
-        FrmUserMenu frmUser = new FrmUserMenu();
+        FrmUserMenu user = new FrmUserMenu();
         if ("Admin".equals(jTxtUser.getText()) && "shoePIM".equals(pswPass.getText())) {
             this.hide();
             window.show();
@@ -237,21 +236,24 @@ public class FrmMainLogin extends javax.swing.JFrame {
             for (int i = 0; i < size; i++) {
                 if (jsonObject.equals(jsonArray.get(i))) {
                     JOptionPane.showMessageDialog(null, "PASSWORD MATCHED");
+                    this.setVisible(false);
                     FrmUserMenu frmMenuOption = new FrmUserMenu();
                     frmMenuOption.setVisible(true);
                     dispose();
                     //break;
-                } else if (i == size - 1) {
+                } else if (i == size - 2) {
                     JOptionPane.showMessageDialog(null, "INCORRECT USER or PASSWORD!!! ");
-                    this.setVisible(true);
+                    
                 }
             }
         }
+        
+        
 
     }
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        /*TODO add your handling code here:
         JSONObject jsonObject = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         JSONParser jsonParser = new JSONParser();
@@ -273,7 +275,7 @@ public class FrmMainLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR!!");
 
         }
-        JOptionPane.showMessageDialog(null, "SAVED");
+        JOptionPane.showMessageDialog(null, "SAVED");*/
 
 
     }//GEN-LAST:event_jbtnLogingActionPerformed

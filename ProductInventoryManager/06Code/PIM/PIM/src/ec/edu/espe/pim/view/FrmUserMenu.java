@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ismae
+ * @author S-Developers
  */
 public class FrmUserMenu extends javax.swing.JFrame {
 
@@ -46,20 +46,20 @@ public class FrmUserMenu extends javax.swing.JFrame {
         jPaneMenu = new javax.swing.JPanel();
         btnMenu = new javax.swing.JLabel();
         btnInventory = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblBill = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        lblSell = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        lblInfo = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        lblInventory = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        lblReturn = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         UpperPane = new javax.swing.JPanel();
         lblClose = new javax.swing.JLabel();
@@ -100,17 +100,17 @@ public class FrmUserMenu extends javax.swing.JFrame {
         });
         btnInventory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/inventario.png"))); // NOI18N
-        jLabel2.setToolTipText("Inventory");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/inventario.png"))); // NOI18N
+        lblBill.setToolTipText("Inventory");
+        lblBill.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                lblBillMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel2MouseEntered(evt);
+                lblBillMouseEntered(evt);
             }
         });
-        btnInventory.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        btnInventory.add(lblBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,14 +122,14 @@ public class FrmUserMenu extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rebaja.png"))); // NOI18N
-        jLabel4.setToolTipText("Sell Product");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblSell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rebaja.png"))); // NOI18N
+        lblSell.setToolTipText("Sell Product");
+        lblSell.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                lblSellMouseClicked(evt);
             }
         });
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        jPanel4.add(lblSell, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,14 +146,14 @@ public class FrmUserMenu extends javax.swing.JFrame {
         });
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/informacion.png"))); // NOI18N
-        jLabel8.setToolTipText("Information");
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/informacion.png"))); // NOI18N
+        lblInfo.setToolTipText("Information");
+        lblInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                lblInfoMouseClicked(evt);
             }
         });
-        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        jPanel6.add(lblInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,14 +165,14 @@ public class FrmUserMenu extends javax.swing.JFrame {
         jPanel5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cuenta_1.png"))); // NOI18N
-        jLabel6.setToolTipText("Bill");
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblInventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cuenta_1.png"))); // NOI18N
+        lblInventory.setToolTipText("Bill");
+        lblInventory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                lblInventoryMouseClicked(evt);
             }
         });
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        jPanel5.add(lblInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,14 +189,14 @@ public class FrmUserMenu extends javax.swing.JFrame {
         jPanel7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/salida.png"))); // NOI18N
-        jLabel11.setToolTipText("Log out");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/salida.png"))); // NOI18N
+        lblReturn.setToolTipText("Log out");
+        lblReturn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                lblReturnMouseClicked(evt);
             }
         });
-        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        jPanel7.add(lblReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -385,7 +385,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
         JPrincipalPane.repaint();
     }//GEN-LAST:event_jPanel6MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void lblSellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSellMouseClicked
         // TODO add your handling code here:
         FrmSellProduct pn = new FrmSellProduct();
        // pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
@@ -394,21 +394,21 @@ public class FrmUserMenu extends javax.swing.JFrame {
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
         JPrincipalPane.repaint();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_lblSellMouseClicked
 
-    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+    private void lblBillMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBillMouseEntered
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jLabel2MouseEntered
+    }//GEN-LAST:event_lblBillMouseEntered
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void lblReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReturnMouseClicked
         // TODO add your handling code here:
         FrmMainLogin frm = new FrmMainLogin();
         this.hide();
         frm.show();
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_lblReturnMouseClicked
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void lblInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInventoryMouseClicked
         // TODO add your handling code here:
         Bill pn = new Bill();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
@@ -417,9 +417,9 @@ public class FrmUserMenu extends javax.swing.JFrame {
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
         JPrincipalPane.repaint();
-    }//GEN-LAST:event_jLabel6MouseClicked
+    }//GEN-LAST:event_lblInventoryMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lblBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBillMouseClicked
         // TODO add your handling code here:
         FrmInventoryUser pn = new FrmInventoryUser();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
@@ -428,9 +428,9 @@ public class FrmUserMenu extends javax.swing.JFrame {
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
         JPrincipalPane.repaint();
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lblBillMouseClicked
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void lblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInfoMouseClicked
         // TODO add your handling code here:
         JPaneStart pn = new JPaneStart();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
@@ -439,7 +439,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
         JPrincipalPane.repaint();
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_lblInfoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -484,15 +484,10 @@ public class FrmUserMenu extends javax.swing.JFrame {
     private javax.swing.JLabel btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPaneMenu;
     private javax.swing.JPanel jPanel1;
@@ -501,7 +496,12 @@ public class FrmUserMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JLabel lblBill;
     private javax.swing.JLabel lblClose;
+    private javax.swing.JLabel lblInfo;
+    private javax.swing.JLabel lblInventory;
     private javax.swing.JLabel lblMin;
+    private javax.swing.JLabel lblReturn;
+    private javax.swing.JLabel lblSell;
     // End of variables declaration//GEN-END:variables
 }

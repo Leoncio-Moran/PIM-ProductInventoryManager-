@@ -7,7 +7,7 @@ package ec.edu.espe.pim.view;
 
 /**
  *
- * @author lesly
+ * @author S-Developers
  */
 public class Bill extends javax.swing.JPanel {
 
@@ -46,12 +46,12 @@ public class Bill extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         txtName = new javax.swing.JTextField();
-        txtID = new javax.swing.JTextField();
+        txtCI = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnOk = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         lblArticles = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(970, 650));
@@ -135,9 +135,9 @@ public class Bill extends javax.swing.JPanel {
         txtName.setBorder(null);
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 200, 30));
 
-        txtID.setToolTipText("Enter Client's ID");
-        txtID.setBorder(null);
-        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 200, 30));
+        txtCI.setToolTipText("Enter Client's ID");
+        txtCI.setBorder(null);
+        jPanel1.add(txtCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 200, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/pqpqp.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
@@ -174,11 +174,11 @@ public class Bill extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 590, 180));
 
-        jButton1.setText("Ok");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, -1));
+        btnOk.setText("Ok");
+        jPanel1.add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, -1));
 
-        jButton2.setText("Cancel");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, -1, -1));
+        btnCancel.setText("Cancel");
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, -1, -1));
 
         lblArticles.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblArticles.setText("Articles:");
@@ -202,9 +202,9 @@ public class Bill extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnOk;
     private javax.swing.JComboBox<String> cbxTypeOfPayment;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -221,8 +221,8 @@ public class Bill extends javax.swing.JPanel {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblTelephoneClient;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JTextField txtCI;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtTelephone;

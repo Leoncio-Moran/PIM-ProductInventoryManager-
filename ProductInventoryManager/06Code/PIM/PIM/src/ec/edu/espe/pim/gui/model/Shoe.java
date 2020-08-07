@@ -7,7 +7,7 @@ package ec.edu.espe.pim.gui.model;
 
 /**
  *
- * @author Johao Morales
+ * @author S-Developers
  */
 public class Shoe {
     private String id;

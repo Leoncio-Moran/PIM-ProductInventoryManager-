@@ -7,7 +7,7 @@ package ec.edu.espe.pim.view;
 
 /**
  *
- * @author lesly
+ * @author S-Developers
  */
 public class FrmSellProduct extends javax.swing.JPanel {
 
@@ -44,7 +44,6 @@ public class FrmSellProduct extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
         cmbSize3 = new javax.swing.JComboBox<>();
         cmbColor3 = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
@@ -90,6 +89,7 @@ public class FrmSellProduct extends javax.swing.JPanel {
         jLabel37 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(926, 640));
         setLayout(new java.awt.CardLayout());
@@ -156,10 +156,6 @@ public class FrmSellProduct extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 10, 220));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/shoe2.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 110, 110));
 
         cmbSize3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbSize3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Size", "34", "35", "36", "37", "38" }));
@@ -334,6 +330,9 @@ public class FrmSellProduct extends javax.swing.JPanel {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/shoe2.png"))); // NOI18N
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 130, 120));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/tacon.jpg"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 120, 120));
 
         add(jPanel2, "card2");
     }// </editor-fold>//GEN-END:initComponents

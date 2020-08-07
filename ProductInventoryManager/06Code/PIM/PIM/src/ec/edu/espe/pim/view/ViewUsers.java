@@ -7,7 +7,7 @@ package ec.edu.espe.pim.view;
 
 /**
  *
- * @author ismae
+ * @author S-Developers
  */
 public class ViewUsers extends javax.swing.JPanel {
 

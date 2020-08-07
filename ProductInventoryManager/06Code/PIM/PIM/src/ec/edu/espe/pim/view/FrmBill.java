@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author JOSUE
+ * @author S-Developers
  */
 public class FrmBill extends javax.swing.JFrame {
     

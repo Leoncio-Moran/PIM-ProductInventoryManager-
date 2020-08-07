@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author JOSUE
+ * @author S-Developers
  */
 public class PaymentService {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();

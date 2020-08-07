@@ -5,12 +5,15 @@
  */
 package ec.edu.espe.pim.view;
 
+import ec.edu.espe.pim.controller.Shoes;
 import ec.edu.espe.pim.gui.model.Shoe;
+import ec.edu.espe.pim.model.Inventory;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author lesly
+ * @author S-Developers
  */
 public class FrmData extends javax.swing.JFrame {
      private DefaultTableModel model;
@@ -27,26 +30,46 @@ public class FrmData extends javax.swing.JFrame {
     }
     public void ChargeInterface(){
         String data[][]={};
-        String column[]={"ID","BRAND","COLOR","SIZE","TYPE","SHOE FOR"};
+        String column[]={"ID","SIZE","BRAND","COLOR","PRICE","TYPE","STOCK"};
         model=new DefaultTableModel(data,column);
         tblInventory.setModel(model);
         
     }
     public void ChargeData(){
-        Shoe a;
-        for(int i=0; i < FrmInventory.container.size (); i++){
-            a=(Shoe)FrmInventory.container.get(i);
-            model.insertRow(counter,new Object[]{});
-            model.setValueAt(a.getId(),counter, 0);
-            model.setValueAt(a.getBrand(),counter, 1);
-            model.setValueAt(a.getColor(),counter,2);
-            model.setValueAt(a.getSize(),counter,3);
-            model.setValueAt(a.getType(),counter,4);
-            model.setValueAt(a.getShoefor(),counter,5);
+        
+        Inventory inventory = new Inventory();
+        ArrayList<Shoes> data = inventory.showProduct();
+        DefaultTableModel model = (DefaultTableModel)this.tblInventory.getModel();
+        int filas = 0;
             
+        
+        for(Shoes shoe : data){
+            Object [] fila = new Object [7];
+            fila[0] = shoe.getId();
+            fila[1] = shoe.getSize();
+            fila[2] = shoe.getBrand();
+            fila[3] = shoe.getColor();
+            fila[4] = shoe.getPrice();
+            fila[5] = shoe.getShoeType();
+            fila[6] = shoe.getStock();
+            model.addRow(fila);
+            for(int i = 0;i<this.tblInventory.getColumnCount()-1;i++){
+             model.setValueAt(fila[0] , filas, 0);
+             model.setValueAt(fila[1], filas, 1);
+             model.setValueAt(fila[2], filas, 2);
+             model.setValueAt(fila[3], filas, 3);
+             model.setValueAt(fila[4], filas, 4);
+             model.setValueAt(fila[5], filas, 5);
+             model.setValueAt(fila[6], filas, 6);
+             
+        }
+           
+            filas ++;
             
         }
+        
     }
+    
     
 
     /**
@@ -69,8 +92,8 @@ public class FrmData extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel1.setText("Recorder Data");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 200, -1));
+        jLabel1.setText("DATA RECORDER");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 230, -1));
 
         jScrollPane1.setViewportView(tblInventory);
 
