@@ -29,7 +29,7 @@ public class FrmSellProduct extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblPim = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -101,10 +101,10 @@ public class FrmSellProduct extends javax.swing.JPanel {
         jLabel1.setToolTipText("");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 117));
 
-        jLabel2.setFont(new java.awt.Font("Snap ITC", 3, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel2.setText("PIM");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 150, -1));
+        lblPim.setFont(new java.awt.Font("Snap ITC", 3, 48)); // NOI18N
+        lblPim.setForeground(new java.awt.Color(204, 0, 0));
+        lblPim.setText("PIM");
+        jPanel2.add(lblPim, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 150, -1));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 380, 10));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/buscar.png"))); // NOI18N
@@ -369,7 +369,6 @@ public class FrmSellProduct extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -403,5 +402,6 @@ public class FrmSellProduct extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblPim;
     // End of variables declaration//GEN-END:variables
 }
