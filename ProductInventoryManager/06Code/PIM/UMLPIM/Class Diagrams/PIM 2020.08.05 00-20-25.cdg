@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PIM">
+  <ClassDiagramComponents>
+    <Class name="Bill" package="ec.edu.espe.pim.controller" visibility="public" xPosition="1636.0" yPosition="1636.0">
+      <Fields>
+        <Field name="idBill" type="int" visibility="private"/>
+        <Field name="date" type="Date" visibility="private" isFinal="true"/>
+        <Field name="totalPrice" type="float" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clientBill" returnType="void" visibility="public">
+          <Argument type="List&lt;ShoppingCar&gt;" name="products"/>
+          <Argument type="Client" name="client"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Client" package="ec.edu.espe.pim.controller" visibility="public" xPosition="130.0" yPosition="1232.0">
+      <Fields>
+        <Field name="ci" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="telephone" type="int" visibility="private"/>
+        <Field name="addrress" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="ci"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="int" name="telephone"/>
+          <Argument type="String" name="addrress"/>
+          <Argument type="String" name="email"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="lastName"/>
+        </Method>
+        <Method name="getTelephone" returnType="int" visibility="public"/>
+        <Method name="setTelephone" returnType="void" visibility="public">
+          <Argument type="int" name="telephone"/>
+        </Method>
+        <Method name="getAddrress" returnType="String" visibility="public"/>
+        <Method name="setAddrress" returnType="void" visibility="public">
+          <Argument type="String" name="addrress"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PaymentController" package="ec.edu.espe.pim.controller" visibility="public" xPosition="767.0" yPosition="130.0">
+      <Fields>
+        <Field name="paymentService" type="PaymentService" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ShoeController" package="ec.edu.espe.pim.controller" visibility="public" xPosition="130.0" yPosition="767.0">
+      <Fields>
+        <Field name="shoeService" type="ShoeService" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Shoes" package="ec.edu.espe.pim.controller" visibility="public" xPosition="1232.0" yPosition="130.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="size" type="int" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="brand" type="String" visibility="private"/>
+        <Field name="price" type="float" visibility="private"/>
+        <Field name="shoeType" type="String" visibility="private"/>
+        <Field name="stock" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idPairOfShoes"/>
+          <Argument type="int" name="size"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="brand"/>
+          <Argument type="float" name="price"/>
+          <Argument type="String" name="shoeType"/>
+          <Argument type="int" name="stock"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="idPairOfShoes"/>
+        </Method>
+        <Method name="getSize" returnType="int" visibility="public"/>
+        <Method name="setSize" returnType="void" visibility="public">
+          <Argument type="int" name="size"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getBrand" returnType="String" visibility="public"/>
+        <Method name="setBrand" returnType="void" visibility="public">
+          <Argument type="String" name="brand"/>
+        </Method>
+        <Method name="getPrice" returnType="float" visibility="public"/>
+        <Method name="setPrice" returnType="void" visibility="public">
+          <Argument type="float" name="price"/>
+        </Method>
+        <Method name="getShoeType" returnType="String" visibility="public"/>
+        <Method name="setShoeType" returnType="void" visibility="public">
+          <Argument type="String" name="shoeType"/>
+        </Method>
+        <Method name="getStock" returnType="int" visibility="public"/>
+        <Method name="setStock" returnType="void" visibility="public">
+          <Argument type="int" name="stock"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ShoppingCar" package="ec.edu.espe.pim.controller" visibility="public" xPosition="1450.0" yPosition="1779.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="quantity" type="int" visibility="private"/>
+        <Field name="product" type="String" visibility="private"/>
+        <Field name="price" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="quantity"/>
+          <Argument type="String" name="product"/>
+          <Argument type="float" name="price"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getQuantity" returnType="int" visibility="public"/>
+        <Method name="setQuantity" returnType="void" visibility="public">
+          <Argument type="int" name="quantity"/>
+        </Method>
+        <Method name="getProduct" returnType="String" visibility="public"/>
+        <Method name="setProduct" returnType="void" visibility="public">
+          <Argument type="String" name="product"/>
+        </Method>
+        <Method name="getPrice" returnType="float" visibility="public"/>
+        <Method name="setPrice" returnType="void" visibility="public">
+          <Argument type="float" name="price"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SignIn" package="ec.edu.espe.pim.controller" visibility="public" xPosition="363.0" yPosition="363.0">
+      <Fields>
+        <Field name="userName" type="String" visibility="private"/>
+        <Field name="userPass" type="String" visibility="private"/>
+        <Field name="option" type="char" visibility="package"/>
+        <Field name="opt" type="char" visibility="package"/>
+        <Field name="index" type="int" visibility="package"/>
+        <Field name="in" type="Scanner" visibility="package"/>
+        <Field name="userActivity" type="UserActivity" visibility="package"/>
+        <Field name="encrypt" type="Encryption" visibility="package"/>
+        <Field name="datafile" type="JsonFileAdministrator" visibility="package"/>
+        <Field name="listOfUsers" type="ArrayList&lt;Users&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="verifyUser" returnType="boolean" visibility="private">
+          <Argument type="String" name="userName"/>
+        </Method>
+        <Method name="verifyPassword" returnType="boolean" visibility="private">
+          <Argument type="String" name="userPassword"/>
+        </Method>
+        <Method name="signInUser" returnType="void" visibility="public"/>
+        <Method name="AdminMenu" returnType="void" visibility="public"/>
+        <Method name="sellermenu" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserActivity" package="ec.edu.espe.pim.controller" visibility="public" xPosition="1232.0" yPosition="1869.0">
+      <Fields>
+        <Field name="in" type="Scanner" visibility="package"/>
+        <Field name="encryptPassword" type="Encryption" visibility="package"/>
+        <Field name="file" type="FileAdministrator" visibility="package"/>
+        <Field name="data" type="ArrayList&lt;String[]&gt;" visibility="package"/>
+        <Field name="inventory" type="Inventory" visibility="package"/>
+        <Field name="cart" type="ArrayList&lt;ShoppingCar&gt;" visibility="package"/>
+        <Field name="newPassword" type="String" visibility="private"/>
+        <Field name="userName" type="String" visibility="private"/>
+        <Field name="userPass" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="registerUser" returnType="void" visibility="public"/>
+        <Method name="viewUser" returnType="void" visibility="public"/>
+        <Method name="deleteProduct" returnType="void" visibility="public"/>
+        <Method name="sellProduct" returnType="void" visibility="public"/>
+        <Method name="extractProduct" returnType="Shoes" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="addToCart" returnType="void" visibility="private">
+          <Argument type="ArrayList&lt;Integer&gt;" name="ids"/>
+          <Argument type="ArrayList&lt;Integer&gt;" name="quantities"/>
+        </Method>
+        <Method name="checkStock" returnType="boolean" visibility="private">
+          <Argument type="int" name="quantity"/>
+        </Method>
+        <Method name="checkId" returnType="boolean" visibility="private">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="addUser" returnType="void" visibility="public"/>
+        <Method name="readUsers" returnType="ArrayList&lt;Users&gt;" visibility="public"/>
+        <Method name="showUsers" returnType="void" visibility="public"/>
+        <Method name="showProduct" returnType="void" visibility="public"/>
+        <Method name="clientData" returnType="Client" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserController" package="ec.edu.espe.pim.controller" visibility="public" xPosition="1000.0" yPosition="1900.0">
+      <Fields>
+        <Field name="userService" type="UserService" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="frmInventory" package="ec.edu.espe.pim.gui" visibility="public" xPosition="220.0" yPosition="550.0">
+      <Fields>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="lblInventory" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lstInventory" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="frmMenu" package="ec.edu.espe.pim.gui" visibility="public" xPosition="1900.0" yPosition="1000.0">
+      <Fields>
+        <Field name="btmExit" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btmSignIn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="lblMenu" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="pnlMenu" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="txtWelcome" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="btmSignInActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="frmSellProduct" package="ec.edu.espe.pim.gui" visibility="public" xPosition="363.0" yPosition="1636.0">
+      <Fields>
+        <Field name="service" type="PaymentService" visibility="private"/>
+        <Field name="shoeservice" type="ShoeService" visibility="private"/>
+        <Field name="btmCancel" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btmClear" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btmOK" type="javax.swing.JButton" visibility="private"/>
+        <Field name="cbxArticle1" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="cbxArticle2" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="cbxArticle3" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="cbxArticle4" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="cbxArticle5" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="cbxTypeOfPayment" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jSpinner1" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="lblAddress" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblBill" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblCity" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblName" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblProducts" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTelephone" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTelephonePIM" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblTypeOfPayment" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="pnlBill" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="spn1" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="spn2" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="spn3" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="spn4" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="spn5" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="txtName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txtTelephone" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="txtTotal" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="PaymentService" name="service"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="ShoeService" name="service"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="cbxArticle1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="cbxArticle2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="cbxArticle3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="cbxArticle4ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="cbxArticle5ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btmClearActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="frmSignIn" package="ec.edu.espe.pim.gui" visibility="public" xPosition="1869.0" yPosition="767.0">
+      <Fields>
+        <Field name="service" type="UserService" visibility="private" isFinal="true"/>
+        <Field name="btmCancel" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btmOK" type="javax.swing.JButton" visibility="private"/>
+        <Field name="cbxUsers" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="lblPassword" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblUser" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="pswrdPassword" type="javax.swing.JPasswordField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="UserService" name="service"/>
+        </Constructor>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="btmOKActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="cbxUsersActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="frmWelcomeUser" package="ec.edu.espe.pim.gui" visibility="public" xPosition="1779.0" yPosition="549.0">
+      <Fields>
+        <Field name="btmExit" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btmReturn" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btmSellProduct" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btmViewInventory" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="lblSelect" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lblWelcomeUser" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FileAdministrator" package="ec.edu.espe.pim.model" visibility="public" xPosition="1869.0" yPosition="1232.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="WriteUsersInCSV" returnType="void" visibility="public">
+          <Argument type="String" name="User"/>
+          <Argument type="String" name="Password"/>
+        </Method>
+        <Method name="WriteInventaryInCSV" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="size"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="brand"/>
+          <Argument type="float" name="price"/>
+          <Argument type="String" name="typeOfShoes"/>
+          <Argument type="int" name="stock"/>
+        </Method>
+        <Method name="readCSV" returnType="ArrayList&lt;String[]&gt;" visibility="public"/>
+        <Method name="readDataInCSV" returnType="ArrayList&lt;String[]&gt;" visibility="public"/>
+        <Method name="ErraseFile" returnType="void" visibility="public"/>
+        <Method name="updateFileInventary" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="size"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="brand"/>
+          <Argument type="float" name="price"/>
+          <Argument type="String" name="typeOfShoes"/>
+          <Argument type="int" name="stock"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Inventory" package="ec.edu.espe.pim.model" visibility="public" xPosition="1450.0" yPosition="220.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="addProduct" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Shoes&gt;" name="inventory"/>
+        </Method>
+        <Method name="deleteProduct" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Shoes&gt;" name="listOfShoes"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="showProducts" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="JsonFileAdministrator" package="ec.edu.espe.pim.model" visibility="public" xPosition="767.0" yPosition="1869.0">
+      <Fields>
+        <Field name="gson" type="Gson" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="readObjects" returnType="ArrayList&lt;Object&gt;" visibility="public">
+          <Argument type="String" name="nameClass"/>
+        </Method>
+        <Method name="addToFile" returnType="void" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="eraseJson" returnType="void" visibility="public">
+          <Argument type="String" name="nameClass"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Users" package="ec.edu.espe.pim.model" visibility="public" xPosition="999.0" yPosition="100.0">
+      <Fields>
+        <Field name="user" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="user"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUser" returnType="String" visibility="public"/>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PaymentService" package="ec.edu.espe.pim.service" visibility="public" xPosition="550.0" yPosition="1779.0">
+      <Fields>
+        <Field name="gson" type="Gson" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getTypeOfPayment" returnType="List&lt;String&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ShoeService" package="ec.edu.espe.pim.service" visibility="public" xPosition="1779.0" yPosition="1450.0">
+      <Fields>
+        <Field name="gson" type="Gson" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getShoe" returnType="List&lt;String&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserService" package="ec.edu.espe.pim.service" visibility="public" xPosition="549.0" yPosition="220.0">
+      <Fields>
+        <Field name="gson" type="Gson" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getUser" returnType="List&lt;String&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Encryption" package="ec.edu.espe.pim.utils" visibility="public" xPosition="1636.0" yPosition="363.0">
+      <Fields>
+        <Field name="character" type="char" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="encryptPassword" returnType="String" visibility="public">
+          <Argument type="String" name="Password"/>
+        </Method>
+        <Method name="decrypt" returnType="String" visibility="public">
+          <Argument type="String" name="Password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PIMSystem" package="ec.edu.espe.pim.view" visibility="public" xPosition="220.0" yPosition="1450.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProductInventoryManager" package="ec.edu.espe.pim.view" visibility="public" xPosition="100.0" yPosition="1000.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="ec.edu.espe.pim.controller.UserActivity" target="ec.edu.espe.pim.model.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.pim.controller.Bill" target="ec.edu.espe.pim.controller.ShoppingCar" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="service" source="ec.edu.espe.pim.gui.frmSignIn" target="ec.edu.espe.pim.service.UserService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="shoeservice" source="ec.edu.espe.pim.gui.frmSellProduct" target="ec.edu.espe.pim.service.ShoeService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.pim.model.Inventory" target="ec.edu.espe.pim.controller.Shoes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="paymentService" source="ec.edu.espe.pim.controller.PaymentController" target="ec.edu.espe.pim.service.PaymentService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="shoeService" source="ec.edu.espe.pim.controller.ShoeController" target="ec.edu.espe.pim.service.ShoeService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="file" source="ec.edu.espe.pim.controller.UserActivity" target="ec.edu.espe.pim.model.FileAdministrator" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cart" source="ec.edu.espe.pim.controller.UserActivity" target="ec.edu.espe.pim.controller.ShoppingCar" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ShoppingCar&gt;"/>
+    <HasRelation name="service" source="ec.edu.espe.pim.gui.frmSellProduct" target="ec.edu.espe.pim.service.PaymentService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userActivity" source="ec.edu.espe.pim.controller.SignIn" target="ec.edu.espe.pim.controller.UserActivity" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.pim.controller.UserActivity" target="ec.edu.espe.pim.controller.Shoes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="datafile" source="ec.edu.espe.pim.controller.SignIn" target="ec.edu.espe.pim.model.JsonFileAdministrator" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.pim.controller.UserActivity" target="ec.edu.espe.pim.controller.Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="encrypt" source="ec.edu.espe.pim.controller.SignIn" target="ec.edu.espe.pim.utils.Encryption" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="encryptPassword" source="ec.edu.espe.pim.controller.UserActivity" target="ec.edu.espe.pim.utils.Encryption" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="inventory" source="ec.edu.espe.pim.controller.UserActivity" target="ec.edu.espe.pim.model.Inventory" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="userService" source="ec.edu.espe.pim.controller.UserController" target="ec.edu.espe.pim.service.UserService" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listOfUsers" source="ec.edu.espe.pim.controller.SignIn" target="ec.edu.espe.pim.model.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Users&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
