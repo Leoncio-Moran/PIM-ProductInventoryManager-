@@ -8,7 +8,7 @@ package ec.edu.espe.pim.view;
 
 /**
  *
- * @author ismae
+ * @author S-Developers
  */
 public class JPaneStart extends javax.swing.JPanel {
 
@@ -26,24 +26,53 @@ public class JPaneStart extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1000, 670));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("° Alexandra Moscoso");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 300, 40));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Proyecto FINAL");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 300, 40));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/zapato2.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pim/images/logoPIM.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel3.setText("PIM or Product Inventory Manager is a Software created for manage a store or");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 490, 20));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel4.setText("a company. Under the teach of Edison Lascano, the group of developers are:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel5.setText("Darian Martinez");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 100, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel6.setText("Josue Merino");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 90, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel7.setText("Johao Morales");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel8.setText("Leoncio Morán");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 100, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel9.setText("Alexandra Moscoso");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -51,6 +80,12 @@ public class JPaneStart extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 
 }

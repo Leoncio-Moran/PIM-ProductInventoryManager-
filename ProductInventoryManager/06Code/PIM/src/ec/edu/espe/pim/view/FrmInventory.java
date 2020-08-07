@@ -7,7 +7,7 @@ package ec.edu.espe.pim.view;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import ec.edu.espe.pim.gui.model.For;
+import ec.edu.espe.pim.gui.model.Color;
 import ec.edu.espe.pim.gui.model.Shoe;
 import ec.edu.espe.pim.gui.model.Tipo;
 import ec.edu.espe.pim.model.Inventory;
@@ -43,7 +43,7 @@ public class FrmInventory extends javax.swing.JFrame {
         String forsJson = "";
         
         ArrayList<Tipo> tipos = new ArrayList<>();
-        ArrayList<For> fors = new ArrayList<>();
+        ArrayList<Color> fors = new ArrayList<>();
         
         Gson gson = new Gson();
         try {
@@ -71,7 +71,7 @@ public class FrmInventory extends javax.swing.JFrame {
             for (Tipo tipo : tipos) {
                 tiposComboBox.addElement(tipo.getDescription());
             }
-            //for (For for1 : fors) {
+            //for (Color for1 : fors) {
                 //forsComboBox.addElement(for1.getDescription());
             //}
             cmbType.setModel(tiposComboBox);
@@ -105,14 +105,14 @@ public class FrmInventory extends javax.swing.JFrame {
                 
             }
             //java.lang.reflect.Type tiposType = new TypeToken<ArrayList<Tipo>>() {}.getType();
-            java.lang.reflect.Type forsType = new TypeToken<ArrayList<For>>() {}.getType();
+            java.lang.reflect.Type forsType = new TypeToken<ArrayList<Color>>() {}.getType();
             //tipos = gson.fromJson(tiposJson, tiposType);
             fors = gson.fromJson(forsJson,forsType);
 
             //for (Tipo tipo : tipos) {
                 //tiposComboBox.addElement(tipo.getDescription());
             //}
-            for (For for1 : fors) {
+            for (Color for1 : fors) {
                 forsComboBox.addElement(for1.getDescription());
             }
             //cmbtipo.setModel(tiposComboBox);
@@ -399,7 +399,7 @@ public class FrmInventory extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * Color details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

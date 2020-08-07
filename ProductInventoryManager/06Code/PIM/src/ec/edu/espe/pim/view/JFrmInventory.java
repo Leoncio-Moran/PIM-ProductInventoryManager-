@@ -5,16 +5,29 @@
  */
 package ec.edu.espe.pim.view;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import ec.edu.espe.pim.controller.Shoes;
+import ec.edu.espe.pim.gui.model.Color;
 import ec.edu.espe.pim.gui.model.Shoe;
+import ec.edu.espe.pim.gui.model.Tipo;
+import ec.edu.espe.pim.model.Inventory;
 import static ec.edu.espe.pim.view.FrmInventory.container;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import static jdk.nashorn.internal.objects.NativeString.search;
 
 /**
  *
- * @author lesly
+ * @author S-Developers
  */
+
 public class JFrmInventory extends javax.swing.JFrame {
 
     private int search;
@@ -22,9 +35,102 @@ public class JFrmInventory extends javax.swing.JFrame {
     /**
      * Creates new form JFrmInventory
      */
+    private final String ruta = System.getProperties().getProperty("user.dir");
     public JFrmInventory() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
+        File archivo = null;
+        FileReader FileR = null;
+        BufferedReader BufferedR = null;
+        String tiposJson = "";
+        String forsJson = "";
+        
+        ArrayList<Tipo> tipos = new ArrayList<>();
+        ArrayList<Color> fors = new ArrayList<>();
+        
+        Gson gson = new Gson();
+        try {
+            archivo = new File(ruta + "//type.json");
+            //archivo = new File(ruta + "//for.json");
+            
+            FileR = new FileReader(archivo);
+            BufferedR = new BufferedReader(FileR);
+            String line;
+            
+            DefaultComboBoxModel tiposComboBox = new DefaultComboBoxModel();
+            //DefaultComboBoxModel forsComboBox = new DefaultComboBoxModel();
+            while ((line = BufferedR.readLine()) != null) {
+            
+                tiposJson = tiposJson + line;
+                //forsJson = forsJson + line;
+                
+            }
+            java.lang.reflect.Type tiposType = new TypeToken<ArrayList<Tipo>>() {}.getType();
+            //java.lang.reflect.Type forsType = new TypeToken<ArrayList<For>>() {
+           // }.getType();
+            tipos = gson.fromJson(tiposJson, tiposType);
+           // fors = gson.fromJson(forsJson,forsType);
+
+            for (Tipo tipo : tipos) {
+                tiposComboBox.addElement(tipo.getDescription());
+            }
+            //for (Color for1 : fors) {
+             //   forsComboBox.addElement(for1.getDescription());
+            //}
+            cmbType.setModel(tiposComboBox);
+            //cmbFor.setModel(forsComboBox);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(btnDelete, e);
+        } finally {
+            try {
+                if (null != FileR) {
+                    FileR.close();
+                }
+            } catch (IOException e2) {
+            }
+            
+        }
+         try {
+            //archivo = new File(ruta + "//type.json");
+            archivo = new File(ruta + "//color.json");
+            
+            FileR = new FileReader(archivo);
+            BufferedR = new BufferedReader(FileR);
+            String line;
+            
+            //DefaultComboBoxModel tiposComboBox = new DefaultComboBoxModel();
+            DefaultComboBoxModel forsComboBox = new DefaultComboBoxModel();
+            while ((line = BufferedR.readLine()) != null) {
+            
+                //tiposJson = tiposJson + line;
+                forsJson = forsJson + line;
+                
+            }
+            //java.lang.reflect.Type tiposType = new TypeToken<ArrayList<Tipo>>() {}.getType();
+            java.lang.reflect.Type forsType = new TypeToken<ArrayList<Color>>() {}.getType();
+            //tipos = gson.fromJson(tiposJson, tiposType);
+            fors = gson.fromJson(forsJson,forsType);
+
+            //for (Tipo tipo : tipos) {
+                //tiposComboBox.addElement(tipo.getDescription());
+            //}
+            for (Color for1 : fors) {
+                forsComboBox.addElement(for1.getDescription());
+            }
+            //cmbType.setModel(tiposComboBox);
+            cmbColor.setModel(forsComboBox);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(btnDelete, e);
+        } finally {
+            try {
+                if (null != FileR) {
+                    FileR.close();
+                }
+            } catch (IOException e2) {
+            }
+    }
+        
     }
 
     /**
@@ -43,7 +149,7 @@ public class JFrmInventory extends javax.swing.JFrame {
         txtBrand = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtColor = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
         txtSize = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btnModify = new javax.swing.JButton();
@@ -51,9 +157,12 @@ public class JFrmInventory extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnShowInventory = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        cmbFor = new javax.swing.JComboBox<>();
+        cmbColor = new javax.swing.JComboBox<>();
         cmbType = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        spnStock = new javax.swing.JSpinner();
+        btnReturn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -100,15 +209,15 @@ public class JFrmInventory extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel6.setText("COLOR:");
+        jLabel6.setText("PRICE");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
-        txtColor.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtColorKeyTyped(evt);
+                txtPriceKeyTyped(evt);
             }
         });
-        jPanel1.add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 130, -1));
+        jPanel1.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 130, -1));
 
         txtSize.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -129,7 +238,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnModifyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 120, -1));
+        jPanel1.add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 120, -1));
 
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pim/images/save.png"))); // NOI18N
         btnSave.setText("Save");
@@ -138,7 +247,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 100, 40));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 100, 40));
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pim/images/remove.png"))); // NOI18N
         btnDelete.setText("Delete");
@@ -147,7 +256,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 100, 40));
+        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 100, 40));
 
         btnShowInventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pim/images/show.png"))); // NOI18N
         btnShowInventory.setText("Show Inventory");
@@ -156,31 +265,46 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnShowInventoryActionPerformed(evt);
             }
         });
-        jPanel1.add(btnShowInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+        jPanel1.add(btnShowInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel9.setText("FOR");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 31, 20));
+        jLabel9.setText("COLOR");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 50, 20));
 
-        cmbFor.addActionListener(new java.awt.event.ActionListener() {
+        cmbColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbForActionPerformed(evt);
+                cmbColorActionPerformed(evt);
             }
         });
-        jPanel1.add(cmbFor, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 110, -1));
+        jPanel1.add(cmbColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 110, -1));
 
         cmbType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTypeActionPerformed(evt);
             }
         });
-        jPanel1.add(cmbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 110, -1));
+        jPanel1.add(cmbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 110, -1));
 
         jLabel8.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 51, 255));
         jLabel8.setText("TYPE");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel3.setText("STOCK");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
+
+        spnStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, 15, 1));
+        jPanel1.add(spnStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
+
+        btnReturn.setText("Return");
+        btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReturnMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, 40));
 
         getContentPane().add(jPanel1, "card2");
 
@@ -199,10 +323,10 @@ public class JFrmInventory extends javax.swing.JFrame {
                 a=(Shoe)container.get(i);
                 if(idfind.equalsIgnoreCase(a.getId())){
                     txtBrand.setText(a.getBrand());
-                    //txtColor.setText(a.getColor());
+                    txtPrice.setText(a.getColor());
                     txtSize.setText(a.getSize());
                     cmbType.setSelectedItem(a.getType());
-                    //cmb.setSelectedItem(a.getShoefor());
+                    cmbColor.setSelectedItem(a.getShoefor());
                     search=i;
                     break;
 
@@ -216,10 +340,10 @@ public class JFrmInventory extends javax.swing.JFrame {
         if((c<'a' || c>'z') && (c<'A') | c>'Z' && (c<'Ñ') && c !=KeyEvent.VK_SPACE)  evt.consume();
     }//GEN-LAST:event_txtBrandKeyTyped
 
-    private void txtColorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtColorKeyTyped
+    private void txtPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyTyped
         char c = evt.getKeyChar();
-        if((c<'a' || c>'z') && (c<'A') | c>'Z' && (c<'Ñ') && c !=KeyEvent.VK_SPACE)  evt.consume();
-    }//GEN-LAST:event_txtColorKeyTyped
+        if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtPriceKeyTyped
 
     private void txtSizeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSizeKeyTyped
         char c = evt.getKeyChar();
@@ -229,20 +353,20 @@ public class JFrmInventory extends javax.swing.JFrame {
     private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
         String id=txtId.getText();
         String brand=txtBrand.getText();
-        //String color=txtColor.getText();
+        String color=txtPrice.getText();
         String size=txtSize.getText();
         String type=cmbType.getSelectedItem().toString();
-        // String shoefor=cmb.getSelectedItem().toString();
+        String shoefor=cmbColor.getSelectedItem().toString();
 
-        // Shoe a=new Shoe(id,brand,color,size,type,shoefor);
-        // container.set(search, a);
+        Shoe a=new Shoe(id,brand,color,size,type,shoefor);
+        container.set(search, a);
 
         txtId.setText("");
         txtBrand.setText("");
-        //txtColor.setText("");
+        txtPrice.setText("");
         txtSize.setText("");
         cmbType.setSelectedItem("");
-        //cmb.setSelectedItem("");
+        cmbColor.setSelectedItem("");
         int i= JOptionPane.showConfirmDialog(this,"Are you sure you want to modify?");
         if ( i==0){
             JOptionPane.showMessageDialog(this,"The information has been modified");
@@ -250,33 +374,41 @@ public class JFrmInventory extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModifyActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        String id=txtId.getText();
-        String brand=txtBrand.getText();
-        //String color=txtColor.getText();
-        String size=txtSize.getText();
-        String type=cmbType.getSelectedItem().toString();
-        // String shoefor=cmb.getSelectedItem().toString();
 
-        //        Shoe classshoe=new Shoe(id,brand,color,size,type,shoefor);
-        // container.add(classshoe);
-
+        Inventory inventory = new Inventory();
+        inventory.addProduct(Integer.valueOf(txtId.getText()),
+                (Integer.valueOf(txtSize.getText())),
+                (txtBrand.getText()),
+                (cmbColor.getSelectedItem().toString()),
+                (Float.valueOf(txtPrice.getText())),
+                (cmbType.getSelectedItem().toString()),
+                (Integer)spnStock.getValue());
+        
+        System.out.println((Integer.valueOf(txtId.getText())+
+                (Integer.valueOf(txtSize.getText()))+
+                (txtBrand.getText())+
+                (cmbColor.getSelectedItem().toString())+
+                (Float.valueOf(txtPrice.getText()))+
+                (cmbType.getSelectedItem().toString())+
+                (Integer)spnStock.getValue()));
+        JOptionPane.showMessageDialog(this,"The product are saved...");
         txtId.setText("");
         txtBrand.setText("");
-        //txtColor.setText("");
+        txtPrice.setText("");
         txtSize.setText("");
         cmbType.setSelectedItem("");
-        //cmb.setSelectedItem("");
-        JOptionPane.showMessageDialog(this,"The product are saved...");
+        cmbColor.setSelectedItem("");
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         container.remove(search);
         txtId.setText("");
         txtBrand.setText("");
-        //txtColor.setText("");
+        txtPrice.setText("");
         txtSize.setText("");
         cmbType.setSelectedItem("");
-        //cmb.setSelectedItem("");
+        cmbColor.setSelectedItem("");
         JOptionPane.showMessageDialog(this,"Are you sure you want to delete this product?");
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -285,9 +417,9 @@ public class JFrmInventory extends javax.swing.JFrame {
         show.setVisible(true);
     }//GEN-LAST:event_btnShowInventoryActionPerformed
 
-    private void cmbForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbForActionPerformed
+    private void cmbColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbColorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbForActionPerformed
+    }//GEN-LAST:event_cmbColorActionPerformed
 
     private void cmbTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTypeActionPerformed
         // TODO add your handling code here:
@@ -305,6 +437,11 @@ public class JFrmInventory extends javax.swing.JFrame {
         ad.show();
     }//GEN-LAST:event_formWindowClosing
 
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+        this.setVisible(false);
+        new FrmMenuAdmin().setVisible(true);
+    }//GEN-LAST:event_btnReturnMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -312,7 +449,7 @@ public class JFrmInventory extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * Color details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -343,21 +480,24 @@ public class JFrmInventory extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnModify;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnShowInventory;
-    private javax.swing.JComboBox<String> cmbFor;
+    private javax.swing.JComboBox<String> cmbColor;
     private javax.swing.JComboBox<String> cmbType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSpinner spnStock;
     private javax.swing.JTextField txtBrand;
-    private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtSize;
     // End of variables declaration//GEN-END:variables
 }

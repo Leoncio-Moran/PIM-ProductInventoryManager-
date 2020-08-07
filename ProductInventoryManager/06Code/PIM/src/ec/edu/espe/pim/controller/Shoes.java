@@ -10,9 +10,10 @@ public class Shoes {
     private float price;
     private String shoeType;
     private int stock;
-    
-    public Shoes(int idPairOfShoes, int size, String color, String brand, float price, String shoeType, int stock) {
-        this.id = idPairOfShoes;
+    private String shoefor;
+
+    public Shoes(int id, int size, String color, String brand, float price, String shoeType, int stock) {
+        this.id = id;
         this.size = size;
         this.color = color;
         this.brand = brand;
@@ -21,15 +22,12 @@ public class Shoes {
         this.stock = stock;
     }
 
-    public Shoes() {
-    }       
-
     public int getId() {
         return id;
     }
 
-    public void setId(int idPairOfShoes) {
-        this.id = idPairOfShoes;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getSize() {
@@ -71,22 +69,28 @@ public class Shoes {
     public void setShoeType(String shoeType) {
         this.shoeType = shoeType;
     }
-        
+
     public int getStock() {
         return stock;
     }
-    
+
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getShoefor() {
+        return shoefor;
+    }
+
+    public void setShoefor(String shoefor) {
+        this.shoefor = shoefor;
     }
     
 
     @Override
     public String toString() {
-        return "\n id = " + id + ", size = " + size + ", stock ="+ stock +
-               "\n color =" + color + ", brand = " + brand + 
-               "\n price =" + price + ", shoeType =" + shoeType;
+        return "Shoes{" + "id=" + id + ", size=" + size + ", color=" + color + ", brand=" + brand + ", price=" + price + ", shoeType=" + shoeType + ", stock=" + stock + ", shoefor=" + shoefor + '}';
     }
     
-    
+   
 }

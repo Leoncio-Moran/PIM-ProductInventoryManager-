@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Alexandra Moscoso
+ * @author S-Developers
  */
 public class SignIn {
 
@@ -101,7 +101,7 @@ public class SignIn {
             switch (opt) {
                 case '1':
                     //Add Product
-                    inventory.addProduct();
+                   // inventory.addProduct();
                     break;
                 case '2':
                     //Delete;

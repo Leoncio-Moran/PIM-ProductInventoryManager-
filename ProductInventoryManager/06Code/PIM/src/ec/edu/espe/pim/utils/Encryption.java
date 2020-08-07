@@ -6,7 +6,7 @@
 package ec.edu.espe.pim.utils;
 /**
  *
- * @author Alexandra Moscoso
+ * @author S-Developers
  */
 public class Encryption {
     

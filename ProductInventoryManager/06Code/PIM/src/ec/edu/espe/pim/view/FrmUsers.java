@@ -7,7 +7,7 @@ package ec.edu.espe.pim.view;
 
 /**
  *
- * @author lesly
+ * @author S-Developers
  */
 public class FrmUsers extends javax.swing.JFrame {
 

@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author ismae
+ * @author S-Developers
  */
 public final class frmtable extends javax.swing.JFrame {
     
@@ -29,11 +29,7 @@ public final class frmtable extends javax.swing.JFrame {
 
     private void AddTabe(){
         AddUser add = new AddUser();
-        ViewUsers view = new ViewUsers();
-        inventory pn = new inventory();
         Principal.addTab("Add User", add);
-        Principal.addTab("View Users",view);
-        Principal.addTab("Inventory", pn);
         
         ;
         

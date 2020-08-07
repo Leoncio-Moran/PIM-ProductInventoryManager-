@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Alexandra Moscoso
+ * @author S-Developers
  */
 public class UserActivity {
 
@@ -180,7 +180,7 @@ public class UserActivity {
             listOfShoes.add(shoes);
         }
 
-        if (listOfShoes.stream().anyMatch((shoe) -> ((shoe.getStock() - quantity) > 0))) {            
+        if (listOfShoes.stream().anyMatch((shoe) -> ((shoe.getStock()- quantity) > 0))) {            
             return true;
         }
         System.out.println(" Insufficient quantity....");
