@@ -7,6 +7,8 @@ package ec.edu.espe.pim.view;
 
 import com.google.gson.Gson;
 import com.sun.awt.AWTUtilities;
+import ec.edu.espe.pim.controller.SignIn;
+import ec.edu.espe.pim.controller.UserActivity;
 import ec.edu.espe.pim.model.FileUsers;
 import ec.edu.espe.pim.model.Users;
 import java.awt.event.KeyEvent;
@@ -204,51 +206,28 @@ public class FrmMainLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTxtUserKeyTyped
 
     private void jbtnLogingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLogingActionPerformed
-        JSONArray jsonArray = new JSONArray();
-        Object object = null;
-        JSONParser jsonParser = new JSONParser();
+        
+        FrmMenuAdmin frmMenuAdmin = new FrmMenuAdmin();
+        FrmUserMenu frmMenuOption = new FrmUserMenu();
+        SignIn sigIn = new SignIn();
+        int flag;
 
-        //fetch fileReader ---
-        try {
-            FileReader fileReader = new FileReader("user.json");
-            object = jsonParser.parse(fileReader);
-            jsonArray = (JSONArray) object;
-            fileReader.close();
-
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR");
-
-        } catch (ParseException ex) {
-
-        }
-        JSONObject jsonObject = new JSONObject();
-
-        int size = jsonArray.size();
-
-        jsonObject.put("username", jTxtUser.getText());
-        jsonObject.put("password", pswPass.getText());
-        FrmMenuAdmin window = new FrmMenuAdmin();
-        FrmUserMenu user = new FrmUserMenu();
         if ("Admin".equals(jTxtUser.getText()) && "shoePIM".equals(pswPass.getText())) {
-            this.hide();
-            window.show();
+            frmMenuAdmin.setVisible(true);
+            dispose();
         } else {
-            for (int i = 0; i < size; i++) {
-                if (jsonObject.equals(jsonArray.get(i))) {
-                    JOptionPane.showMessageDialog(null, "PASSWORD MATCHED");
-                    this.setVisible(false);
-                    FrmUserMenu frmMenuOption = new FrmUserMenu();
-                    frmMenuOption.setVisible(true);
-                    dispose();
-                    //break;
-                } else if (i == size - 2) {
-                    JOptionPane.showMessageDialog(null, "INCORRECT USER or PASSWORD!!! ");
-                    
-                }
+            flag = sigIn.signInUser(jTxtUser.getText(), pswPass.getText());
+            if (flag == 1) {
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "ACESS !!!");
+                frmMenuOption.setVisible(true);
+                dispose();
+            } else if (flag == 2 || flag == 3) {
+                JOptionPane.showMessageDialog(null, "INCORRECT USER or PASSWORD!!! ");
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR");
             }
         }
-        
-        
 
     }
 

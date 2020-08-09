@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.pim.view;
 
+import ec.edu.espe.pim.controller.UserActivity;
 import java.io.FileReader;
 import java.io.FileWriter;
 import javax.swing.JOptionPane;
@@ -112,28 +113,13 @@ public class AddUser extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-        JSONObject jsonObject = new JSONObject();
-        JSONArray jsonArray = new JSONArray();
-        JSONParser jsonParser = new JSONParser();
-        try {
-            FileReader fileReader = new FileReader("user.json");
-            jsonArray = (JSONArray) jsonParser.parse(fileReader);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "ERROR!!");
-        }
 
-        jsonObject.put("username", txtUser.getText());
-        jsonObject.put("password", PswPass.getText());
-        jsonArray.add(jsonObject);
-        try {
-            FileWriter fileWriter = new FileWriter("user.json");
-            fileWriter.write(jsonArray.toJSONString());
-            fileWriter.close();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "ERROR!!");
-
-        }
+        UserActivity userActivity = new UserActivity();
+        userActivity.addUser(txtUser.getText(), PswPass.getText());
+        txtUser.setText("");
+        PswPass.setText("");
         JOptionPane.showMessageDialog(null, "SAVED");
+        
     }//GEN-LAST:event_btnAddUserActionPerformed
 
 

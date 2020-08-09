@@ -227,6 +227,20 @@ public class UserActivity {
         jsonFile.addToFile(user);
 
     }
+    
+    public void addUser(String person,String pass) {
+
+        Users user;
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        
+        userName = person;
+        userPass = pass;
+        
+        newPassword = encryptPassword.encryptPassword(userPass);
+        user = new Users(userName, newPassword);
+        jsonFile.addToFile(user);
+
+    }
 
     public ArrayList<Users> readUsers() {
         ArrayList<Object> object = new ArrayList<>();
