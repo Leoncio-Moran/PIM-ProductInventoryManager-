@@ -33,7 +33,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuPIM = new javax.swing.JMenu();
-        itmReturn = new javax.swing.JMenuItem();
+        itmExit = new javax.swing.JMenuItem();
         mnuProduct = new javax.swing.JMenu();
         itmInventory = new javax.swing.JMenuItem();
         mnuUser = new javax.swing.JMenu();
@@ -53,8 +53,13 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         mnuPIM.setText("PIM");
 
-        itmReturn.setText("Return");
-        mnuPIM.add(itmReturn);
+        itmExit.setText("Exit");
+        itmExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmExitActionPerformed(evt);
+            }
+        });
+        mnuPIM.add(itmExit);
 
         jMenuBar1.add(mnuPIM);
 
@@ -100,23 +105,25 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuProductMouseClicked
-       this.setVisible(false);
-       JFrmInventory in = new JFrmInventory();
-       this.hide();
-       in.show();
-      
     }//GEN-LAST:event_mnuProductMouseClicked
 
     private void itmInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmInventoryActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        JFrmInventory in = new JFrmInventory();
+        this.hide();
+        in.show();
+      
     }//GEN-LAST:event_itmInventoryActionPerformed
 
     private void mnuUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuUserMouseClicked
-        // TODO add your handling code here:
         frmtable tabe = new frmtable();
         tabe.show();
         this.hide();
     }//GEN-LAST:event_mnuUserMouseClicked
+
+    private void itmExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_itmExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,8 +162,8 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itmExit;
     private javax.swing.JMenuItem itmInventory;
-    private javax.swing.JMenuItem itmReturn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;

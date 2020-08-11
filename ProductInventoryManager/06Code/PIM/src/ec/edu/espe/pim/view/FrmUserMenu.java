@@ -23,7 +23,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jPaneMenu.setSize(90, 700);
-        JPaneStart pn = new JPaneStart();
+        JPaneAbout pn = new JPaneAbout();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
@@ -365,7 +365,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void btnInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventoryMouseClicked
         // TODO add your handling code here:
-        FrmInventory pn = new FrmInventory();
+        JFrmInventory pn = new JFrmInventory();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
@@ -376,7 +376,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
-        JPaneStart pn = new JPaneStart();
+        JPaneAbout pn = new JPaneAbout();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
@@ -432,11 +432,12 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void lblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInfoMouseClicked
         // TODO add your handling code here:
-        JPaneStart pn = new JPaneStart();
-        pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-        pn.setLocation(5, 5);
+        JPaneAbout pn = new JPaneAbout();
+        PRUEBA pi = new PRUEBA();
+        pi.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
+        //pi.setLocation(5, 5);
         JPrincipalPane.removeAll();
-        JPrincipalPane.add(pn);
+        JPrincipalPane.add(pi);
         JPrincipalPane.revalidate();
         JPrincipalPane.repaint();
     }//GEN-LAST:event_lblInfoMouseClicked

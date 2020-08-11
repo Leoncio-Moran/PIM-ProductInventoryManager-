@@ -9,6 +9,7 @@ import ec.edu.espe.pim.model.Inventory;
 import ec.edu.espe.pim.model.JsonFileAdministrator;
 import ec.edu.espe.pim.model.Users;
 import ec.edu.espe.pim.utils.Encryption;
+import ec.edu.espe.pim.view.FrmUserMenu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -80,6 +81,22 @@ public class SignIn {
             AdminMenu();
 
         }
+    }
+    
+    public int signInUser(String user ,String pass) {
+
+        userName = user;
+        userPass = pass;        
+
+            if (verifyUser(userName)) {
+                if (verifyPassword(encrypt.encryptPassword(userPass))) {
+                    return 1;
+                } else {
+                    return 2;
+                }
+            } else {
+                return 3;
+            }
     }
 
     public void AdminMenu() {

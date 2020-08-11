@@ -29,10 +29,10 @@ public final class frmtable extends javax.swing.JFrame {
 
     private void AddTabe(){
         AddUser add = new AddUser();
+        ViewUser show = new ViewUser();
         Principal.addTab("Add User", add);
-        
-        ;
-        
+        Principal.addTab("Show Users", show);
+               
         
     }
     
@@ -60,12 +60,27 @@ public final class frmtable extends javax.swing.JFrame {
         Principal.setDoubleBuffered(true);
         Principal.setOpaque(true);
         Principal.setPreferredSize(new java.awt.Dimension(550, 450));
+        Principal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PrincipalMouseClicked(evt);
+            }
+        });
         jPanel1.add(Principal, "card2");
 
         getContentPane().add(jPanel1, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrincipalMouseClicked
+        // TODO add your handling code here:
+        int index = Principal.getSelectedIndex();
+        if (index == 1){
+            Principal.removeAll();
+            AddTabe();
+            Principal.setSelectedIndex(1);
+        }
+    }//GEN-LAST:event_PrincipalMouseClicked
     
     /**
      * @param args the command line arguments

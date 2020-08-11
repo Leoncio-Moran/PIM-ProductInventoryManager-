@@ -12,7 +12,7 @@ import ec.edu.espe.pim.gui.model.Color;
 import ec.edu.espe.pim.gui.model.Shoe;
 import ec.edu.espe.pim.gui.model.Tipo;
 import ec.edu.espe.pim.model.Inventory;
-import static ec.edu.espe.pim.view.FrmInventory.container;
+//import static ec.edu.espe.pim.view.FrmInventory.container;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
@@ -247,7 +247,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 100, 40));
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 100, 40));
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pim/images/remove.png"))); // NOI18N
         btnDelete.setText("Delete");
@@ -256,7 +256,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 100, 40));
+        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 100, 40));
 
         btnShowInventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pim/images/show.png"))); // NOI18N
         btnShowInventory.setText("Show Inventory");
@@ -265,7 +265,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnShowInventoryActionPerformed(evt);
             }
         });
-        jPanel1.add(btnShowInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+        jPanel1.add(btnShowInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, 40));
 
         jLabel9.setFont(new java.awt.Font("Aharoni", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 51, 255));
@@ -304,7 +304,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                 btnReturnMouseClicked(evt);
             }
         });
-        jPanel1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, 40));
+        jPanel1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 110, 40));
 
         getContentPane().add(jPanel1, "card2");
 
@@ -319,7 +319,7 @@ public class JFrmInventory extends javax.swing.JFrame {
         if(press==10){
             String idfind=txtId.getText().trim();
             Shoe a;
-            for(int i=0; i<container.size();i++){
+            /*for(int i=0; i<container.size();i++){
                 a=(Shoe)container.get(i);
                 if(idfind.equalsIgnoreCase(a.getId())){
                     txtBrand.setText(a.getBrand());
@@ -331,7 +331,7 @@ public class JFrmInventory extends javax.swing.JFrame {
                     break;
 
                 }
-            }
+            }*/
         }
     }//GEN-LAST:event_txtIdKeyTyped
 
@@ -359,7 +359,7 @@ public class JFrmInventory extends javax.swing.JFrame {
         String shoefor=cmbColor.getSelectedItem().toString();
 
         Shoe a=new Shoe(id,brand,color,size,type,shoefor);
-        container.set(search, a);
+       // container.set(search, a);
 
         txtId.setText("");
         txtBrand.setText("");
@@ -402,7 +402,7 @@ public class JFrmInventory extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        container.remove(search);
+        //container.remove(search);
         txtId.setText("");
         txtBrand.setText("");
         txtPrice.setText("");
