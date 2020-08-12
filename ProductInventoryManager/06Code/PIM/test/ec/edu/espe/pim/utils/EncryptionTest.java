@@ -23,8 +23,8 @@ public class EncryptionTest {
     @Test
     public void testEncryptPassword() {
         Encryption encryption = new Encryption();
-        String Password = "root";
-        String expResult = "siou";
+        String Password = "pairOfShoesPIM";
+        String expResult = "qbjsPgTipftQJN";
         String result;
         result = encryption.encryptPassword(Password);
         assertEquals(expResult, result);
@@ -36,14 +36,12 @@ public class EncryptionTest {
      */
     @Test
     public void testDecrypt() {
-        System.out.println("decrypt");
-        String Password = "";
-        Encryption instance = new Encryption();
-        String expResult = "";
-        String result = instance.decrypt(Password);
+        Encryption encryption = new Encryption();
+        String Password = "tipftQJN"; 
+        String expResult = "shoesPIM";
+        String result;
+        result = encryption.decrypt(Password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
