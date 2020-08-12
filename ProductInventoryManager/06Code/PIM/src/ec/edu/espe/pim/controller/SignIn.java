@@ -5,8 +5,8 @@
  */
 package ec.edu.espe.pim.controller;
 
-import ec.edu.espe.pim.model.Inventory;
-import ec.edu.espe.pim.model.JsonFileAdministrator;
+import ec.edu.espe.pim.controller.Inventory;
+import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.model.Users;
 import ec.edu.espe.pim.utils.Encryption;
 import ec.edu.espe.pim.view.FrmUserMenu;

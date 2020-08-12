@@ -2,6 +2,8 @@
 package ec.edu.espe.pim.controller;
 
 //import ec.edu.espe.pim.model.TypeOfPayment;
+import ec.edu.espe.pim.model.Client;
+import ec.edu.espe.pim.model.ShoppingCar;
 import java.util.Date;
 import java.util.List;
 

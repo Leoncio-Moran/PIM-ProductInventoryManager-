@@ -109,14 +109,14 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
     private void itmInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmInventoryActionPerformed
         this.setVisible(false);
-        JFrmInventory in = new JFrmInventory();
+        FrmInventory in = new FrmInventory();
         this.hide();
         in.show();
       
     }//GEN-LAST:event_itmInventoryActionPerformed
 
     private void mnuUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuUserMouseClicked
-        frmtable tabe = new frmtable();
+        FrmTable tabe = new FrmTable();
         tabe.show();
         this.hide();
     }//GEN-LAST:event_mnuUserMouseClicked

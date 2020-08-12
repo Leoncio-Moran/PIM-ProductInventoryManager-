@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import com.sun.awt.AWTUtilities;
 import ec.edu.espe.pim.controller.SignIn;
 import ec.edu.espe.pim.controller.UserActivity;
-import ec.edu.espe.pim.model.FileUsers;
 import ec.edu.espe.pim.model.Users;
 import java.awt.event.KeyEvent;
 import java.io.FileReader;

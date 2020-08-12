@@ -13,12 +13,12 @@ import javax.swing.JFrame;
  *
  * @author S-Developers
  */
-public final class frmtable extends javax.swing.JFrame {
+public final class FrmTable extends javax.swing.JFrame {
     
     /**
      * Creates new form frmtable
      */
-    public frmtable() {
+    public FrmTable() {
         initComponents();
         //AWTUtilities.setWindowOpaque(this, true);
         this.setLocationRelativeTo(null);
@@ -28,8 +28,8 @@ public final class frmtable extends javax.swing.JFrame {
     }
 
     private void AddTabe(){
-        AddUser add = new AddUser();
-        ViewUser show = new ViewUser();
+        PnlAddUser add = new PnlAddUser();
+        PnlViewUser show = new PnlViewUser();
         Principal.addTab("Add User", add);
         Principal.addTab("Show Users", show);
                
@@ -49,7 +49,6 @@ public final class frmtable extends javax.swing.JFrame {
         Principal = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(628, 447));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -99,21 +98,23 @@ public final class frmtable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmtable().setVisible(true);
+                new FrmTable().setVisible(true);
             }
         });
     }

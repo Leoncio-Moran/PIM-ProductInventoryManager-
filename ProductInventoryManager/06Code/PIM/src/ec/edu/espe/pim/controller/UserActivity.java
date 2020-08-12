@@ -6,13 +6,16 @@
 package ec.edu.espe.pim.controller;
 
 import com.google.gson.Gson;
-import ec.edu.espe.pim.model.FileAdministrator;
-import ec.edu.espe.pim.model.Inventory;
-import ec.edu.espe.pim.model.JsonFileAdministrator;
+import ec.edu.espe.pim.utils.FileAdministrator;
+import ec.edu.espe.pim.controller.Inventory;
+import ec.edu.espe.pim.model.Client;
+import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.model.Users;
 import ec.edu.espe.pim.utils.Encryption;
 import java.util.ArrayList;
 import java.util.Scanner;
+import ec.edu.espe.pim.model.PairOfShoes;
+import ec.edu.espe.pim.model.ShoppingCar;
 
 /**
  *
@@ -58,16 +61,16 @@ public class UserActivity {
 
         int idToDelete;
         ArrayList<Object> object = new ArrayList<>();
-        ArrayList<Shoes> listOfShoes = new ArrayList<>();
+        ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(Shoes.class.getSimpleName());
+        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
-            Shoes shoes;
+            PairOfShoes shoes;
             String shoe = gson.toJson(obj);
-            shoes = gson.fromJson(shoe, Shoes.class);
+            shoes = gson.fromJson(shoe, PairOfShoes.class);
             listOfShoes.add(shoes);
         }
 
@@ -115,24 +118,24 @@ public class UserActivity {
         
     }
 
-    public Shoes extractProduct(int id){
-        Shoes prod = null;
+    public PairOfShoes extractProduct(int id){
+        PairOfShoes prod = null;
         
         ArrayList<Object> object = new ArrayList<>();
-        ArrayList<Shoes> listOfShoes = new ArrayList<>();
+        ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(Shoes.class.getSimpleName());
+        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
-            Shoes shoes;
+            PairOfShoes shoes;
             String shoe = gson.toJson(obj);
-            shoes = gson.fromJson(shoe, Shoes.class);
+            shoes = gson.fromJson(shoe, PairOfShoes.class);
             listOfShoes.add(shoes);
         }
         
-        for (Shoes shoe : listOfShoes) {
+        for (PairOfShoes shoe : listOfShoes) {
             if( shoe.getId() == id ){
                 prod = shoe;
                 return shoe;
@@ -146,7 +149,7 @@ public class UserActivity {
     private void addToCart(ArrayList<Integer> ids, ArrayList<Integer> quantities) {
         
         Bill bill = new Bill();
-        Shoes shoes ;
+        PairOfShoes shoes ;
         ShoppingCar car = null ;
         for(int i = 0 ; i < ids.size() ; i++){
             
@@ -167,16 +170,16 @@ public class UserActivity {
     private boolean checkStock(int quantity) {
 
         ArrayList<Object> object = new ArrayList<>();
-        ArrayList<Shoes> listOfShoes = new ArrayList<>();
+        ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(Shoes.class.getSimpleName());
+        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
-            Shoes shoes;
+            PairOfShoes shoes;
             String shoe = gson.toJson(obj);
-            shoes = gson.fromJson(shoe, Shoes.class);
+            shoes = gson.fromJson(shoe, PairOfShoes.class);
             listOfShoes.add(shoes);
         }
 
@@ -190,16 +193,16 @@ public class UserActivity {
     private boolean checkId(int id) {
 
         ArrayList<Object> object = new ArrayList<>();
-        ArrayList<Shoes> listOfShoes = new ArrayList<>();
+        ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(Shoes.class.getSimpleName());
+        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
-            Shoes shoes;
+            PairOfShoes shoes;
             String shoe = gson.toJson(obj);
-            shoes = gson.fromJson(shoe, Shoes.class);
+            shoes = gson.fromJson(shoe, PairOfShoes.class);
             listOfShoes.add(shoes);
         }
 
