@@ -5,7 +5,10 @@
  */
 package ec.edu.espe.pim.view;
 
+import ec.edu.espe.pim.controller.Bill;
+import ec.edu.espe.pim.utils.Validator;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +21,9 @@ public class PnlBill extends javax.swing.JPanel {
      */
     public PnlBill() {
         initComponents();
+        
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,7 +57,6 @@ public class PnlBill extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         btnOk = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        lblArticles = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(970, 650));
         setLayout(new java.awt.CardLayout());
@@ -94,11 +98,11 @@ public class PnlBill extends javax.swing.JPanel {
                 txtTotalKeyTyped(evt);
             }
         });
-        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 240, 150, -1));
+        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 420, 150, -1));
 
         lblTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTotal.setText("Total:");
-        jPanel1.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 60, 30));
+        jPanel1.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 60, 30));
 
         lblTelephoneClient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTelephoneClient.setText("Telephone:");
@@ -184,17 +188,18 @@ public class PnlBill extends javax.swing.JPanel {
         jTable1.setPreferredSize(new java.awt.Dimension(970, 650));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 590, 180));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 590, 180));
 
         btnOk.setText("Ok");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, -1));
 
         btnCancel.setText("Cancel");
         jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, -1, -1));
-
-        lblArticles.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblArticles.setText("Articles:");
-        jPanel1.add(lblArticles, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
 
         add(jPanel1, "card3");
     }// </editor-fold>//GEN-END:initComponents
@@ -236,6 +241,18 @@ public class PnlBill extends javax.swing.JPanel {
         if(c<'0' || c>'9') evt.consume();
     }//GEN-LAST:event_txtTotalKeyTyped
 
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        if (txtCI.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    null, "Client Id  is neccesary", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (!Validator.validateCI(txtCI.getText())) {
+            JOptionPane.showMessageDialog(
+                    null, "Client Id incorrect", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }//GEN-LAST:event_btnOkActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
@@ -249,7 +266,6 @@ public class PnlBill extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblArticles;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblLastName;

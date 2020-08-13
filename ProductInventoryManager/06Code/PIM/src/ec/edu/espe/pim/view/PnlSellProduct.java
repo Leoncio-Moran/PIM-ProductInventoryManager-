@@ -60,6 +60,7 @@ public class PnlSellProduct extends javax.swing.JPanel {
             bodyPanel.add(p,gbc);
             row++;
             if(row % 3 ==0){ colum++;row=0;}
+            bodyPanel.getComponent(0);
             
         }
         //this.bodyPanel.setSize(1050, 780);

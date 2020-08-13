@@ -290,9 +290,10 @@ public class FrmInventory extends javax.swing.JFrame {
         jLabel8.setText("TYPE");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
         jLabel3.setText("STOCK");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
 
         spnStock.setModel(new javax.swing.SpinnerNumberModel(0, 0, 15, 1));
         jPanel1.add(spnStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));

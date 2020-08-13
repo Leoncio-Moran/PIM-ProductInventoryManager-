@@ -23,9 +23,9 @@ public class PnlProduct extends javax.swing.JPanel {
         initComponents();
         this.id.setText(String.valueOf(ID));
         this.brand.setText(brand);
-        this.size.setText(type);
+        this.ShoeType1.setText(type);
         this.size.setText(String.valueOf(size));
-        this.size.setText(color);
+        this.color1.setText(color);
         this.price.setText(String.valueOf(price));
     }
     
@@ -38,6 +38,8 @@ public class PnlProduct extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         lblID2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblBrand = new javax.swing.JLabel();
@@ -52,7 +54,6 @@ public class PnlProduct extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         ShoeType1 = new javax.swing.JLabel();
         color1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -123,7 +124,7 @@ public class PnlProduct extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, 30));
 
         ShoeType1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         ShoeType1.setText("ShoeType:");
@@ -133,28 +134,12 @@ public class PnlProduct extends javax.swing.JPanel {
         color1.setText("color:");
         jPanel1.add(color1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 51));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Buy");
-        jButton2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 280, 40));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 200));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -163,8 +148,9 @@ public class PnlProduct extends javax.swing.JPanel {
     private javax.swing.JLabel color1;
     private javax.swing.JLabel id;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblBrand;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblID2;

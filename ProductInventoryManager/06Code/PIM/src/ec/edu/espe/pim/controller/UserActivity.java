@@ -8,7 +8,7 @@ package ec.edu.espe.pim.controller;
 import com.google.gson.Gson;
 import ec.edu.espe.pim.utils.FileAdministrator;
 import ec.edu.espe.pim.controller.Inventory;
-import ec.edu.espe.pim.model.Client;
+import ec.edu.espe.pim.model.Customer;
 import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.model.Users;
 import ec.edu.espe.pim.utils.Encryption;
@@ -299,9 +299,9 @@ public class UserActivity {
 
     }
     
-    public Client clientData(){
+    public Customer clientData(){
         
-        Client client =  new Client();
+        Customer client =  new Customer();
         in.nextLine();
         System.out.println("Input the name: ");
         client.setName(in.nextLine());
