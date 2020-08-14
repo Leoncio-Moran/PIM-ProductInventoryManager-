@@ -169,11 +169,26 @@ public class UserActivity {
         Gson gson = new Gson();
         object = jsonFile.readObjects(ShoppingCar.class.getSimpleName());
         
+<<<<<<< HEAD
         for(Object obj : object){
             ShoppingCar shoes;
             String shoe = gson.toJson(obj);
             shoes = gson.fromJson(shoe, ShoppingCar.class);
             listOfShoes.add(shoes);
+=======
+        Bill bill = new Bill();
+        PairOfShoes shoes ;
+        ShoppingCar car = null ;
+        for(int i = 0 ; i < ids.size() ; i++){
+            
+            shoes = extractProduct(ids.get(i));
+            
+            car = new ShoppingCar(
+                    quantities.get(i), //quanttities
+                    (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()), // Product
+                    (quantities.get(i) * shoes.getPrice()) ); //  total price
+           cart.add(car);
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
         }
         //System.out.println(listOfShoes.toString());
         return listOfShoes;

@@ -100,7 +100,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnInventoryMouseClicked
 
+<<<<<<< HEAD
     private void btnUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseClicked
+=======
+    private void mnuUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuUserMouseClicked
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
         FrmTable tabe = new FrmTable();
         tabe.show();
         this.hide();

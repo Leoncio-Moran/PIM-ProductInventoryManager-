@@ -439,11 +439,16 @@ public class FrmInventory extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+<<<<<<< HEAD
         FrmMenuAdmin admin = new FrmMenuAdmin();
         admin.show();
         this.hide();
         this.setVisible(false);
         
+=======
+        this.setVisible(false);
+        new FrmMenuAdmin().setVisible(true);
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
     }//GEN-LAST:event_btnReturnMouseClicked
 
     /**

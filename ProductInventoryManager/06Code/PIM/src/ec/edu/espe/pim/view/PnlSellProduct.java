@@ -10,6 +10,11 @@ import ec.edu.espe.pim.controller.Inventory;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+<<<<<<< HEAD
+=======
+import java.awt.GridLayout;
+import java.awt.Insets;
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
 import java.util.ArrayList;
 
 /**
@@ -52,12 +57,17 @@ public class PnlSellProduct extends javax.swing.JPanel {
             gbc.weightx= 1;
             gbc.weighty = 1;
             //gbc.insets = new Insets(10, 50, 50, 50);
+<<<<<<< HEAD
             PnlProduct p = new PnlProduct(shoe.getId(),shoe.getBrand(), shoe.getShoeType() , shoe.getSize(), shoe.getColor(),shoe.getPrice(),shoe.getStock());
+=======
+            PnlProduct p = new PnlProduct(shoe.getId(),shoe.getBrand(), shoe.getShoeType() , shoe.getSize(), shoe.getColor(),shoe.getPrice());
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
             //p.set
             //p.setPreferredSize(new Dimension(276, 186));
             bodyPanel.add(p,gbc);
             row++;
             if(row % 3 ==0){ colum++;row=0;}
+<<<<<<< HEAD
             //bodyPanel.getComponent(0);
             
         }
@@ -65,6 +75,12 @@ public class PnlSellProduct extends javax.swing.JPanel {
         this.bodyPanel.setPreferredSize(newsize);
         //this.jScrollPane1.setPreferredSize(newsize);
         //this.jPanel2.setPreferredSize(newsize);
+=======
+            bodyPanel.getComponent(0);
+            
+        }
+        //this.bodyPanel.setSize(1050, 780);
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
        
     }
 
@@ -78,6 +94,7 @@ public class PnlSellProduct extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+<<<<<<< HEAD
         jScrollPane1 = new javax.swing.JScrollPane();
         bodyPanel = new javax.swing.JPanel();
 
@@ -110,11 +127,53 @@ public class PnlSellProduct extends javax.swing.JPanel {
         jPanel2.add(jScrollPane1, "card2");
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, 590));
+=======
+        btnShop = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bodyPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setMaximumSize(new java.awt.Dimension(1018, 548));
+        setMinimumSize(new java.awt.Dimension(1018, 548));
+        setPreferredSize(new java.awt.Dimension(1018, 548));
+        setLayout(new java.awt.CardLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnShop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cart.png"))); // NOI18N
+        jPanel2.add(btnShop, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 70, 70));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 51)));
+        jScrollPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(890, 600));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(890, 800));
+
+        bodyPanel.setBackground(new java.awt.Color(0, 0, 0));
+        bodyPanel.setMaximumSize(new java.awt.Dimension(817, 650));
+        bodyPanel.setMinimumSize(new java.awt.Dimension(817, 650));
+        bodyPanel.setPreferredSize(new java.awt.Dimension(817, 650));
+        bodyPanel.setLayout(new java.awt.GridBagLayout());
+        jScrollPane1.setViewportView(bodyPanel);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 840, 500));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo.jpg"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, -1));
+
+        add(jPanel2, "card2");
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bodyPanel;
+<<<<<<< HEAD
+=======
+    private javax.swing.JLabel btnShop;
+    private javax.swing.JLabel jLabel2;
+>>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
