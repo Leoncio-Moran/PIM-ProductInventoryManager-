@@ -45,10 +45,7 @@ public final class FrmTable extends javax.swing.JFrame {
         Principal = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-<<<<<<< HEAD
         setBackground(new java.awt.Color(255, 255, 255));
-=======
->>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));

@@ -7,12 +7,7 @@ package ec.edu.espe.pim.view;
 
 import com.sun.awt.AWTUtilities;
 import ec.edu.espe.pim.controller.SignIn;
-<<<<<<< HEAD
 import java.awt.Color;
-=======
-import ec.edu.espe.pim.controller.UserActivity;
-import ec.edu.espe.pim.model.Users;
->>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 

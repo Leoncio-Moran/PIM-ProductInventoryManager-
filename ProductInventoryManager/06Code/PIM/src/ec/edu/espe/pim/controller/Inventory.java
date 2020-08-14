@@ -80,7 +80,6 @@ public class Inventory {
         
     }
     
-<<<<<<< HEAD
     public void discount(ArrayList<PairOfShoes> listOfShoes,int id,int quanty){
         int newStock;
         for (int i = 0; i < listOfShoes.size() ; i++) {
@@ -96,8 +95,6 @@ public class Inventory {
         
     }
     
-=======
->>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
     public void showProducts(){
         
         ArrayList<Object> object = new ArrayList<>();

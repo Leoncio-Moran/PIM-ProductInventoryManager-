@@ -399,13 +399,8 @@ public class FrmUserMenu extends javax.swing.JFrame {
     private void lblSellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSellMouseClicked
         // TODO add your handling code here:
         PnlSellProduct pn = new PnlSellProduct();
-<<<<<<< HEAD
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         pn.setLocation(5, 5);
-=======
-       // pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-       // pn.setLocation(5, 5);
->>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
@@ -427,13 +422,8 @@ public class FrmUserMenu extends javax.swing.JFrame {
     private void lblInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInventoryMouseClicked
         // TODO add your handling code here:
         PnlBill pn = new PnlBill();
-<<<<<<< HEAD
         //pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         //pn.setLocation(5, 5);
-=======
-        pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-        pn.setLocation(5, 5);
->>>>>>> ac6b33721e6a8b8b48a003e055f9f2de701c9298
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
