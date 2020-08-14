@@ -5,7 +5,8 @@
  */
 package ec.edu.espe.pim.model;
 
-import ec.edu.espe.pim.controller.Shoes;
+import ec.edu.espe.pim.controller.Inventory;
+import ec.edu.espe.pim.model.PairOfShoes;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;

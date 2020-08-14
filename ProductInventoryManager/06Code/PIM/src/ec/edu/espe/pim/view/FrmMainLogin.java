@@ -5,22 +5,11 @@
  */
 package ec.edu.espe.pim.view;
 
-import com.google.gson.Gson;
 import com.sun.awt.AWTUtilities;
 import ec.edu.espe.pim.controller.SignIn;
-import ec.edu.espe.pim.controller.UserActivity;
-import ec.edu.espe.pim.model.FileUsers;
-import ec.edu.espe.pim.model.Users;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -35,10 +24,11 @@ public class FrmMainLogin extends javax.swing.JFrame {
     private final String ruta = System.getProperties().getProperty("user.dir");
 
     public FrmMainLogin() {
+        this.setUndecorated(true);
         initComponents();
-        AWTUtilities.setWindowOpaque(this, true);
+        AWTUtilities.setWindowOpaque(this, false);
         this.setLocationRelativeTo(null);
-
+        this.jTxtUser.setFocusable(true);
     }
 
     /**
@@ -50,25 +40,33 @@ public class FrmMainLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         JPanelBackground = new javax.swing.JPanel();
         jUser = new javax.swing.JLabel();
         jUser1 = new javax.swing.JLabel();
         jTxtUser = new javax.swing.JTextField();
         jbtnLoging = new javax.swing.JButton();
-        lblClose = new javax.swing.JLabel();
         pswPass = new javax.swing.JPasswordField();
         lblClose1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+
+        jLabel1.setText("jLabel1");
 
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setForeground(new java.awt.Color(102, 102, 255));
+        setForeground(new java.awt.Color(240, 240, 240));
         setUndecorated(true);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JPanelBackground.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cool.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 440));
+
+        JPanelBackground.setBackground(new java.awt.Color(255, 255, 255));
+        JPanelBackground.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPanelBackground.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JPanelBackgroundMouseDragged(evt);
@@ -84,25 +82,24 @@ public class FrmMainLogin extends javax.swing.JFrame {
         jUser.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jUser.setText("Password:");
-        JPanelBackground.add(jUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 130, 40));
+        JPanelBackground.add(jUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 130, 40));
 
         jUser1.setBackground(new java.awt.Color(0, 0, 0));
         jUser1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jUser1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jUser1.setText("User name:");
-        JPanelBackground.add(jUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 140, 40));
+        JPanelBackground.add(jUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 140, 40));
 
-        jTxtUser.setBackground(new java.awt.Color(51, 51, 51));
-        jTxtUser.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTxtUser.setBorder(null);
         jTxtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTxtUserKeyTyped(evt);
             }
         });
-        JPanelBackground.add(jTxtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 320, 40));
+        JPanelBackground.add(jTxtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 230, 40));
 
-        jbtnLoging.setBackground(new java.awt.Color(153, 255, 153));
+        jbtnLoging.setBackground(new java.awt.Color(255, 255, 102));
         jbtnLoging.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jbtnLoging.setText("Login");
         jbtnLoging.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,28 +112,20 @@ public class FrmMainLogin extends javax.swing.JFrame {
                 jbtnLogingActionPerformed(evt);
             }
         });
-        JPanelBackground.add(jbtnLoging, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 100, 40));
+        JPanelBackground.add(jbtnLoging, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 100, 30));
 
-        lblClose.setBackground(new java.awt.Color(51, 51, 51));
-        lblClose.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblClose.setForeground(new java.awt.Color(255, 255, 255));
-        lblClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblClose.setText("_");
-        lblClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCloseMouseClicked(evt);
+        pswPass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        pswPass.setBorder(null);
+        pswPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pswPassKeyTyped(evt);
             }
         });
-        JPanelBackground.add(lblClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, -10, 30, 30));
-
-        pswPass.setBackground(new java.awt.Color(51, 51, 51));
-        pswPass.setForeground(new java.awt.Color(255, 255, 255));
-        pswPass.setBorder(null);
-        JPanelBackground.add(pswPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 320, 40));
+        JPanelBackground.add(pswPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 230, 40));
 
         lblClose1.setBackground(new java.awt.Color(255, 255, 255));
         lblClose1.setFont(new java.awt.Font("Tahoma", 0, 23)); // NOI18N
-        lblClose1.setForeground(new java.awt.Color(255, 255, 255));
+        lblClose1.setForeground(new java.awt.Color(51, 51, 51));
         lblClose1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblClose1.setText("X");
         lblClose1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,19 +133,12 @@ public class FrmMainLogin extends javax.swing.JFrame {
                 lblClose1MouseClicked(evt);
             }
         });
-        JPanelBackground.add(lblClose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 20, 30));
+        JPanelBackground.add(lblClose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 20, 30));
         JPanelBackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
+        JPanelBackground.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 230, 20));
+        JPanelBackground.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 230, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/IconLogin.png"))); // NOI18N
-        JPanelBackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 590, 430));
-
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("PRODUCT INVENTORY MANAGER");
-        JPanelBackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 20));
-
-        getContentPane().add(JPanelBackground);
+        getContentPane().add(JPanelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 490, 190));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,11 +154,6 @@ public class FrmMainLogin extends javax.swing.JFrame {
         x = evt.getX();
         y = evt.getY();
     }//GEN-LAST:event_JPanelBackgroundMouseClicked
-
-    private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
-
-        System.exit(0);
-    }//GEN-LAST:event_lblCloseMouseClicked
 
     private void jbtnLogingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnLogingMouseClicked
 
@@ -259,6 +236,10 @@ public class FrmMainLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jbtnLogingActionPerformed
 
+    private void pswPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswPassKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pswPassKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -299,12 +280,13 @@ public class FrmMainLogin extends javax.swing.JFrame {
     private javax.swing.JPanel JPanelBackground;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTxtUser;
     private javax.swing.JLabel jUser;
     private javax.swing.JLabel jUser1;
     private javax.swing.JButton jbtnLoging;
-    private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblClose1;
     private javax.swing.JPasswordField pswPass;
     // End of variables declaration//GEN-END:variables

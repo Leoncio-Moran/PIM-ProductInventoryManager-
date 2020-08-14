@@ -5,9 +5,8 @@
  */
 package ec.edu.espe.pim.view;
 
-import ec.edu.espe.pim.controller.Shoes;
-import ec.edu.espe.pim.gui.model.Shoe;
-import ec.edu.espe.pim.model.Inventory;
+import ec.edu.espe.pim.model.PairOfShoes;
+import ec.edu.espe.pim.controller.Inventory;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,12 +37,12 @@ public class FrmData extends javax.swing.JFrame {
     public void ChargeData(){
         
         Inventory inventory = new Inventory();
-        ArrayList<Shoes> data = inventory.showProduct();
+        ArrayList<PairOfShoes> data = inventory.showProduct();
         DefaultTableModel model = (DefaultTableModel)this.tblInventory.getModel();
         int filas = 0;
             
         
-        for(Shoes shoe : data){
+        for(PairOfShoes shoe : data){
             Object [] fila = new Object [7];
             fila[0] = shoe.getId();
             fila[1] = shoe.getSize();
@@ -124,7 +123,7 @@ public class FrmData extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         this.setVisible(false);
-        new JFrmInventory().setVisible(true);
+        new FrmInventory().setVisible(true);
     }//GEN-LAST:event_btnReturnActionPerformed
 
     /**

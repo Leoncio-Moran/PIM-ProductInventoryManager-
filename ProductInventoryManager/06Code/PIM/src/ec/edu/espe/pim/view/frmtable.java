@@ -5,20 +5,16 @@
  */
 package ec.edu.espe.pim.view;
 
-import com.sun.awt.AWTUtilities;
-import java.awt.Color;
-import javax.swing.JFrame;
-
 /**
  *
  * @author S-Developers
  */
-public final class frmtable extends javax.swing.JFrame {
+public final class FrmTable extends javax.swing.JFrame {
     
     /**
      * Creates new form frmtable
      */
-    public frmtable() {
+    public FrmTable() {
         initComponents();
         //AWTUtilities.setWindowOpaque(this, true);
         this.setLocationRelativeTo(null);
@@ -28,8 +24,8 @@ public final class frmtable extends javax.swing.JFrame {
     }
 
     private void AddTabe(){
-        AddUser add = new AddUser();
-        ViewUser show = new ViewUser();
+        PnlAddUser add = new PnlAddUser();
+        PnlViewUser show = new PnlViewUser();
         Principal.addTab("Add User", add);
         Principal.addTab("Show Users", show);
                
@@ -49,14 +45,14 @@ public final class frmtable extends javax.swing.JFrame {
         Principal = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(628, 447));
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new java.awt.CardLayout());
 
-        Principal.setBackground(new java.awt.Color(102, 102, 102));
+        Principal.setBackground(new java.awt.Color(255, 255, 255));
         Principal.setDoubleBuffered(true);
         Principal.setOpaque(true);
         Principal.setPreferredSize(new java.awt.Dimension(550, 450));
@@ -73,7 +69,6 @@ public final class frmtable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrincipalMouseClicked
-        // TODO add your handling code here:
         int index = Principal.getSelectedIndex();
         if (index == 1){
             Principal.removeAll();
@@ -99,21 +94,23 @@ public final class frmtable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmtable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmtable().setVisible(true);
+                new FrmTable().setVisible(true);
             }
         });
     }

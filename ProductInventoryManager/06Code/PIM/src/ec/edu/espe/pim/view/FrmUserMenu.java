@@ -6,7 +6,12 @@
 package ec.edu.espe.pim.view;
 
 import java.awt.BorderLayout;
+import java.awt.Image;
+import javax.annotation.Resources;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sun.swing.ImageIconUIResource;
 
 /**
  *
@@ -23,13 +28,16 @@ public class FrmUserMenu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jPaneMenu.setSize(90, 700);
-        JPaneAbout pn = new JPaneAbout();
+        PnlAbout pn = new PnlAbout();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
         JPrincipalPane.repaint();
+        Icon icon = lbllogo.getIcon();
+        ImageIcon img = new ImageIcon("src/Resources/logo.jpg");
+        this.lbllogo.setIcon(new ImageIcon(img.getImage().getScaledInstance(lbllogo.getWidth(), lbllogo.getHeight(), Image.SCALE_SMOOTH)));
     }
 
     /**
@@ -64,7 +72,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
         UpperPane = new javax.swing.JPanel();
         lblClose = new javax.swing.JLabel();
         lblMin = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lbllogo = new javax.swing.JLabel();
         JPrincipalPane = new javax.swing.JPanel();
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -288,15 +296,18 @@ public class FrmUserMenu extends javax.swing.JFrame {
         });
         UpperPane.add(lblMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, 30, 20));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("P    I   M ");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        UpperPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+        lbllogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Logo.jpg"))); // NOI18N
+        lbllogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        UpperPane.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 310, 60));
 
-        jPanel1.add(UpperPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 50));
+        jPanel1.add(UpperPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 70));
 
         JPrincipalPane.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(JPrincipalPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 970, 650));
+        JPrincipalPane.setAlignmentX(0.0F);
+        JPrincipalPane.setAlignmentY(0.0F);
+        JPrincipalPane.setLayout(new java.awt.CardLayout());
+        jPanel1.add(JPrincipalPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 970, 630));
 
         getContentPane().add(jPanel1, "card4");
 
@@ -365,7 +376,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void btnInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventoryMouseClicked
         // TODO add your handling code here:
-        JFrmInventory pn = new JFrmInventory();
+        FrmInventory pn = new FrmInventory();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
@@ -376,7 +387,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
-        JPaneAbout pn = new JPaneAbout();
+        PnlAbout pn = new PnlAbout();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
@@ -387,9 +398,9 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void lblSellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSellMouseClicked
         // TODO add your handling code here:
-        FrmSellProduct pn = new FrmSellProduct();
-       // pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-       // pn.setLocation(5, 5);
+        PnlSellProduct pn = new PnlSellProduct();
+        pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
+        pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
@@ -410,9 +421,9 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void lblInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInventoryMouseClicked
         // TODO add your handling code here:
-        Bill pn = new Bill();
-        pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-        pn.setLocation(5, 5);
+        PnlBill pn = new PnlBill();
+        //pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
+        //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
@@ -421,7 +432,7 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void lblBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBillMouseClicked
         // TODO add your handling code here:
-        FrmInventoryUser pn = new FrmInventoryUser();
+        PnlInventoryUser pn = new PnlInventoryUser();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
@@ -432,12 +443,12 @@ public class FrmUserMenu extends javax.swing.JFrame {
 
     private void lblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInfoMouseClicked
         // TODO add your handling code here:
-        JPaneAbout pn = new JPaneAbout();
-        PRUEBA pi = new PRUEBA();
-        pi.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
+        PnlAbout pn = new PnlAbout();
+        pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         //pi.setLocation(5, 5);
+        pn.setVisible(true);
         JPrincipalPane.removeAll();
-        JPrincipalPane.add(pi);
+        JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
         JPrincipalPane.repaint();
     }//GEN-LAST:event_lblInfoMouseClicked
@@ -483,7 +494,6 @@ public class FrmUserMenu extends javax.swing.JFrame {
     private javax.swing.JPanel UpperPane;
     private javax.swing.JPanel btnInventory;
     private javax.swing.JLabel btnMenu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
@@ -504,5 +514,6 @@ public class FrmUserMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblReturn;
     private javax.swing.JLabel lblSell;
+    private javax.swing.JLabel lbllogo;
     // End of variables declaration//GEN-END:variables
 }

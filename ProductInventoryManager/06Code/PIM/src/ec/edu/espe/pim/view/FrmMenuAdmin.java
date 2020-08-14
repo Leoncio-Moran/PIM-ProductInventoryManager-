@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.pim.view;
 
+import com.sun.awt.AWTUtilities;
+
 /**
  *
  * @author S-Developers
@@ -15,7 +17,9 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
      * Creates new form FrmMenu
      */
     public FrmMenuAdmin() {
+        this.setUndecorated(true);
         initComponents();
+        AWTUtilities.setWindowOpaque(this, false);
         this.setLocationRelativeTo(null);
     }
 
@@ -28,17 +32,19 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        mnuPIM = new javax.swing.JMenu();
-        itmExit = new javax.swing.JMenuItem();
-        mnuProduct = new javax.swing.JMenu();
-        itmInventory = new javax.swing.JMenuItem();
-        mnuUser = new javax.swing.JMenu();
+        btnExit = new javax.swing.JButton();
+        btnInventory = new javax.swing.JButton();
+        btnUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/admin.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 210, 220));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,84 +52,63 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 50)); // NOI18N
         jLabel2.setText("Welcome Admin");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 440, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 440, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/shoeAdmin.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 280, 360));
-
-        mnuPIM.setText("PIM");
-
-        itmExit.setText("Exit");
-        itmExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmExitActionPerformed(evt);
-            }
-        });
-        mnuPIM.add(itmExit);
-
-        jMenuBar1.add(mnuPIM);
-
-        mnuProduct.setText("Products");
-        mnuProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnExit.setBackground(new java.awt.Color(102, 0, 0));
+        btnExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Exit");
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnuProductMouseClicked(evt);
+                btnExitMouseClicked(evt);
             }
         });
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 70, 40));
 
-        itmInventory.setText("Inventory");
-        itmInventory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmInventoryActionPerformed(evt);
-            }
-        });
-        mnuProduct.add(itmInventory);
-
-        jMenuBar1.add(mnuProduct);
-
-        mnuUser.setText("Users");
-        mnuUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnInventory.setBackground(new java.awt.Color(0, 51, 204));
+        btnInventory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
+        btnInventory.setText("Inventory");
+        btnInventory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnuUserMouseClicked(evt);
+                btnInventoryMouseClicked(evt);
             }
         });
-        jMenuBar1.add(mnuUser);
+        jPanel1.add(btnInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 100, 40));
 
-        setJMenuBar(jMenuBar1);
+        btnUser.setBackground(new java.awt.Color(51, 153, 0));
+        btnUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnUser.setText("Users");
+        btnUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUserMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 70, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 560, 140));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnuProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuProductMouseClicked
-    }//GEN-LAST:event_mnuProductMouseClicked
-
-    private void itmInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmInventoryActionPerformed
+    private void btnInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInventoryMouseClicked
         this.setVisible(false);
-        JFrmInventory in = new JFrmInventory();
+        FrmInventory in = new FrmInventory();
         this.hide();
         in.show();
-      
-    }//GEN-LAST:event_itmInventoryActionPerformed
+        
+    }//GEN-LAST:event_btnInventoryMouseClicked
 
-    private void mnuUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuUserMouseClicked
-        frmtable tabe = new frmtable();
+    private void btnUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserMouseClicked
+        FrmTable tabe = new FrmTable();
         tabe.show();
         this.hide();
-    }//GEN-LAST:event_mnuUserMouseClicked
+    }//GEN-LAST:event_btnUserMouseClicked
 
-    private void itmExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmExitActionPerformed
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_itmExitActionPerformed
+    }//GEN-LAST:event_btnExitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -162,14 +147,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem itmExit;
-    private javax.swing.JMenuItem itmInventory;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnInventory;
+    private javax.swing.JButton btnUser;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenu mnuPIM;
-    private javax.swing.JMenu mnuProduct;
-    private javax.swing.JMenu mnuUser;
     // End of variables declaration//GEN-END:variables
 }
