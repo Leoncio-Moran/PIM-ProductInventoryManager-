@@ -275,11 +275,11 @@ public class PnlBill extends javax.swing.JPanel {
         tempFile.eraseJson(ShoppingCar.class.getSimpleName());
         if (txtId.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(
-                    null, "", "Error", JOptionPane.ERROR_MESSAGE);
+                    null, "Enter your Id", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else if (!Validator.validateCI(txtId.getText())) {
             JOptionPane.showMessageDialog(
-                    null, "Incorrect ID, try again", "Error", JOptionPane.ERROR_MESSAGE);
+                    null, "Incorrect Id, try again", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
     }//GEN-LAST:event_btnOkActionPerformed
