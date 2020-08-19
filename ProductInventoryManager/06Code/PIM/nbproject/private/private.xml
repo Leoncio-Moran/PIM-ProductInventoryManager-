@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/usuario/escritorio/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/FrmUserMenu.java</file>
             <file>file:/D:/usuario/escritorio/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/FrmInventory.java</file>
             <file>file:/D:/usuario/escritorio/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/PnlInventoryUser.java</file>
@@ -15,6 +16,10 @@
             <file>file:/D:/usuario/escritorio/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/PnlBill.java</file>
             <file>file:/D:/usuario/escritorio/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/FrmData.java</file>
             <file>file:/D:/usuario/escritorio/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/PIMSystem.java</file>
+=======
+            <file>file:/C:/Users/lesly/Desktop/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/PnlAddUser.java</file>
+            <file>file:/C:/Users/lesly/Desktop/PIM2/PIM2/PIM/src/ec/edu/espe/pim/view/PnlBill.java</file>
+>>>>>>> 41b11aba43c4b66af9c7d7f9a62b5db4ec40b02b
         </group>
     </open-files>
 </project-private>
