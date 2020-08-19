@@ -37,7 +37,6 @@ public class PnlAddUser extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAddUser = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         lblPass = new javax.swing.JLabel();
@@ -45,24 +44,13 @@ public class PnlAddUser extends javax.swing.JPanel {
         txtUser = new javax.swing.JTextField();
         PswPass = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
+        btnAddUser = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 255, 255));
         setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         setMinimumSize(new java.awt.Dimension(690, 190));
         setPreferredSize(new java.awt.Dimension(550, 450));
         setLayout(null);
-
-        btnAddUser.setBackground(new java.awt.Color(51, 51, 255));
-        btnAddUser.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        btnAddUser.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddUser.setText("Add new user");
-        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddUserActionPerformed(evt);
-            }
-        });
-        add(btnAddUser);
-        btnAddUser.setBounds(170, 340, 200, 50);
 
         jSeparator1.setBackground(new java.awt.Color(102, 102, 102));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,25 +62,23 @@ public class PnlAddUser extends javax.swing.JPanel {
         add(jSeparator2);
         jSeparator2.setBounds(180, 220, 300, 20);
 
-        lblPass.setBackground(new java.awt.Color(102, 102, 102));
+        lblPass.setBackground(new java.awt.Color(255, 255, 255));
         lblPass.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblPass.setForeground(new java.awt.Color(255, 255, 255));
         lblPass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPass.setText("Password :");
         add(lblPass);
         lblPass.setBounds(30, 270, 130, 20);
 
-        lblUserName.setBackground(new java.awt.Color(102, 102, 102));
+        lblUserName.setBackground(new java.awt.Color(255, 255, 255));
         lblUserName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblUserName.setForeground(new java.awt.Color(255, 255, 255));
         lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserName.setText("User name:");
         lblUserName.setOpaque(true);
         add(lblUserName);
         lblUserName.setBounds(30, 180, 140, 40);
 
-        txtUser.setBackground(new java.awt.Color(102, 102, 102));
-        txtUser.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUser.setBorder(null);
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,9 +93,7 @@ public class PnlAddUser extends javax.swing.JPanel {
         add(txtUser);
         txtUser.setBounds(180, 180, 300, 40);
 
-        PswPass.setBackground(new java.awt.Color(102, 102, 102));
         PswPass.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        PswPass.setForeground(new java.awt.Color(255, 255, 255));
         PswPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PswPass.setToolTipText("Password");
         PswPass.setBorder(null);
@@ -121,17 +105,19 @@ public class PnlAddUser extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/adduser.png"))); // NOI18N
         add(jLabel3);
         jLabel3.setBounds(210, 20, 150, 140);
+
+        btnAddUser.setBackground(new java.awt.Color(51, 51, 255));
+        btnAddUser.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnAddUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddUser.setText("Add new user");
+        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddUserActionPerformed(evt);
+            }
+        });
+        add(btnAddUser);
+        btnAddUser.setBounds(160, 340, 200, 50);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-
-        UserActivity userActivity = new UserActivity();
-        userActivity.addUser(txtUser.getText(), PswPass.getText());
-        txtUser.setText("");
-        PswPass.setText("");
-        JOptionPane.showMessageDialog(null, "SAVED");
-        
-    }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         
@@ -143,6 +129,14 @@ public class PnlAddUser extends javax.swing.JPanel {
             evt.consume();
         }
     }//GEN-LAST:event_txtUserKeyTyped
+
+    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+       UserActivity userActivity = new UserActivity();
+       userActivity.addUser(txtUser.getText(), PswPass.getText());
+       txtUser.setText("");
+       PswPass.setText("");
+       JOptionPane.showMessageDialog(null, "SAVED");
+    }//GEN-LAST:event_btnAddUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,7 +8,7 @@ package ec.edu.espe.pim.controller;
 import com.google.gson.Gson;
 import ec.edu.espe.pim.utils.FileAdministrator;
 import ec.edu.espe.pim.controller.Inventory;
-import ec.edu.espe.pim.model.Client;
+import ec.edu.espe.pim.model.Customer;
 import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.model.Users;
 import ec.edu.espe.pim.utils.Encryption;
@@ -113,8 +113,24 @@ public class UserActivity {
             
         } while (addMore);
         
+                //
+        //addToCart(ids, quantities);
+        
+    }
+    
+    public void sellProduct(int id,int cant) {
+
+        ArrayList<Integer> ids = new ArrayList<>();
+        ArrayList<Integer> quantities = new ArrayList<>();
+        //int id;
+        int quantity;
+        //boolean addMore = false;
+        char opt;
+        
+        ids.add(id);
+        quantities.add(cant);       
                 
-        addToCart(ids, quantities);
+        //addToCart(ids, quantities);
         
     }
 
@@ -146,28 +162,40 @@ public class UserActivity {
         //return null;
     }
     
-    private void addToCart(ArrayList<Integer> ids, ArrayList<Integer> quantities) {
+    public ArrayList<ShoppingCar> extractCart(){
+        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<ShoppingCar> listOfShoes = new ArrayList<>();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        Gson gson = new Gson();
+        object = jsonFile.readObjects(ShoppingCar.class.getSimpleName());
         
-        Bill bill = new Bill();
-        PairOfShoes shoes ;
-        ShoppingCar car = null ;
-        for(int i = 0 ; i < ids.size() ; i++){
-            
-            shoes = extractProduct(ids.get(i));
-            
-            car = new ShoppingCar(
-                    quantities.get(i), //quanttities
-                    (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()), // Product
-                    (quantities.get(i) * shoes.getPrice()) ); //  total price
-           cart.add(car);
+        for(Object obj : object){
+            ShoppingCar shoes;
+            String shoe = gson.toJson(obj);
+            shoes = gson.fromJson(shoe, ShoppingCar.class);
+            listOfShoes.add(shoes);
         }
+        //System.out.println(listOfShoes.toString());
+        return listOfShoes;
+    }
+    
+    public void addToCart(int id, int quantities) {
         
+        JsonFileAdministrator tempFile = new JsonFileAdministrator();
+        PairOfShoes shoes ;
+        ShoppingCar car;
         
-        bill.clientBill(cart, clientData());
+        shoes = extractProduct(id);
+        car = new ShoppingCar(
+                quantities,
+                (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()),
+                quantities*shoes.getPrice());
+        
+        tempFile.addToFile(car);      
         
     }
 
-    private boolean checkStock(int quantity) {
+    public boolean checkStock(int quantity) {
 
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
@@ -299,9 +327,9 @@ public class UserActivity {
 
     }
     
-    public Client clientData(){
+    public Customer clientData(){
         
-        Client client =  new Client();
+        Customer client =  new Customer();
         in.nextLine();
         System.out.println("Input the name: ");
         client.setName(in.nextLine());

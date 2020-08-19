@@ -8,7 +8,7 @@ package ec.edu.espe.pim.model;
 
 public class ShoppingCar {
     
-    private int id;
+
     private int quantity;
     private String product;
     private float price;
@@ -24,15 +24,7 @@ public class ShoppingCar {
         return "ShoppingCar{" + "quantity=" + quantity + ", product=" + product + ", price=" + price + '}';
     }
     
-    
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }    
+     
     
     public int getQuantity() {
         return quantity;

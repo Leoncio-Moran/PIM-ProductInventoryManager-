@@ -2,7 +2,7 @@
 package ec.edu.espe.pim.controller;
 
 //import ec.edu.espe.pim.model.TypeOfPayment;
-import ec.edu.espe.pim.model.Client;
+import ec.edu.espe.pim.model.Customer;
 import ec.edu.espe.pim.model.ShoppingCar;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Bill {
     
     
     
-    public void clientBill(List<ShoppingCar> products,Client client){
+    public void clientBill(List<ShoppingCar> products,Customer client){
         System.out.println("     ---- PIM  B I L L ----");
         System.out.println("Name: " + client.getName());
         System.out.println("Telephone: "+ client.getTelephone());
@@ -35,5 +35,7 @@ public class Bill {
         System.out.println("----------------------------------");
         System.out.println("       --- T H A K   Y O U -- ");
     }
+    
+    
     
 }

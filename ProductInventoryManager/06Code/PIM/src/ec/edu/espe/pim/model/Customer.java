@@ -1,7 +1,7 @@
 
 package ec.edu.espe.pim.model;
 
-public class Client {
+public class Customer {
     
     private int ci;
     private String name;
@@ -11,7 +11,7 @@ public class Client {
     private String email;
    
 
-    public Client(int ci, String name, String lastName, int telephone, String addrress, String email) {
+    public Customer(int ci, String name, String lastName, int telephone, String addrress, String email) {
         this.ci = ci;
         this.name = name;
         this.lastName = lastName;
@@ -21,7 +21,7 @@ public class Client {
     }
     
     
-    public Client() {
+    public Customer() {
                 
     }
 
