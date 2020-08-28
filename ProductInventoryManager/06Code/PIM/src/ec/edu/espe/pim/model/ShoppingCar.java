@@ -23,17 +23,9 @@ public class ShoppingCar {
 
     @Override
     public String toString() {
-<<<<<<< HEAD
         return "ShoppingCar{" + "quantity=" + quantity + ", code=" + code + ", product=" + product + ", price=" + price + '}';
     }
 
-=======
-        return "ShoppingCar{" + "quantity=" + quantity + ", product=" + product + ", price=" + price + '}';
-    }
-    
-     
-    
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
     public int getQuantity() {
         return quantity;
     }

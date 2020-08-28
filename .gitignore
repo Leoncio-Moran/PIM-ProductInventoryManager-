@@ -1,2 +1,4 @@
 *.class
 *.vpp.bak*
+/ProductInventoryManager/06Code/PIM/PIM/build/
+/ProductInventoryManager/06Code/PIM/PIM/nbproject/private/

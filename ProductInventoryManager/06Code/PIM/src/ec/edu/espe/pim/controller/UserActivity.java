@@ -9,13 +9,15 @@ import com.google.gson.Gson;
 import ec.edu.espe.pim.utils.FileAdministrator;
 import ec.edu.espe.pim.controller.Inventory;
 import ec.edu.espe.pim.model.Customer;
-import ec.edu.espe.pim.utils.JsonFileAdministrator;
+//import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.model.User;
 import ec.edu.espe.pim.utils.Encryption;
 import java.util.ArrayList;
 import java.util.Scanner;
 import ec.edu.espe.pim.model.PairOfShoes;
 import ec.edu.espe.pim.model.ShoppingCar;
+import ec.edu.espe.pim.utils.IDataAccessObject;
+import ec.edu.espe.pim.utils.MongoDBManager;
 
 /**
  *
@@ -29,6 +31,7 @@ public class UserActivity {
     ArrayList<String[]> data = new ArrayList<>();
     Inventory inventory = new Inventory();
     ArrayList<ShoppingCar> cart = new ArrayList<>();
+    IDataAccessObject dataAccessObject = new MongoDBManager();
     
     private String newPassword;
     private String userName;
@@ -62,10 +65,10 @@ public class UserActivity {
         int idToDelete;
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
+        object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
             PairOfShoes shoes;
@@ -139,10 +142,10 @@ public class UserActivity {
         
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
+        object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
             PairOfShoes shoes;
@@ -165,9 +168,9 @@ public class UserActivity {
     public ArrayList<ShoppingCar> extractCart(){
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<ShoppingCar> listOfShoes = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
-        object = jsonFile.readObjects(ShoppingCar.class.getSimpleName());
+        object = dataAccessObject.readObjects(ShoppingCar.class.getSimpleName());
         
         for(Object obj : object){
             ShoppingCar shoes;
@@ -181,21 +184,17 @@ public class UserActivity {
     
     public void addToCart(int id, int quantities) {
         
-        JsonFileAdministrator tempFile = new JsonFileAdministrator();
+        //JsonFileAdministrator tempFile = new JsonFileAdministrator();
         PairOfShoes shoes ;
         ShoppingCar car;
         
         shoes = extractProduct(id);
         car = new ShoppingCar(
-<<<<<<< HEAD
                 quantities,(shoes.getId()),
-=======
-                quantities,
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
                 (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()),
                 quantities*shoes.getPrice());
         
-        tempFile.addToFile(car);      
+        dataAccessObject.addToFile(car);      
         
     }
 
@@ -203,10 +202,10 @@ public class UserActivity {
 
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
+        object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
             PairOfShoes shoes;
@@ -226,10 +225,10 @@ public class UserActivity {
 
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
+        object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
             PairOfShoes shoes;
@@ -249,7 +248,7 @@ public class UserActivity {
     public void addUser() {
 
         User user;
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
 
         System.out.println("\n");
         System.out.print(" Input the user name: ");
@@ -259,60 +258,46 @@ public class UserActivity {
 
         newPassword = encryptPassword.encryptPassword(userPass);
         user = new User(userName, newPassword);
-        jsonFile.addToFile(user);
+        dataAccessObject.addToFile(user);
 
     }
     
     public void addUser(String person,String pass) {
 
         User user;
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         
         userName = person;
         userPass = pass;
         
         newPassword = encryptPassword.encryptPassword(userPass);
         user = new User(userName, newPassword);
-        jsonFile.addToFile(user);
+        dataAccessObject.addToFile(user);
 
     }
 
     public ArrayList<User> readUsers() {
-        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<Object> objects = new ArrayList<>();
         ArrayList<User> listOfUsers = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
-        Gson gson = new Gson();
-        object = jsonFile.readObjects(User.class.getSimpleName());
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //Gson gson = new Gson();
+            objects = dataAccessObject.readObjects("Users");
 
-        for (int i = 0; i < object.size(); i++) {
-            User user;
-            Object objectJ;
-            objectJ = object.get(i);
-            String jUser = gson.toJson(objectJ);
-            user = gson.fromJson(jUser, User.class);
-            listOfUsers.add(user);
-
+        for (int i = 0; i < objects.size(); i++) {
+            listOfUsers.add((User)objects.get(i));
         }
-
         return listOfUsers;
-
     }
 
     public void showUsers() {
-        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<Object> objects = new ArrayList<>();
         ArrayList<User> listOfUsers = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
-        object = jsonFile.readObjects(User.class.getSimpleName());
+        objects = dataAccessObject.readObjects("Users");
 
-        for (int i = 0; i < object.size(); i++) {
-            User user;
-            Object objectJ;
-            objectJ = object.get(i);
-            String jUser = gson.toJson(objectJ);
-            user = gson.fromJson(jUser, User.class);
-            listOfUsers.add(user);
-
+         for (int i = 0; i < objects.size(); i++) {
+            listOfUsers.add((User)objects.get(i));
         }
 
         System.out.println("\n\n");

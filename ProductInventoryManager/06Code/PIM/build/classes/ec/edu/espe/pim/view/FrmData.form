@@ -24,10 +24,6 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" pref="637" max="32767" attributes="0"/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
               <Component id="btnPrint" min="-2" max="-2" attributes="0"/>
@@ -35,19 +31,10 @@
               <Component id="btnReturn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 41b11aba43c4b66af9c7d7f9a62b5db4ec40b02b
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" pref="396" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -63,12 +50,6 @@
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
           </Group>
-<<<<<<< HEAD
-=======
-=======
-          <Component id="jPanel1" alignment="0" pref="274" max="32767" attributes="0"/>
->>>>>>> 41b11aba43c4b66af9c7d7f9a62b5db4ec40b02b
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
       </Group>
     </DimensionLayout>
   </Layout>
@@ -101,15 +82,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-<<<<<<< HEAD
               <AbsoluteConstraints x="30" y="60" width="580" height="340"/>
-=======
-<<<<<<< HEAD
-              <AbsoluteConstraints x="30" y="60" width="580" height="340"/>
-=======
-              <AbsoluteConstraints x="30" y="60" width="580" height="150"/>
->>>>>>> 41b11aba43c4b66af9c7d7f9a62b5db4ec40b02b
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
             </Constraint>
           </Constraints>
 
@@ -119,7 +92,6 @@
             </Component>
           </SubComponents>
         </Container>
-<<<<<<< HEAD
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="btnPrint">
@@ -138,43 +110,5 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReturnActionPerformed"/>
       </Events>
     </Component>
-=======
-<<<<<<< HEAD
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JButton" name="btnPrint">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Print"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrintActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnReturn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Return"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReturnActionPerformed"/>
-      </Events>
-    </Component>
-=======
-        <Component class="javax.swing.JButton" name="btnReturn">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Return"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReturnActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="230" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-      </SubComponents>
-    </Container>
->>>>>>> 41b11aba43c4b66af9c7d7f9a62b5db4ec40b02b
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
   </SubComponents>
 </Form>

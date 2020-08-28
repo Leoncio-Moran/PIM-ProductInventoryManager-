@@ -49,11 +49,7 @@ public class PnlViewUser extends javax.swing.JPanel {
      public void ChargeData(){
         
         UserActivity userActivity = new UserActivity();
-<<<<<<< HEAD
         ArrayList<User> data = userActivity.readUsers();
-=======
-        ArrayList<Users> data = userActivity.readUsers();
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
         DefaultTableModel model = (DefaultTableModel)this.tblUsers.getModel();
         Encryption encryptPassword = new Encryption();
         DefaultTableCellRenderer aling = new DefaultTableCellHeaderRenderer();
@@ -62,17 +58,10 @@ public class PnlViewUser extends javax.swing.JPanel {
         int filas = 0;
             
         
-<<<<<<< HEAD
         for(User shoe : data){
             Object [] fila = new Object [7];
             fila[0] = shoe.getUser();
             fila[1] = encryptPassword.decryptPassword( shoe.getPassword() );
-=======
-        for(Users shoe : data){
-            Object [] fila = new Object [7];
-            fila[0] = shoe.getUser();
-            fila[1] = encryptPassword.decrypt( shoe.getPassword() );
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
             model.addRow(fila);
             for(int i = 0;i<this.tblUsers.getColumnCount()-1;i++){
              model.setValueAt(fila[0] , filas, 0);

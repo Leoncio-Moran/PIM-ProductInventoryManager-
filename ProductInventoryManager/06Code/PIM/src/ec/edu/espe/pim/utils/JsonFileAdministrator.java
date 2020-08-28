@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class JsonFileAdministrator {
+public class JsonFileAdministrator implements IDataAccessObject{
     
     static Gson gson = new Gson();
         

@@ -3,7 +3,9 @@ package ec.edu.espe.pim.controller;
 
 import com.google.gson.Gson;
 import ec.edu.espe.pim.model.PairOfShoes;
+import ec.edu.espe.pim.utils.IDataAccessObject;
 import ec.edu.espe.pim.utils.JsonFileAdministrator;
+import ec.edu.espe.pim.utils.MongoDBManager;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JComboBox;
@@ -45,10 +47,10 @@ public class Inventory {
             int stock){
         PairOfShoes shoes = new PairOfShoes(ID,size,color,brand,price,shoeType,stock);
         System.out.println(shoes.toString());
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        IDataAccessObject dataAccessObject = new MongoDBManager();
         
-        
-        jsonFile.addToFile(shoes);
+        dataAccessObject.addToFile(shoes);
         
         
     }
@@ -99,17 +101,22 @@ public class Inventory {
         
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> inventory = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();        
-        Gson gson = new Gson();
+        /*JsonFileAdministrator jsonFile = new JsonFileAdministrator();        
+        Gson gson = new Gson();*/
+        IDataAccessObject dataAccessObject = new MongoDBManager();
         
-        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
+        object = dataAccessObject.readObjects("PairOfShoes");
         
         for (Object obj : object) {
+            inventory.add((PairOfShoes)obj);
+        }
+        
+        /*for (Object obj : object) {
             PairOfShoes shoes;
             String shoe = gson.toJson(obj);
             shoes = gson.fromJson(shoe, PairOfShoes.class);
             inventory.add(shoes);
-        }
+        }*/
                       
         /*inventory.forEach((shoe)->{
             System.out.print  ("---------------------------");
@@ -119,20 +126,16 @@ public class Inventory {
            
     } 
     public  ArrayList<PairOfShoes> showProduct(){
-        
-       
-        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<Object> objects = new ArrayList<>();
         ArrayList<PairOfShoes> inventory = new ArrayList<>();
-        JsonFileAdministrator jsonFile = new JsonFileAdministrator();        
-        Gson gson = new Gson();
+        /*JsonFileAdministrator jsonFile = new JsonFileAdministrator();        
+        Gson gson = new Gson();*/
+        IDataAccessObject dataAccessObject = new MongoDBManager();
+      
+        objects = dataAccessObject.readObjects("PairOfShoes");
         
-        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
-        
-        for (Object obj : object) {
-            PairOfShoes shoes;
-            String shoe = gson.toJson(obj);
-            shoes = gson.fromJson(shoe, PairOfShoes.class);
-            inventory.add(shoes);
+        for (Object obj : objects) {
+            inventory.add((PairOfShoes)obj);
         }
         
                       

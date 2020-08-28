@@ -116,14 +116,11 @@ public class FrmMainLogin extends javax.swing.JFrame {
 
         pswPass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         pswPass.setBorder(null);
-<<<<<<< HEAD
         pswPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pswPassActionPerformed(evt);
             }
         });
-=======
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
         pswPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 pswPassKeyTyped(evt);
@@ -248,13 +245,10 @@ public class FrmMainLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pswPassKeyTyped
 
-<<<<<<< HEAD
     private void pswPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pswPassActionPerformed
 
-=======
->>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
     /**
      * @param args the command line arguments
      */

@@ -20,7 +20,7 @@ import java.util.ArrayList;
  *
  * @author S-Developers
  */
-public class FileUsers {
+public class FileUsers implements IDataAccessObject{
      static Gson gson = new Gson();
         
     
