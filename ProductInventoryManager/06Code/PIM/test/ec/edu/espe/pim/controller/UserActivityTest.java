@@ -5,7 +5,7 @@
  */
 package ec.edu.espe.pim.controller;
 
-import ec.edu.espe.pim.model.Users;
+import ec.edu.espe.pim.model.User;
 import java.util.ArrayList;
 import org.junit.Test;
 
@@ -33,8 +33,8 @@ public class UserActivityTest {
     @Test
     public void testReadUsers() {
         UserActivity userActivity = new UserActivity();
-        ArrayList<Users> expResult = null;
-        ArrayList<Users> result = userActivity.readUsers();
+        ArrayList<User> expResult = null;
+        ArrayList<User> result = userActivity.readUsers();
 
     }
 }

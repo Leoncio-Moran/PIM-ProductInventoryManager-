@@ -4,15 +4,19 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.pim.utils;
+
+import ec.edu.espe.pim.model.Password;
+
 /**
  *
  * @author S-Developers
  */
-public class Encryption {
+public class Encryption implements Password {
     
     private char character;
     
     
+    @Override
      public String encryptPassword(String Password){
         
         String NewPassword = "";
@@ -24,7 +28,8 @@ public class Encryption {
         return NewPassword;
     }
      
-     public String decrypt(String Password){
+    @Override
+     public String decryptPassword(String Password){
          
         String NewPassword = "";
         for(int i=0 ; i < Password.length() ; i++){

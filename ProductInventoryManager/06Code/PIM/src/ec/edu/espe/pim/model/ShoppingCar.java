@@ -8,38 +8,38 @@ package ec.edu.espe.pim.model;
 
 public class ShoppingCar {
     
-    private int id;
+
     private int quantity;
+    private int code;
     private String product;
     private float price;
 
-    public ShoppingCar(int quantity, String product, float price) {
+    public ShoppingCar(int quantity, int code, String product, float price) {
         this.quantity = quantity;
+        this.code = code;
         this.product = product;
         this.price = price;
     }
 
     @Override
     public String toString() {
-        return "ShoppingCar{" + "quantity=" + quantity + ", product=" + product + ", price=" + price + '}';
-    }
-    
-    
-    
-    public int getId() {
-        return id;
+        return "ShoppingCar{" + "quantity=" + quantity + ", code=" + code + ", product=" + product + ", price=" + price + '}';
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }    
-    
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getProduct() {
@@ -60,5 +60,6 @@ public class ShoppingCar {
     
     
     
-    
 }
+
+   

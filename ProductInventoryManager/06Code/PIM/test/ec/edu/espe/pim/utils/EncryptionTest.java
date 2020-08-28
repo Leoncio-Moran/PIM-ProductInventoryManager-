@@ -40,7 +40,7 @@ public class EncryptionTest {
         String Password = "tipftQJN"; 
         String expResult = "shoesPIM";
         String result;
-        result = encryption.decrypt(Password);
+        result = encryption.decryptPassword(Password);
         assertEquals(expResult, result);
     }
     

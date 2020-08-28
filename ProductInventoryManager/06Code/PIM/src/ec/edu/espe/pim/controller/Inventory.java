@@ -80,6 +80,21 @@ public class Inventory {
         
     }
     
+    public void discount(ArrayList<PairOfShoes> listOfShoes,int id,int quanty){
+        int newStock;
+        for (int i = 0; i < listOfShoes.size() ; i++) {
+            
+            if((listOfShoes.get(i).getId())== id){
+                newStock = listOfShoes.get(i).getStock() - quanty;
+                listOfShoes.get(i).setStock(newStock);
+            }
+            
+        }
+        
+        update(listOfShoes);
+        
+    }
+    
     public void showProducts(){
         
         ArrayList<Object> object = new ArrayList<>();

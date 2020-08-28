@@ -415,6 +415,7 @@ public class FrmInventory extends javax.swing.JFrame {
     private void btnShowInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowInventoryActionPerformed
         FrmData show=new FrmData();
         show.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_btnShowInventoryActionPerformed
 
     private void cmbColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbColorActionPerformed
@@ -438,8 +439,11 @@ public class FrmInventory extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+        FrmMenuAdmin admin = new FrmMenuAdmin();
+        admin.show();
+        this.hide();
         this.setVisible(false);
-        new FrmMenuAdmin().setVisible(true);
+        
     }//GEN-LAST:event_btnReturnMouseClicked
 
     /**

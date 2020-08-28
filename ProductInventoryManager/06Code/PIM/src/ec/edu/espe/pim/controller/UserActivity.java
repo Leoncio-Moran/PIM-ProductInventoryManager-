@@ -10,7 +10,7 @@ import ec.edu.espe.pim.utils.FileAdministrator;
 import ec.edu.espe.pim.controller.Inventory;
 import ec.edu.espe.pim.model.Customer;
 import ec.edu.espe.pim.utils.JsonFileAdministrator;
-import ec.edu.espe.pim.model.Users;
+import ec.edu.espe.pim.model.User;
 import ec.edu.espe.pim.utils.Encryption;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -52,7 +52,7 @@ public class UserActivity {
         System.out.printf("         %-10s   | %-10s\n", "Users", "Paswords");
         System.out.println("--------------------------------------------");
         for (int i = 0; i < data.size(); i++) {
-            System.out.printf(" %-20s | %-20s\n", data.get(i)[0], encryptPassword.decrypt(data.get(i)[1]));
+            System.out.printf(" %-20s | %-20s\n", data.get(i)[0], encryptPassword.decryptPassword(data.get(i)[1]));
         }
         System.out.println("");
     }
@@ -113,8 +113,24 @@ public class UserActivity {
             
         } while (addMore);
         
+                //
+        //addToCart(ids, quantities);
+        
+    }
+    
+    public void sellProduct(int id,int cant) {
+
+        ArrayList<Integer> ids = new ArrayList<>();
+        ArrayList<Integer> quantities = new ArrayList<>();
+        //int id;
+        int quantity;
+        //boolean addMore = false;
+        char opt;
+        
+        ids.add(id);
+        quantities.add(cant);       
                 
-        addToCart(ids, quantities);
+        //addToCart(ids, quantities);
         
     }
 
@@ -146,28 +162,40 @@ public class UserActivity {
         //return null;
     }
     
-    private void addToCart(ArrayList<Integer> ids, ArrayList<Integer> quantities) {
+    public ArrayList<ShoppingCar> extractCart(){
+        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<ShoppingCar> listOfShoes = new ArrayList<>();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        Gson gson = new Gson();
+        object = jsonFile.readObjects(ShoppingCar.class.getSimpleName());
         
-        Bill bill = new Bill();
-        PairOfShoes shoes ;
-        ShoppingCar car = null ;
-        for(int i = 0 ; i < ids.size() ; i++){
-            
-            shoes = extractProduct(ids.get(i));
-            
-            car = new ShoppingCar(
-                    quantities.get(i), //quanttities
-                    (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()), // Product
-                    (quantities.get(i) * shoes.getPrice()) ); //  total price
-           cart.add(car);
+        for(Object obj : object){
+            ShoppingCar shoes;
+            String shoe = gson.toJson(obj);
+            shoes = gson.fromJson(shoe, ShoppingCar.class);
+            listOfShoes.add(shoes);
         }
+        //System.out.println(listOfShoes.toString());
+        return listOfShoes;
+    }
+    
+    public void addToCart(int id, int quantities) {
         
+        JsonFileAdministrator tempFile = new JsonFileAdministrator();
+        PairOfShoes shoes ;
+        ShoppingCar car;
         
-        bill.clientBill(cart, clientData());
+        shoes = extractProduct(id);
+        car = new ShoppingCar(
+                quantities,(shoes.getId()),
+                (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()),
+                quantities*shoes.getPrice());
+        
+        tempFile.addToFile(car);      
         
     }
 
-    private boolean checkStock(int quantity) {
+    public boolean checkStock(int quantity) {
 
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
@@ -216,7 +244,7 @@ public class UserActivity {
 
     public void addUser() {
 
-        Users user;
+        User user;
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
 
         System.out.println("\n");
@@ -226,38 +254,38 @@ public class UserActivity {
         userPass = in.nextLine();
 
         newPassword = encryptPassword.encryptPassword(userPass);
-        user = new Users(userName, newPassword);
+        user = new User(userName, newPassword);
         jsonFile.addToFile(user);
 
     }
     
     public void addUser(String person,String pass) {
 
-        Users user;
+        User user;
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         
         userName = person;
         userPass = pass;
         
         newPassword = encryptPassword.encryptPassword(userPass);
-        user = new Users(userName, newPassword);
+        user = new User(userName, newPassword);
         jsonFile.addToFile(user);
 
     }
 
-    public ArrayList<Users> readUsers() {
+    public ArrayList<User> readUsers() {
         ArrayList<Object> object = new ArrayList<>();
-        ArrayList<Users> listOfUsers = new ArrayList<>();
+        ArrayList<User> listOfUsers = new ArrayList<>();
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
-        object = jsonFile.readObjects(Users.class.getSimpleName());
+        object = jsonFile.readObjects(User.class.getSimpleName());
 
         for (int i = 0; i < object.size(); i++) {
-            Users user;
+            User user;
             Object objectJ;
             objectJ = object.get(i);
             String jUser = gson.toJson(objectJ);
-            user = gson.fromJson(jUser, Users.class);
+            user = gson.fromJson(jUser, User.class);
             listOfUsers.add(user);
 
         }
@@ -268,17 +296,17 @@ public class UserActivity {
 
     public void showUsers() {
         ArrayList<Object> object = new ArrayList<>();
-        ArrayList<Users> listOfUsers = new ArrayList<>();
+        ArrayList<User> listOfUsers = new ArrayList<>();
         JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
-        object = jsonFile.readObjects(Users.class.getSimpleName());
+        object = jsonFile.readObjects(User.class.getSimpleName());
 
         for (int i = 0; i < object.size(); i++) {
-            Users user;
+            User user;
             Object objectJ;
             objectJ = object.get(i);
             String jUser = gson.toJson(objectJ);
-            user = gson.fromJson(jUser, Users.class);
+            user = gson.fromJson(jUser, User.class);
             listOfUsers.add(user);
 
         }
@@ -288,7 +316,7 @@ public class UserActivity {
         System.out.println("---------------------------");
 
         listOfUsers.forEach((user) -> {
-            System.out.printf("| %-10s | %-10s |\n", user.getUser(), encryptPassword.decrypt(user.getPassword()));
+            System.out.printf("| %-10s | %-10s |\n", user.getUser(), encryptPassword.decryptPassword(user.getPassword()));
         });
 
     }

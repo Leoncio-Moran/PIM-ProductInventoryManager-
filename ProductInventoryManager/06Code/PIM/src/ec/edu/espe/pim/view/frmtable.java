@@ -5,10 +5,6 @@
  */
 package ec.edu.espe.pim.view;
 
-import com.sun.awt.AWTUtilities;
-import java.awt.Color;
-import javax.swing.JFrame;
-
 /**
  *
  * @author S-Developers
@@ -49,13 +45,14 @@ public final class FrmTable extends javax.swing.JFrame {
         Principal = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new java.awt.CardLayout());
 
-        Principal.setBackground(new java.awt.Color(102, 102, 102));
+        Principal.setBackground(new java.awt.Color(255, 255, 255));
         Principal.setDoubleBuffered(true);
         Principal.setOpaque(true);
         Principal.setPreferredSize(new java.awt.Dimension(550, 450));
@@ -72,7 +69,6 @@ public final class FrmTable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrincipalMouseClicked
-        // TODO add your handling code here:
         int index = Principal.getSelectedIndex();
         if (index == 1){
             Principal.removeAll();

@@ -6,45 +6,71 @@
 package ec.edu.espe.pim.view;
 
 import ec.edu.espe.pim.controller.UserActivity;
-import ec.edu.espe.pim.model.Users;
+import ec.edu.espe.pim.model.User;
 import ec.edu.espe.pim.utils.Encryption;
 import java.util.ArrayList;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 /**
  *
- * @author lesly
+ * @author S-Developers
  */
 public class PnlViewUser extends javax.swing.JPanel {
+   
 
     /**
      * Creates new form ViewUser
      */
     public PnlViewUser() {
         initComponents();
-        addData();
+        //addData();
+        ChargeInterface();
+        ChargeData();
+        
     }
     
-    private void addData(){
-        int filas = 0;
+    public void ChargeInterface(){
         DefaultTableModel model = (DefaultTableModel)this.tblUsers.getModel();
-        UserActivity userActivity = new UserActivity();
-        ArrayList<Users> listOfUsers = userActivity.readUsers();
-        Encryption encryptPassword = new Encryption();
         
-        for(Users user : listOfUsers){
-            String[] fila = new String[2];
-            fila[0] = user.getUser();
-            fila[1] = encryptPassword.decrypt(user.getPassword());
+        String data[][]={};
+        String column[]={"USERS","PASSWORD"};
+        model=new DefaultTableModel(data,column);
+        tblUsers.setModel(model);
+        
+        
+        
+    }
+    
+   
+    
+     public void ChargeData(){
+        
+        UserActivity userActivity = new UserActivity();
+        ArrayList<User> data = userActivity.readUsers();
+        DefaultTableModel model = (DefaultTableModel)this.tblUsers.getModel();
+        Encryption encryptPassword = new Encryption();
+        DefaultTableCellRenderer aling = new DefaultTableCellHeaderRenderer();
+        aling.setHorizontalAlignment(SwingConstants.CENTER);
+        
+        int filas = 0;
+            
+        
+        for(User shoe : data){
+            Object [] fila = new Object [7];
+            fila[0] = shoe.getUser();
+            fila[1] = encryptPassword.decryptPassword( shoe.getPassword() );
+            model.addRow(fila);
             for(int i = 0;i<this.tblUsers.getColumnCount()-1;i++){
              model.setValueAt(fila[0] , filas, 0);
-             model.setValueAt(fila[1], filas, 1);            
+             model.setValueAt(fila[1], filas, 1);
         }
-           
-            filas ++;
+            filas ++;    
         }
-        
-        
+        tblUsers.getColumnModel().getColumn(0).setCellRenderer(aling);
+        tblUsers.getColumnModel().getColumn(1).setCellRenderer(aling);
     }
     
     /**
@@ -61,32 +87,18 @@ public class PnlViewUser extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
+        tblUsers.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Usuarios", "Contraseñas"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tblUsers);
 
         add(jScrollPane1, "card2");

@@ -7,7 +7,7 @@ package ec.edu.espe.pim.controller;
 
 import ec.edu.espe.pim.controller.Inventory;
 import ec.edu.espe.pim.utils.JsonFileAdministrator;
-import ec.edu.espe.pim.model.Users;
+import ec.edu.espe.pim.model.User;
 import ec.edu.espe.pim.utils.Encryption;
 import ec.edu.espe.pim.view.FrmUserMenu;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class SignIn {
     Encryption encrypt = new Encryption();
     JsonFileAdministrator datafile = new JsonFileAdministrator();
     
-    ArrayList<Users> listOfUsers = new ArrayList<>();
+    ArrayList<User> listOfUsers = new ArrayList<>();
 
     private boolean verifyUser(String userName) {
         
