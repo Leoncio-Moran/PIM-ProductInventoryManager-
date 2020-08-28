@@ -187,7 +187,11 @@ public class UserActivity {
         
         shoes = extractProduct(id);
         car = new ShoppingCar(
+<<<<<<< HEAD
                 quantities,(shoes.getId()),
+=======
+                quantities,
+>>>>>>> c8345e324adb096f8f453d8ab8f4d83faed5950a
                 (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()),
                 quantities*shoes.getPrice());
         
