@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.pim.view;
 
+import java.awt.Component;
+
 /**
  *
  * @author S-Developers
@@ -26,10 +28,9 @@ public final class FrmTable extends javax.swing.JFrame {
     private void AddTabe(){
         PnlAddUser add = new PnlAddUser();
         PnlViewUser show = new PnlViewUser();
+        
         Principal.addTab("Add User", add);
         Principal.addTab("Show Users", show);
-               
-        
     }
     
     /**

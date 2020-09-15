@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/DARIAN/Desktop/GitHubPrograming/PIM-ProductInventoryManager-/ProductInventoryManager/06Code/PIM/src/ec/edu/espe/pim/controller/UserActivity.java</file>
+            <file>file:/C:/Users/DARIAN/Desktop/GitHubPrograming/PIM-ProductInventoryManager-/ProductInventoryManager/06Code/PIM/src/ec/edu/espe/pim/model/ShoppingCar.java</file>
+            <file>file:/C:/Users/DARIAN/Desktop/GitHubPrograming/PIM-ProductInventoryManager-/ProductInventoryManager/06Code/PIM/src/ec/edu/espe/pim/view/FrmTable.java</file>
+            <file>file:/C:/Users/DARIAN/Desktop/GitHubPrograming/PIM-ProductInventoryManager-/ProductInventoryManager/06Code/PIM/src/ec/edu/espe/pim/utils/MongoDBManager.java</file>
+        </group>
+>>>>>>> acdd0b9eeb04f2184920ed8f7055eb651510eb04
     </open-files>
 </project-private>
