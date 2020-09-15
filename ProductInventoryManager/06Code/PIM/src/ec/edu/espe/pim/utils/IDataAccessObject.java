@@ -15,4 +15,5 @@ public interface IDataAccessObject {
     
     public  void addToFile(Object object);
     public  ArrayList<Object> readObjects(String nameClass);
+    public ArrayList<Object> findObjects(int queryFind, String nameCollection);
 }

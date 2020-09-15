@@ -17,6 +17,7 @@ import java.util.Scanner;
 import ec.edu.espe.pim.model.PairOfShoes;
 import ec.edu.espe.pim.model.ShoppingCar;
 import ec.edu.espe.pim.utils.IDataAccessObject;
+import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.utils.MongoDBManager;
 
 /**
@@ -138,30 +139,20 @@ public class UserActivity {
     }
 
     public PairOfShoes extractProduct(int id){
-        PairOfShoes prod = null;
         
-        ArrayList<Object> object = new ArrayList<>();
+        ArrayList<Object> objects = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
-        Gson gson = new Gson();
 
-        object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
-
-        for (Object obj : object) {
-            PairOfShoes shoes;
-            String shoe = gson.toJson(obj);
-            shoes = gson.fromJson(shoe, PairOfShoes.class);
-            listOfShoes.add(shoes);
-        }
+        objects = dataAccessObject.findObjects(id, "PairOfShoes");
+        int _id = ((PairOfShoes)objects.get(0)).getId();
+        int _size = ((PairOfShoes)objects.get(0)).getSize();
+        String _color = ((PairOfShoes)objects.get(0)).getColor();
+        String _brand = ((PairOfShoes)objects.get(0)).getBrand();
+        float _price = ((PairOfShoes)objects.get(0)).getPrice();
+        String _shoeType = ((PairOfShoes)objects.get(0)).getShoeType();
+        int _stock = ((PairOfShoes)objects.get(0)).getStock();
         
-        for (PairOfShoes shoe : listOfShoes) {
-            if( shoe.getId() == id ){
-                prod = shoe;
-                return shoe;
-            }
-        }
-        
-        return prod;
+        return new PairOfShoes(_id, _size, _color, _brand, _price, _shoeType, _stock);
         //return null;
     }
     
@@ -184,7 +175,7 @@ public class UserActivity {
     
     public void addToCart(int id, int quantities) {
         
-        //JsonFileAdministrator tempFile = new JsonFileAdministrator();
+        dataAccessObject = new MongoDBManager();
         PairOfShoes shoes ;
         ShoppingCar car;
         

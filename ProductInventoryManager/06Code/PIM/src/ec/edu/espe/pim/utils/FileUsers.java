@@ -90,5 +90,10 @@ public class FileUsers implements IDataAccessObject{
             
         }
     }
+
+    @Override
+    public ArrayList<Object> findObjects(int queryFind, String nameCollection) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

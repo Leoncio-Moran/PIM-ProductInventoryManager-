@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import ec.edu.espe.pim.model.PairOfShoes;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
@@ -94,5 +95,11 @@ public class JsonFileAdministrator implements IDataAccessObject{
         File f=new File(nameClass+".json");
         f.delete();
     }
+
+    @Override
+    public ArrayList<Object> findObjects(int queryFind, String nameCollection) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

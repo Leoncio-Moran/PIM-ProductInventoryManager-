@@ -15,6 +15,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.Mongo;
 import com.mongodb.ReadPreference;
 import ec.edu.espe.pim.model.PairOfShoes;
+import ec.edu.espe.pim.model.ShoppingCar;
 import ec.edu.espe.pim.model.User;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -33,20 +34,26 @@ public class MongoDBManager implements IDataAccessObject {
     DBCollection dBCollection;
     DBObject dBObject;
     BasicDBObjectBuilder basicDBObject = BasicDBObjectBuilder.start();
-    
+
     private DBObject createDBObject(Object object) {
         if (object instanceof PairOfShoes) {
             basicDBObject.append("id", "" + ((PairOfShoes) object).getId() + "");
             basicDBObject.append("size", "" + ((PairOfShoes) object).getSize() + "");
             basicDBObject.append("color", "" + ((PairOfShoes) object).getColor() + "");
-           basicDBObject.append("brand", "" + ((PairOfShoes) object).getBrand() + "");
+            basicDBObject.append("brand", "" + ((PairOfShoes) object).getBrand() + "");
             basicDBObject.append("price", "" + String.valueOf(((PairOfShoes) object).getPrice()) + "");
             basicDBObject.append("shoeType", "" + ((PairOfShoes) object).getShoeType() + "");
             basicDBObject.append("stock", "" + ((PairOfShoes) object).getStock() + "");
         } else if (object instanceof User) {
             basicDBObject.append("user", "" + ((User) object).getUser() + "");
             basicDBObject.append("password", "" + ((User) object).getPassword() + "");
+        } else if (object instanceof ShoppingCar) {
+            basicDBObject.append("quantity", "" + ((ShoppingCar) object).getQuantity() + "");
+            basicDBObject.append("code", "" + ((ShoppingCar) object).getCode() + "");
+            basicDBObject.append("product", "" + ((ShoppingCar) object).getProduct() + "");
+            basicDBObject.append("price", "" + ((ShoppingCar) object).getPrice() + "");
         }
+
         return basicDBObject.get();
     }
 
@@ -69,7 +76,7 @@ public class MongoDBManager implements IDataAccessObject {
         return null;
     }
 
-     @Override
+    @Override
     public void addToFile(Object object) {
         dBObject = createDBObject(object);
         connectToMongoDB();
@@ -91,35 +98,89 @@ public class MongoDBManager implements IDataAccessObject {
             dBObject = dBCursor.next();
             dbObjects.add(dBObject);
         }
-        
-        for (int i = 0; i < dbObjects.size(); i++) {
-                if (nameCollection.equals("PairOfShoes")) {
-                    BasicDBObject Obj = (BasicDBObject) dbObjects.get(i);
-                    int id = Integer.parseInt(Obj.getString("id"));
-                    int size = Integer.parseInt(Obj.getString("size"));
-                    String color = Obj.getString("color");
-                    String brand = Obj.getString("brand");
-                    float price = Float.parseFloat(Obj.getString("price"));
-                    String shoeType = Obj.getString("shoeType");
-                    int stock = Integer.parseInt(Obj.getString("stock"));
 
-                    PairOfShoes pairOfShoes = new PairOfShoes(id, size, color, brand, price, shoeType, stock);
-                    objects.add(pairOfShoes);
-                    
-                }else if(nameCollection.equals("Users")){
-                    BasicDBObject Obj = (BasicDBObject) dbObjects.get(i);
-                    String userName = Obj.getString("user");
-                    String password = Obj.getString("password");
-                    
-                    User user = new User(userName, password);
-                    objects.add(user);
-                }
+        for (int i = 0; i < dbObjects.size(); i++) {
+            if (nameCollection.equals("PairOfShoes")) {
+                BasicDBObject Obj = (BasicDBObject) dbObjects.get(i);
+                int id = Integer.parseInt(Obj.getString("id"));
+                int size = Integer.parseInt(Obj.getString("size"));
+                String color = Obj.getString("color");
+                String brand = Obj.getString("brand");
+                float price = Float.parseFloat(Obj.getString("price"));
+                String shoeType = Obj.getString("shoeType");
+                int stock = Integer.parseInt(Obj.getString("stock"));
+
+                PairOfShoes pairOfShoes = new PairOfShoes(id, size, color, brand, price, shoeType, stock);
+                objects.add(pairOfShoes);
+
+            } else if (nameCollection.equals("Users")) {
+                BasicDBObject Obj = (BasicDBObject) dbObjects.get(i);
+                String userName = Obj.getString("user");
+                String password = Obj.getString("password");
+
+                User user = new User(userName, password);
+                objects.add(user);
             }
+        }
         //mongo.close();
         return objects;
     }
 
-    public void eraseDocument() {
+    public void eraseDocument(BasicDBObject bObject, DBCollection bCollection) {
+
+        bCollection.remove(dBObject);
+    }
+
+    @Override
+    public ArrayList<Object> findObjects(int queryFind, String nameCollection) {
+        Object object;
+        ArrayList<Object> objects = new ArrayList<>();
+        ArrayList<DBObject> dbObjects = new ArrayList<>();
+        BasicDBObject queryDbObject = new BasicDBObject();
+        connectToMongoDB();
+        db = mongo.getDB("JsonImportDB");
+        dBCollection = db.getCollection(nameCollection);
+        queryDbObject.put("id", queryFind);
+        DBCursor dBCursor = dBCollection.find(queryDbObject);
+        while (dBCursor.hasNext()) {
+            dBObject = dBCursor.next();
+            dbObjects.add(dBObject);
+        }
+
+        for (int i = 0; i < dbObjects.size(); i++) {
+            if (nameCollection.equals("PairOfShoes")) {
+                BasicDBObject Obj = (BasicDBObject) dbObjects.get(i);
+                int id = Integer.parseInt(Obj.getString("id"));
+                int size = Integer.parseInt(Obj.getString("size"));
+                String color = Obj.getString("color");
+                String brand = Obj.getString("brand");
+                float price = Float.parseFloat(Obj.getString("price"));
+                String shoeType = Obj.getString("shoeType");
+                int stock = Integer.parseInt(Obj.getString("stock"));
+
+                PairOfShoes pairOfShoes = new PairOfShoes(id, size, color, brand, price, shoeType, stock);
+                objects.add(pairOfShoes);
+
+            } else if (nameCollection.equals("Users")) {
+                BasicDBObject Obj = (BasicDBObject) dbObjects.get(i);
+                String userName = Obj.getString("user");
+                String password = Obj.getString("password");
+
+                User user = new User(userName, password);
+                objects.add(user);
+            } else if (nameCollection.equals("ShoppingCar")) {
+                BasicDBObject Obj = (BasicDBObject) dbObjects.get(i);
+                int quantity = Integer.parseInt(Obj.getString("quantity"));
+                int code = Integer.parseInt(Obj.getString("code"));
+                String product = Obj.getString("product");
+                float price = Float.parseFloat(Obj.getString("price"));
+                
+                ShoppingCar shoppingCar = new ShoppingCar(quantity, code, product, price);
+                objects.add(shoppingCar);
+            }
+        }
+        //mongo.close();
+        return objects;
 
     }
 
