@@ -25,7 +25,7 @@ public class Bill {
         System.out.println("Products:");
         System.out.printf("| %-3s| %-15s |  %-8s\n","QC", "Product", "Price");
         products.stream().map((product) -> {
-            System.out.printf("| %-3s| %-8s |  %-8s\n",product.getQuantity(), product.getProduct(), product.getPrice());
+            System.out.printf("| %-3s| %-8s |  %-8s\n",product.getQuantity(), product.getDescription(), product.getPrice());
             return product;
         }).forEachOrdered((product) -> {
             totalPrice += product.getPrice();

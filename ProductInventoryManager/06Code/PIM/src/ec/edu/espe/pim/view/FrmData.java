@@ -12,12 +12,8 @@ import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,7 +37,7 @@ public class FrmData extends javax.swing.JFrame implements Printable{
     }
     public void ChargeInterface(){
         String data[][]={};
-        String column[]={"ID","SIZE","BRAND","COLOR","PRICE","TYPE","STOCK"};
+        String column[]={"CÓDIGO","TALLA","MARCA","COLOR","PRECIO","TIPO","CANTIDAD"};
         model=new DefaultTableModel(data,column);
         tblInventory.setModel(model);
         
@@ -93,65 +89,43 @@ public class FrmData extends javax.swing.JFrame implements Printable{
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInventory = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         btnPrint = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel1.setText("DATA RECORDER");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 230, -1));
 
         jScrollPane1.setViewportView(tblInventory);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 580, 340));
 
-        btnPrint.setText("Print");
+        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel2.setText("Registrador de Datos");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 230, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 637, 396));
+
+        btnPrint.setText("Imprimir");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
             }
         });
+        getContentPane().add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 80, 30));
 
-        btnReturn.setText("Return");
+        btnReturn.setText("Regresar");
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(btnPrint)
-                .addGap(75, 75, 75)
-                .addComponent(btnReturn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(btnPrint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(11, 11, 11))
-        );
+        getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,14 +136,14 @@ public class FrmData extends javax.swing.JFrame implements Printable{
     }//GEN-LAST:event_btnReturnActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        MessageFormat header = new MessageFormat("SHOES INVENTORY DATA RECORDER");
+        MessageFormat header = new MessageFormat("REGISTRO DE DATOS DE INVENTARIO DE ZAPATOS");
         MessageFormat footer = new MessageFormat("Page{0, number, integer}");
         try {
             tblInventory.print(JTable.PrintMode.NORMAL, header, footer);
         } catch (java.awt.print.PrinterException e) {
             System.err.format("Cannot print %s%n", e.getMessage());
         }
-        
+
     }//GEN-LAST:event_btnPrintActionPerformed
 
     /**
@@ -210,7 +184,7 @@ public class FrmData extends javax.swing.JFrame implements Printable{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnReturn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblInventory;

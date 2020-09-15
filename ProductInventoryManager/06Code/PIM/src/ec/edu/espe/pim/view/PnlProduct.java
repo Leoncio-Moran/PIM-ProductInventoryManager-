@@ -52,6 +52,8 @@ public class PnlProduct extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lblID2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        lblID4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblBrand = new javax.swing.JLabel();
         lblShoeType = new javax.swing.JLabel();
@@ -78,6 +80,16 @@ public class PnlProduct extends javax.swing.JPanel {
         lblID2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         add(lblID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel4.setMaximumSize(new java.awt.Dimension(272, 165));
+        jPanel4.setMinimumSize(new java.awt.Dimension(272, 165));
+        jPanel4.setPreferredSize(new java.awt.Dimension(272, 165));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblID4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel4.add(lblID4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setMaximumSize(new java.awt.Dimension(272, 165));
@@ -87,17 +99,17 @@ public class PnlProduct extends javax.swing.JPanel {
 
         lblBrand.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         lblBrand.setForeground(new java.awt.Color(0, 51, 153));
-        lblBrand.setText("BRAND:");
+        lblBrand.setText("Marca:");
         jPanel1.add(lblBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         lblShoeType.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         lblShoeType.setForeground(new java.awt.Color(0, 51, 153));
-        lblShoeType.setText("Type:");
-        jPanel1.add(lblShoeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        lblShoeType.setText("Tipo:");
+        jPanel1.add(lblShoeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, 30));
 
         lblID3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         lblID3.setForeground(new java.awt.Color(0, 51, 153));
-        lblID3.setText("ID:");
+        lblID3.setText("Codigo:");
         jPanel1.add(lblID3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
 
         id.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
@@ -114,12 +126,12 @@ public class PnlProduct extends javax.swing.JPanel {
 
         lblSize.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         lblSize.setForeground(new java.awt.Color(0, 51, 153));
-        lblSize.setText("Size: ");
+        lblSize.setText("Talla:");
         jPanel1.add(lblSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, 20));
 
         lblColor.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         lblColor.setForeground(new java.awt.Color(0, 51, 153));
-        lblColor.setText("Color");
+        lblColor.setText("Color:");
         jPanel1.add(lblColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 20));
 
         price.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
@@ -137,7 +149,7 @@ public class PnlProduct extends javax.swing.JPanel {
                 btnBuyActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 280, 30));
+        jPanel1.add(btnBuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 280, 30));
 
         ShoeType1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         ShoeType1.setText("ShoeType:");
@@ -149,14 +161,16 @@ public class PnlProduct extends javax.swing.JPanel {
 
         lblStock.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         lblStock.setForeground(new java.awt.Color(0, 51, 153));
-        lblStock.setText("Stock");
-        jPanel1.add(lblStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
+        lblStock.setText("Cantidad:");
+        jPanel1.add(lblStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 30));
 
         stock.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         stock.setText("stock");
-        jPanel1.add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
+        jPanel1.add(stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 150));
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 160));
+
+        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 160));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyActionPerformed
@@ -165,9 +179,9 @@ public class PnlProduct extends javax.swing.JPanel {
         int newStock;
         int quanty;
         try{
-            quanty = Integer.valueOf(JOptionPane.showInputDialog("How many pairs of shoes are you going to sell?"));
+            quanty = Integer.valueOf(JOptionPane.showInputDialog("Cuantós pares de zapatos desea comprar?"));
             if(! ( this.stockShoes >= quanty) ){
-                JOptionPane.showMessageDialog(null, "Insufficient quantity...","E R R O R",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Cantidad Insuficiente...","E R R O R",JOptionPane.ERROR_MESSAGE);
             }else{
                 activity.addToCart(this.idShoes, quanty);
                 inventoy.discount(inventoy.showProduct(), this.idShoes , quanty);
@@ -175,9 +189,9 @@ public class PnlProduct extends javax.swing.JPanel {
                 this.stock.setText(String.valueOf( newStock ));
             }
         }catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "Input only a number");
+            JOptionPane.showMessageDialog(null, "Ingrese solo números");
         }
-         
+
         //new PnlBill().setVisible(true);
     }//GEN-LAST:event_btnBuyActionPerformed
 
@@ -191,10 +205,12 @@ public class PnlProduct extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblBrand;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblID2;
     private javax.swing.JLabel lblID3;
+    private javax.swing.JLabel lblID4;
     private javax.swing.JLabel lblShoeType;
     private javax.swing.JLabel lblSize;
     private javax.swing.JLabel lblStock;

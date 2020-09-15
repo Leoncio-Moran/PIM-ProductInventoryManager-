@@ -30,7 +30,6 @@ public class FrmUserMenu extends javax.swing.JFrame {
         jPaneMenu.setSize(90, 700);
         PnlAbout pn = new PnlAbout();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-        //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
@@ -315,18 +314,14 @@ public class FrmUserMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_lblCloseMouseClicked
 
     private void lblMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinMouseClicked
-        // TODO add your handling code here:
         
     }//GEN-LAST:event_lblMinMouseClicked
 
     private void btnMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuMouseClicked
-        // TODO add your handling code here:
-        
         int size = jPaneMenu.getWidth();
         if(size <= 90){
             Thread th = new Thread(){
@@ -364,12 +359,10 @@ public class FrmUserMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuMouseClicked
 
     private void UpperPaneMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpperPaneMouseDragged
-        // TODO add your handling code here:
          this.setLocation(this.getLocation().x + evt.getX() - x,this.getLocation().y + evt.getY()- y);
     }//GEN-LAST:event_UpperPaneMouseDragged
 
     private void UpperPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpperPaneMouseClicked
-        // TODO add your handling code here:
         x = evt.getX();
         y = evt.getY();
     }//GEN-LAST:event_UpperPaneMouseClicked
@@ -386,10 +379,8 @@ public class FrmUserMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInventoryMouseClicked
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
-        // TODO add your handling code here:
         PnlAbout pn = new PnlAbout();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-        //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
@@ -397,7 +388,6 @@ public class FrmUserMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void lblSellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSellMouseClicked
-        // TODO add your handling code here:
         PnlSellProduct pn = new PnlSellProduct();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         pn.setLocation(5, 5);
@@ -408,22 +398,17 @@ public class FrmUserMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSellMouseClicked
 
     private void lblBillMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBillMouseEntered
-        // TODO add your handling code here:
         
     }//GEN-LAST:event_lblBillMouseEntered
 
     private void lblReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblReturnMouseClicked
-        // TODO add your handling code here:
         FrmMainLogin frm = new FrmMainLogin();
         this.hide();
         frm.show();
     }//GEN-LAST:event_lblReturnMouseClicked
 
     private void lblInventoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInventoryMouseClicked
-        // TODO add your handling code here:
         PnlBill pn = new PnlBill();
-        //pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-        //pn.setLocation(5, 5);
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);
         JPrincipalPane.revalidate();
@@ -431,7 +416,6 @@ public class FrmUserMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_lblInventoryMouseClicked
 
     private void lblBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBillMouseClicked
-        // TODO add your handling code here:
         PnlInventoryUser pn = new PnlInventoryUser();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
         pn.setLocation(5, 5);
@@ -442,10 +426,8 @@ public class FrmUserMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_lblBillMouseClicked
 
     private void lblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInfoMouseClicked
-        // TODO add your handling code here:
         PnlAbout pn = new PnlAbout();
         pn.setSize(JPrincipalPane.getWidth(), JPrincipalPane.getHeight());
-        //pi.setLocation(5, 5);
         pn.setVisible(true);
         JPrincipalPane.removeAll();
         JPrincipalPane.add(pn);

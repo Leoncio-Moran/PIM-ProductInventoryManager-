@@ -6,19 +6,17 @@
 package ec.edu.espe.pim.controller;
 
 import com.google.gson.Gson;
-import ec.edu.espe.pim.utils.FileAdministrator;
-import ec.edu.espe.pim.controller.Inventory;
-import ec.edu.espe.pim.model.Customer;
-//import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.model.User;
 import ec.edu.espe.pim.utils.Encryption;
 import java.util.ArrayList;
 import java.util.Scanner;
 import ec.edu.espe.pim.model.PairOfShoes;
 import ec.edu.espe.pim.model.ShoppingCar;
+import ec.edu.espe.pim.utils.FileUsers;
 import ec.edu.espe.pim.utils.IDataAccessObject;
 import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.utils.MongoDBManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,7 +26,7 @@ public class UserActivity {
 
     Scanner in = new Scanner(System.in);
     Encryption encryptPassword = new Encryption();
-    FileAdministrator file = new FileAdministrator();
+    FileUsers fileUsers = new FileUsers();
     ArrayList<String[]> data = new ArrayList<>();
     Inventory inventory = new Inventory();
     ArrayList<ShoppingCar> cart = new ArrayList<>();
@@ -38,35 +36,11 @@ public class UserActivity {
     private String userName;
     private String userPass;
 
-    public void registerUser() {
-        System.out.println("\n");
-        System.out.print(" Input the user name: ");
-        userName = in.nextLine(); // txtUser.getText();
-        System.out.print(" Input your Password: ");
-        userPass = in.nextLine(); 
-        newPassword = encryptPassword.encryptPassword(userPass);
-        file.WriteUsersInCSV(userName, newPassword);
-
-    }
-
-    public void viewUser() {
-
-        data = file.readCSV();
-        System.out.println("\n\n");
-        System.out.printf("         %-10s   | %-10s\n", "Users", "Paswords");
-        System.out.println("--------------------------------------------");
-        for (int i = 0; i < data.size(); i++) {
-            System.out.printf(" %-20s | %-20s\n", data.get(i)[0], encryptPassword.decryptPassword(data.get(i)[1]));
-        }
-        System.out.println("");
-    }
-
     public void deleteProduct() {
 
         int idToDelete;
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
         object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
@@ -78,67 +52,27 @@ public class UserActivity {
             listOfShoes.add(shoes);
         }
 
-        System.out.print(" Enter the product ID to delete: ");
-        idToDelete = in.nextInt();
+        idToDelete = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte el código del zapato que desee eliminiar"));
 
         inventory.deleteProduct(listOfShoes, idToDelete);
 
     }
 
-    public void sellProduct() {
-
-        ArrayList<Integer> ids = new ArrayList<>();
-        ArrayList<Integer> quantities = new ArrayList<>();
-        int id;
-        int quantity;
-        boolean addMore = false;
-        char opt;
-        
-        do {
-            do {
-                System.out.print(" Input the ID: ");
-                id = in.nextInt();
-            } while (!checkId(id));
-
-            System.out.print(" How many pairs of shoes are you going to sell?: ");
-            quantity = in.nextInt();
-            checkStock(quantity);
-            
-            if (checkId(id) && checkStock(quantity)) {
-                System.out.println(" Añadiendo al carrito...");
-                ids.add(id);
-                quantities.add(quantity);
-            }
-                        
-            System.out.print(" Do you want to enter another product? [Y/N]: ");
-            opt = in.next().charAt(0);
-            
-            addMore = 'Y' == opt || 'y' == opt;
-            
-        } while (addMore);
-        
-                //
-        //addToCart(ids, quantities);
-        
-    }
-    
     public void sellProduct(int id,int cant) {
 
         ArrayList<Integer> ids = new ArrayList<>();
         ArrayList<Integer> quantities = new ArrayList<>();
         //int id;
         int quantity;
-        //boolean addMore = false;
         char opt;
         
         ids.add(id);
         quantities.add(cant);       
                 
-        //addToCart(ids, quantities);
-        
     }
 
     public PairOfShoes extractProduct(int id){
+        PairOfShoes prod = null;
         
         ArrayList<Object> objects = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
@@ -151,52 +85,53 @@ public class UserActivity {
         float _price = ((PairOfShoes)objects.get(0)).getPrice();
         String _shoeType = ((PairOfShoes)objects.get(0)).getShoeType();
         int _stock = ((PairOfShoes)objects.get(0)).getStock();
-        
+        for (PairOfShoes shoe : listOfShoes) {
+            if (shoe.getId() == id) {
+                prod = shoe;
+                return shoe;
+            }
+        }
         return new PairOfShoes(_id, _size, _color, _brand, _price, _shoeType, _stock);
-        //return null;
     }
-    
-    public ArrayList<ShoppingCar> extractCart(){
+    public ArrayList<ShoppingCar> extractCart() {
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<ShoppingCar> listOfShoes = new ArrayList<>();
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
-        object = dataAccessObject.readObjects(ShoppingCar.class.getSimpleName());
-        
-        for(Object obj : object){
+        object = jsonFile.readObjects(ShoppingCar.class.getSimpleName());
+
+        for (Object obj : object) {
             ShoppingCar shoes;
             String shoe = gson.toJson(obj);
             shoes = gson.fromJson(shoe, ShoppingCar.class);
             listOfShoes.add(shoes);
         }
-        //System.out.println(listOfShoes.toString());
         return listOfShoes;
     }
-    
     public void addToCart(int id, int quantities) {
-        
-        dataAccessObject = new MongoDBManager();
-        PairOfShoes shoes ;
+
+        JsonFileAdministrator tempFile = new JsonFileAdministrator();
+        PairOfShoes shoes;
         ShoppingCar car;
-        
+
         shoes = extractProduct(id);
         car = new ShoppingCar(
-                quantities,(shoes.getId()),
+                quantities, (shoes.getId()),
                 (shoes.getColor() + " " + shoes.getShoeType() + " " + shoes.getBrand()),
-                quantities*shoes.getPrice());
-        
-        dataAccessObject.addToFile(car);      
-        
+                quantities * shoes.getPrice());
+
+        tempFile.addToFile(car);
+
     }
 
     public boolean checkStock(int quantity) {
 
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
-        object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
+        object = jsonFile.readObjects(PairOfShoes.class.getSimpleName());
 
         for (Object obj : object) {
             PairOfShoes shoes;
@@ -216,7 +151,7 @@ public class UserActivity {
 
         ArrayList<Object> object = new ArrayList<>();
         ArrayList<PairOfShoes> listOfShoes = new ArrayList<>();
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
+        JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
 
         object = dataAccessObject.readObjects(PairOfShoes.class.getSimpleName());
@@ -239,7 +174,6 @@ public class UserActivity {
     public void addUser() {
 
         User user;
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
 
         System.out.println("\n");
         System.out.print(" Input the user name: ");
@@ -256,7 +190,6 @@ public class UserActivity {
     public void addUser(String person,String pass) {
 
         User user;
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         
         userName = person;
         userPass = pass;
@@ -270,8 +203,6 @@ public class UserActivity {
     public ArrayList<User> readUsers() {
         ArrayList<Object> objects = new ArrayList<>();
         ArrayList<User> listOfUsers = new ArrayList<>();
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
-        //Gson gson = new Gson();
             objects = dataAccessObject.readObjects("Users");
 
         for (int i = 0; i < objects.size(); i++) {
@@ -283,7 +214,6 @@ public class UserActivity {
     public void showUsers() {
         ArrayList<Object> objects = new ArrayList<>();
         ArrayList<User> listOfUsers = new ArrayList<>();
-        //JsonFileAdministrator jsonFile = new JsonFileAdministrator();
         Gson gson = new Gson();
         objects = dataAccessObject.readObjects("Users");
 
@@ -305,21 +235,6 @@ public class UserActivity {
 
         inventory.showProducts();
 
-    }
-    
-    public Customer clientData(){
-        
-        Customer client =  new Customer();
-        in.nextLine();
-        System.out.println("Input the name: ");
-        client.setName(in.nextLine());
-        System.out.println("Input the telephone: ");
-        client.setTelephone(in.nextInt());
-        System.out.println("Input the email:");
-        client.setEmail(in.nextLine());
-        
-        
-        return client;
     }
     
 }

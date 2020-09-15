@@ -11,19 +11,19 @@ public class ShoppingCar {
 
     private int quantity;
     private int code;
-    private String product;
+    private String description;
     private float price;
 
     public ShoppingCar(int quantity, int code, String product, float price) {
         this.quantity = quantity;
         this.code = code;
-        this.product = product;
+        this.description = product;
         this.price = price;
     }
 
     @Override
     public String toString() {
-        return "ShoppingCar{" + "quantity=" + quantity + ", code=" + code + ", product=" + product + ", price=" + price + '}';
+        return "ShoppingCar{" + "quantity=" + quantity + ", code=" + code + ", product=" + description + ", price=" + price + '}';
     }
 
     public int getQuantity() {
@@ -42,12 +42,12 @@ public class ShoppingCar {
         this.code = code;
     }
 
-    public String getProduct() {
-        return product;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public float getPrice() {

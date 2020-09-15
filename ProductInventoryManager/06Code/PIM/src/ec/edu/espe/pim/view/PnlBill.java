@@ -5,10 +5,7 @@
  */
 package ec.edu.espe.pim.view;
 
-import ec.edu.espe.pim.controller.Bill;
-import ec.edu.espe.pim.controller.Inventory;
 import ec.edu.espe.pim.controller.UserActivity;
-import ec.edu.espe.pim.model.PairOfShoes;
 import ec.edu.espe.pim.model.ShoppingCar;
 import ec.edu.espe.pim.utils.JsonFileAdministrator;
 import ec.edu.espe.pim.utils.Validator;
@@ -40,13 +37,12 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
         initComponents();
         ChargeInterface();
         ChargeData();
-        //this.tblBill.setEnabled(false);
     }
 
     public void ChargeInterface() {
         DefaultTableModel model = (DefaultTableModel) this.tblBill.getModel();
         String data[][] = {};
-        String column[] = {"Quanty", "Code", "Product", "Price"};
+        String column[] = {"Cantidad", "Código", "Descripción", "Precio"};
         model = new DefaultTableModel(data, column);
         tblBill.setModel(model);
 
@@ -64,7 +60,7 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
             Object[] fila = new Object[4];
             fila[0] = shoe.getQuantity();
             fila[1] = shoe.getCode();
-            fila[2] = shoe.getProduct();
+            fila[2] = shoe.getDescription();
             fila[3] = shoe.getPrice();
 
             model.addRow(fila);
@@ -160,12 +156,12 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
         bill.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 560, 70, 30));
 
         lblTelephoneClient.setFont(new java.awt.Font("Tempus Sans ITC", 3, 16)); // NOI18N
-        lblTelephoneClient.setText("Telephone:");
+        lblTelephoneClient.setText("Teléfono:");
         bill.add(lblTelephoneClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
         lblName.setFont(new java.awt.Font("Tempus Sans ITC", 3, 16)); // NOI18N
-        lblName.setText("Custumer:");
-        bill.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        lblName.setText("Cliente:");
+        bill.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 70, -1));
 
         lblId.setFont(new java.awt.Font("Tempus Sans ITC", 3, 16)); // NOI18N
         lblId.setText("C.I:");
@@ -188,7 +184,7 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
 
         lblEmail.setFont(new java.awt.Font("Tempus Sans ITC", 3, 16)); // NOI18N
         lblEmail.setText("Email:");
-        bill.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        bill.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
         bill.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 320, 10));
         bill.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 200, 10));
         bill.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 320, 10));
@@ -240,7 +236,7 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
                 btnOkActionPerformed(evt);
             }
         });
-        bill.add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 560, 80, 30));
+        bill.add(btnOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, 90, 30));
 
         lblPrice.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(153, 0, 0));
@@ -248,13 +244,13 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
         bill.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 560, 80, 30));
 
         btnPrint.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnPrint.setText("Print");
+        btnPrint.setText("Imprimir");
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
             }
         });
-        bill.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, 80, 30));
+        bill.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, 90, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/logobill.png"))); // NOI18N
         bill.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 210, 90));
@@ -276,8 +272,8 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
         bill.add(lblTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 110, -1));
 
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 3, 16)); // NOI18N
-        jLabel2.setText("Address:");
-        bill.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 70, 40));
+        jLabel2.setText("Dirección:");
+        bill.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 80, 40));
 
         txtAddress.setBorder(null);
         bill.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 320, 40));
@@ -288,12 +284,12 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
         bill.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 160, 10));
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel3.setText("Customer signature");
-        bill.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, -1, 20));
+        jLabel3.setText("Firma Cliente");
+        bill.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 500, -1, 20));
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        jLabel4.setText("Authorized signature");
-        bill.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, -1, 20));
+        jLabel4.setText("Firma Autorizada");
+        bill.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, -1, 20));
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -307,19 +303,30 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 2, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel5.setText("Note: Once the invoice is made, returns are not accepted");
+        jLabel5.setText("Nota: Una vez realizada la factura no se aceptan devoluciones");
         bill.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
 
         add(bill, "card3");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtTelephoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelephoneActionPerformed
+
+    }//GEN-LAST:event_txtTelephoneActionPerformed
+
+    private void txtTelephoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelephoneKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtTelephoneKeyTyped
+
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
 
     }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void txtTelephoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelephoneActionPerformed
+    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
 
-    }//GEN-LAST:event_txtTelephoneActionPerformed
+    }//GEN-LAST:event_txtEmailKeyPressed
 
     private void txtCUstomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCUstomerKeyTyped
         char c = evt.getKeyChar();
@@ -335,12 +342,9 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
         }
     }//GEN-LAST:event_txtIdKeyTyped
 
-    private void txtTelephoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelephoneKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9') {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtTelephoneKeyTyped
+    private void btnOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOkMouseClicked
+        JOptionPane.showMessageDialog(this, " COMPRA EXITOSA!!!");
+    }//GEN-LAST:event_btnOkMouseClicked
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         JsonFileAdministrator tempFile = new JsonFileAdministrator();
@@ -349,15 +353,15 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
 
         if (txtId.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(
-                    null, "Enter your Id", "Error", JOptionPane.ERROR_MESSAGE);
+                null, "Ingrese su número de cédula", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         } else if (!ciValidator.verifyCI(txtId.getText())) {
             JOptionPane.showMessageDialog(
-                    null, "Incorrect Id, try again", "Error", JOptionPane.ERROR_MESSAGE);
+                null, "Cédula Incorrecta, vuelva a ingresar", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@"
-                + "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
+        + "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
         Pattern pattern = Pattern.compile(emailPattern);
         String email = null;
         if (email != null) {
@@ -366,17 +370,13 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
                 JOptionPane.showMessageDialog(null,"Correct Email");
                 return;
             } else {
-               JOptionPane.showMessageDialog(
+                JOptionPane.showMessageDialog(
                     null, "Incorrect email, try again", "Error", JOptionPane.ERROR_MESSAGE);
-               return;
+                return;
             }
         }
-        
-    }//GEN-LAST:event_btnOkActionPerformed
 
-    private void btnOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOkMouseClicked
-        JOptionPane.showMessageDialog(this, "Succesful purchase");
-    }//GEN-LAST:event_btnOkMouseClicked
+    }//GEN-LAST:event_btnOkActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
         try {
@@ -391,10 +391,6 @@ public class PnlBill extends javax.swing.JPanel implements Printable {
             JOptionPane.showMessageDialog(null, "E R R O R", "Error\n" + pex, JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnPrintActionPerformed
-
-    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
-        
-    }//GEN-LAST:event_txtEmailKeyPressed
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override

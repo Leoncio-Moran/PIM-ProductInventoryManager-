@@ -28,13 +28,13 @@ public class PnlStart extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1000, 670));
@@ -45,14 +45,6 @@ public class PnlStart extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pim/images/logoPIM.jpg"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel3.setText("PIM or Product Inventory Manager is a Software created for manage a store or");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 490, 20));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel4.setText("a company. Under the teach of Edison Lascano, the group of developers are:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel5.setText("Darian Martinez");
@@ -73,6 +65,14 @@ public class PnlStart extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel9.setText("Alexandra Moscoso");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 130, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel3.setText("PIM o Product Inventory Manager es un software creado para administrar una tienda o");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 530, 20));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel4.setText("una compañía. Bajo la enseñanza de Edison Lascano, el grupo de desarrolladores son:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -22,6 +22,8 @@ public class PairOfShoes {
         this.stock = stock;
     }
 
+    public PairOfShoes(String id, String size, String color, String brand, String price, String shoeType, String stock) {
+    }
     public int getId() {
         return id;
     }

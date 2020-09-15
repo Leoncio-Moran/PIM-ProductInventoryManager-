@@ -26,7 +26,6 @@ public class PnlViewUser extends javax.swing.JPanel {
      */
     public PnlViewUser() {
         initComponents();
-        //addData();
         ChargeInterface();
         ChargeData();
         
@@ -36,7 +35,7 @@ public class PnlViewUser extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)this.tblUsers.getModel();
         
         String data[][]={};
-        String column[]={"USERS","PASSWORD"};
+        String column[]={"USUARIOS","CONTRASEÑAS"};
         model=new DefaultTableModel(data,column);
         tblUsers.setModel(model);
         

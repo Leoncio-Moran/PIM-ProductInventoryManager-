@@ -50,7 +50,7 @@ public class MongoDBManager implements IDataAccessObject {
         } else if (object instanceof ShoppingCar) {
             basicDBObject.append("quantity", "" + ((ShoppingCar) object).getQuantity() + "");
             basicDBObject.append("code", "" + ((ShoppingCar) object).getCode() + "");
-            basicDBObject.append("product", "" + ((ShoppingCar) object).getProduct() + "");
+            basicDBObject.append("product", "" + ((ShoppingCar) object).getDescription() + "");
             basicDBObject.append("price", "" + ((ShoppingCar) object).getPrice() + "");
         }
 
@@ -179,7 +179,6 @@ public class MongoDBManager implements IDataAccessObject {
                 objects.add(shoppingCar);
             }
         }
-        //mongo.close();
         return objects;
 
     }

@@ -6,6 +6,8 @@
 package ec.edu.espe.pim.view;
 
 import java.awt.Component;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,7 +20,6 @@ public final class FrmTable extends javax.swing.JFrame {
      */
     public FrmTable() {
         initComponents();
-        //AWTUtilities.setWindowOpaque(this, true);
         this.setLocationRelativeTo(null);
         
         AddTabe();
@@ -28,10 +29,19 @@ public final class FrmTable extends javax.swing.JFrame {
     private void AddTabe(){
         PnlAddUser add = new PnlAddUser();
         PnlViewUser show = new PnlViewUser();
-        
-        Principal.addTab("Add User", add);
-        Principal.addTab("Show Users", show);
+        PnlMainLogin back = new PnlMainLogin(this);
+        Principal.addTab("Regresar", back);
+        Principal.addTab("Agregar Usuario", add);
+        Principal.addTab("Ver Usuarios", show);
+     }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("Resources/tacones.png"));
+
+        return retValue;
     }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,34 +57,30 @@ public final class FrmTable extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().setLayout(new java.awt.CardLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setLayout(new java.awt.CardLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Principal.setBackground(new java.awt.Color(255, 255, 255));
-        Principal.setDoubleBuffered(true);
-        Principal.setOpaque(true);
-        Principal.setPreferredSize(new java.awt.Dimension(550, 450));
         Principal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 PrincipalMouseClicked(evt);
             }
         });
-        jPanel1.add(Principal, "card2");
+        jPanel1.add(Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 470));
 
-        getContentPane().add(jPanel1, "card2");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void PrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrincipalMouseClicked
         int index = Principal.getSelectedIndex();
-        if (index == 1){
+        if (index == 0){
             Principal.removeAll();
             AddTabe();
-            Principal.setSelectedIndex(1);
+            Principal.setSelectedIndex(0);
+            this.setVisible(false);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_PrincipalMouseClicked
     

@@ -24,19 +24,11 @@ public class PnlSellProduct extends javax.swing.JPanel {
     public PnlSellProduct() {
         initComponents();
         ChargeData();
-        /*PRUEBA pi = new PRUEBA();
-        pi.setSize(bodyPanel.getWidth(), bodyPanel.getHeight());
-        pi.setLocation(5, 5);
-        bodyPanel.removeAll();
-        bodyPanel.add(pi);
-        bodyPanel.revalidate();
-        bodyPanel.repaint();*/
     }
     public final void ChargeData(){
         
         Inventory inventory = new Inventory();
         ArrayList<PairOfShoes> data = inventory.showProduct();
-        //ArrayList<Panel> panel = new ArrayList<>();
         GridBagConstraints gbc = new GridBagConstraints();
         this.bodyPanel.setLayout(new GridBagLayout());
         int row = 0;
@@ -51,20 +43,14 @@ public class PnlSellProduct extends javax.swing.JPanel {
             gbc.anchor = GridBagConstraints.NORTHWEST;
             gbc.weightx= 1;
             gbc.weighty = 1;
-            //gbc.insets = new Insets(10, 50, 50, 50);
             PnlProduct p = new PnlProduct(shoe.getId(),shoe.getBrand(), shoe.getShoeType() , shoe.getSize(), shoe.getColor(),shoe.getPrice(),shoe.getStock());
-            //p.set
-            //p.setPreferredSize(new Dimension(276, 186));
             bodyPanel.add(p,gbc);
             row++;
             if(row % 3 ==0){ colum++;row=0;}
-            //bodyPanel.getComponent(0);
             
         }
         Dimension newsize = new Dimension(816, (186*colum)+2 );
         this.bodyPanel.setPreferredSize(newsize);
-        //this.jScrollPane1.setPreferredSize(newsize);
-        //this.jPanel2.setPreferredSize(newsize);
        
     }
 

@@ -7,9 +7,9 @@ package ec.edu.espe.pim.view;
 
 import com.sun.awt.AWTUtilities;
 import ec.edu.espe.pim.controller.SignIn;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -30,6 +30,13 @@ public class FrmMainLogin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.jTxtUser.setFocusable(true);
     }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("Resources/tacones.png"));
+
+        return retValue;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,17 +48,16 @@ public class FrmMainLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        JPanelBackground = new javax.swing.JPanel();
-        jUser = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jUser1 = new javax.swing.JLabel();
         jTxtUser = new javax.swing.JTextField();
-        jbtnLoging = new javax.swing.JButton();
-        pswPass = new javax.swing.JPasswordField();
-        lblClose1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jUser = new javax.swing.JLabel();
+        pswPass = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
+        jbtnLoging = new javax.swing.JButton();
+        lblClose1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -61,34 +67,15 @@ public class FrmMainLogin extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cool.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 440));
-
-        JPanelBackground.setBackground(new java.awt.Color(255, 255, 255));
-        JPanelBackground.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        JPanelBackground.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JPanelBackgroundMouseDragged(evt);
-            }
-        });
-        JPanelBackground.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JPanelBackgroundMouseClicked(evt);
-            }
-        });
-        JPanelBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jUser.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        jUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jUser.setText("Password:");
-        JPanelBackground.add(jUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 130, 40));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jUser1.setBackground(new java.awt.Color(0, 0, 0));
-        jUser1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jUser1.setFont(new java.awt.Font("Segoe Print", 3, 24)); // NOI18N
         jUser1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jUser1.setText("User name:");
-        JPanelBackground.add(jUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 140, 40));
+        jUser1.setText("Nombre de Usuario");
+        jPanel1.add(jUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 240, 40));
 
         jTxtUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTxtUser.setBorder(null);
@@ -97,22 +84,13 @@ public class FrmMainLogin extends javax.swing.JFrame {
                 jTxtUserKeyTyped(evt);
             }
         });
-        JPanelBackground.add(jTxtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 230, 40));
+        jPanel1.add(jTxtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 230, 40));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 230, 20));
 
-        jbtnLoging.setBackground(new java.awt.Color(255, 255, 102));
-        jbtnLoging.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jbtnLoging.setText("Login");
-        jbtnLoging.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtnLogingMouseClicked(evt);
-            }
-        });
-        jbtnLoging.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnLogingActionPerformed(evt);
-            }
-        });
-        JPanelBackground.add(jbtnLoging, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 100, 30));
+        jUser.setFont(new java.awt.Font("Segoe Print", 3, 24)); // NOI18N
+        jUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jUser.setText("Contraseña");
+        jPanel1.add(jUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 140, 40));
 
         pswPass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         pswPass.setBorder(null);
@@ -126,7 +104,23 @@ public class FrmMainLogin extends javax.swing.JFrame {
                 pswPassKeyTyped(evt);
             }
         });
-        JPanelBackground.add(pswPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 230, 40));
+        jPanel1.add(pswPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 230, 40));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 230, 10));
+
+        jbtnLoging.setBackground(new java.awt.Color(102, 204, 255));
+        jbtnLoging.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jbtnLoging.setText("Entrar");
+        jbtnLoging.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnLogingMouseClicked(evt);
+            }
+        });
+        jbtnLoging.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnLogingActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbtnLoging, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 100, 30));
 
         lblClose1.setBackground(new java.awt.Color(255, 255, 255));
         lblClose1.setFont(new java.awt.Font("Tahoma", 0, 23)); // NOI18N
@@ -138,57 +132,31 @@ public class FrmMainLogin extends javax.swing.JFrame {
                 lblClose1MouseClicked(evt);
             }
         });
-        JPanelBackground.add(lblClose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 20, 30));
-        JPanelBackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
-        JPanelBackground.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 230, 20));
-        JPanelBackground.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 230, 20));
+        jPanel1.add(lblClose1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 20, 30));
 
-        getContentPane().add(JPanelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 490, 190));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/zapato.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 380));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JPanelBackgroundMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanelBackgroundMouseDragged
-
-        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
-
-    }//GEN-LAST:event_JPanelBackgroundMouseDragged
-
-    private void JPanelBackgroundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanelBackgroundMouseClicked
-
-        x = evt.getX();
-        y = evt.getY();
-    }//GEN-LAST:event_JPanelBackgroundMouseClicked
-
-    private void jbtnLogingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnLogingMouseClicked
-
-        /*FrmMenuAdmin window = new FrmMenuAdmin();
-        FrmUserMenu frmUser = new FrmUserMenu();
-        if("Admin".equals(jTxtUser.getText()) && "root".equals(pswPass.getText())){
-            this.hide();
-            window.show();
-        }else{
-            this.hide();
-            frmUser.show();
-        }*/
-
-    }//GEN-LAST:event_jbtnLogingMouseClicked
-
-    private void lblClose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClose1MouseClicked
-
-        System.exit(0);
-    }//GEN-LAST:event_lblClose1MouseClicked
-
     private void jTxtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtUserKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A') | c > 'Z' && (c < 'Ñ') && c != KeyEvent.VK_SPACE) {
-            evt.consume();
-        }
 
     }//GEN-LAST:event_jTxtUserKeyTyped
 
+    private void pswPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswPassActionPerformed
+    }//GEN-LAST:event_pswPassActionPerformed
+
+    private void pswPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswPassKeyTyped
+    }//GEN-LAST:event_pswPassKeyTyped
+
+    private void jbtnLogingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnLogingMouseClicked
+    }//GEN-LAST:event_jbtnLogingMouseClicked
+
     private void jbtnLogingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLogingActionPerformed
-        
+
         FrmMenuAdmin frmMenuAdmin = new FrmMenuAdmin();
         FrmUserMenu frmMenuOption = new FrmUserMenu();
         SignIn sigIn = new SignIn();
@@ -201,53 +169,22 @@ public class FrmMainLogin extends javax.swing.JFrame {
             flag = sigIn.signInUser(jTxtUser.getText(), pswPass.getText());
             if (flag == 1) {
                 this.setVisible(false);
-                JOptionPane.showMessageDialog(null, "ACESS !!!");
+                JOptionPane.showMessageDialog(null, "B I E N V E N I D O !!!");
                 frmMenuOption.setVisible(true);
                 dispose();
             } else if (flag == 2 || flag == 3) {
-                JOptionPane.showMessageDialog(null, "INCORRECT USER or PASSWORD!!! ");
+                JOptionPane.showMessageDialog(null, " USUARIO O CONTRASEÑA INCORRECTOS!!! ");
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR");
             }
         }
 
-    }
-
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {
-        /*TODO add your handling code here:
-        JSONObject jsonObject = new JSONObject();
-        JSONArray jsonArray = new JSONArray();
-        JSONParser jsonParser = new JSONParser();
-        try {
-            FileReader fileReader = new FileReader("user.json");
-            jsonArray = (JSONArray) jsonParser.parse(fileReader);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "ERROR!!");
-        }
-
-        jsonObject.put("USERNAME", jTxtUser.getText());
-        jsonObject.put("PASSWORD", pswPass.getText());
-        jsonArray.add(jsonObject);
-        try {
-            FileWriter fileWriter = new FileWriter("user.json");
-            fileWriter.write(jsonArray.toJSONString());
-            fileWriter.close();
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "ERROR!!");
-
-        }
-        JOptionPane.showMessageDialog(null, "SAVED");*/
-
-
     }//GEN-LAST:event_jbtnLogingActionPerformed
 
-    private void pswPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswPassKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pswPassKeyTyped
+    private void lblClose1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblClose1MouseClicked
 
-    private void pswPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pswPassActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_lblClose1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -286,10 +223,9 @@ public class FrmMainLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JPanelBackground;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTxtUser;

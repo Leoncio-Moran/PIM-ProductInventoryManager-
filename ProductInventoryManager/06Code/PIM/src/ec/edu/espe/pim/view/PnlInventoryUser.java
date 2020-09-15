@@ -27,7 +27,7 @@ public class PnlInventoryUser extends javax.swing.JPanel {
     
      public void ChargeInterface(){
         String data[][]={};
-        String column[]={"ID","SIZE","BRAND","COLOR","PRICE","TYPE","STOCK"};
+        String column[]={"Código","Talla","Marca","Color","Precio","Tipo","Cantidad"};
         model=new DefaultTableModel(data,column);
         tblInventory.setModel(model);
         
